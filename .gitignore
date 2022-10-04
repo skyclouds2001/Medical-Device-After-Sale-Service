@@ -125,3 +125,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# VScode
+.vscode
+
+# Jetbrains
+.idea
+
+# Wexin
+project.private.config.json
