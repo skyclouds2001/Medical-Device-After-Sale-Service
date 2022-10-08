@@ -4,15 +4,15 @@ module.exports = {
     browser: true,
     node: true,
   },
-  ecmaFeatures: {
-    modules: true,
-  },
-  extends: 'standard-with-typescript',
+  extends: [
+    'standard-with-typescript'
+  ],
   overrides: [
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
+    project: 'tsconfig.json'
   },
   rules: {},
   globals: {
