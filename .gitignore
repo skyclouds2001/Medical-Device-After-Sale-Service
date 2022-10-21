@@ -134,3 +134,4 @@ dist
 
 # Wexin
 project.private.config.json
+miniprogram_npm/
