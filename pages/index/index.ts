@@ -1,4 +1,7 @@
 Page({
+
   data: {},
+
   onLoad () {}
+
 })
