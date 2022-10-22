@@ -1,9 +1,11 @@
 Component<{
   keywords: string
-}, {}, {}>({
+}, {
+  move: StringConstructor
+}, {}>({
 
   properties: {
-    move: ''
+    move: String
   },
 
   data: {
