@@ -1,0 +1,10 @@
+<welcome />
+
+<search-bar class="search-bar" move="-28rpx" />
+
+<view class="recommend">
+  <view class="title">猜你想问</view>
+  <view class="content">
+    <view wx:for="{{ recommends }}" wx:key="*this">{{ item }}</view>
+  </view>
+</view>

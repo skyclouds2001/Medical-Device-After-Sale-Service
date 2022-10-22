@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "welcome": "/components/welcome/welcome",
+    "search-bar": "/components/search-bar/search-bar"
+  },
+  "navigationBarTitleText": "问题与反馈"
 }

@@ -1,7 +1,11 @@
-Page({
+Page<{
+  recommends: Array<string>
+}, {}>({
 
-  data: {},
+  data: {
+    recommends: ['5', '10']
+  },
 
-  onLoad () {}
+  onLoad () {},
 
 })

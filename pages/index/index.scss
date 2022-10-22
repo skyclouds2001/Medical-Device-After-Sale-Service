@@ -1,0 +1,25 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.recommend {
+  margin: 0;
+  padding: 0 40rpx;
+
+   > .title {
+    color: #0E0E40;
+    font-size: 26rpx;
+    font-weight: bold;
+  }
+
+  > .content {
+    color: #0E0E40;
+    font-size: 26rpx;
+
+    > view {
+      display: inline-block;
+      margin: 0 10rpx;
+      padding: 0;
+    }
+  }
+}
