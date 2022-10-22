@@ -1,12 +1,46 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/history/history",
+    "pages/repair/repair"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "医疗器械售后服务",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "initialRenderingCache": "static",
+    "handleWebviewPreload": "auto"
   },
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "list": [
+      {
+        "iconPath": "icons/home_fill.png",
+        "selectedIconPath": "icons/home_fill_selected.png",
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "iconPath": "icons/repair_fill.png",
+        "selectedIconPath": "icons/repair_fill_selected.png",
+        "text": "维修检查",
+        "pagePath": "pages/repair/repair"
+      },
+      {
+        "iconPath": "icons/time_fill.png",
+        "selectedIconPath": "icons/time_fill_selected.png",
+        "text": "历史工单",
+        "pagePath": "pages/history/history"
+      }
+    ],
+    "backgroundColor": "#FFFFFF",
+    "selectedColor": "#2D3DAA",
+    "color": "#303030"
+  },
+  "sitemapLocation": "sitemap.json",
+
+  "debug": true,
+  "debugOptions": {
+    "enableFPSPanel": true
+  }
 }
