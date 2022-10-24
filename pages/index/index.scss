@@ -3,23 +3,72 @@ page {
 }
 
 .recommend {
-  margin: 0;
-  padding: 0 40rpx;
+  > .selector {
+    margin: 10rpx 0 20rpx;
+    padding: 0 40rpx;
 
-   > .title {
-    color: #0E0E40;
-    font-size: 26rpx;
-    font-weight: bold;
+    > .title {
+      color: #0E0E40;
+      font-size: 26rpx;
+      font-weight: bold;
+    }
+
+    > .content {
+      color: #0E0E40;
+      font-size: 26rpx;
+
+      > view {
+        display: inline-block;
+        margin: 0 10rpx;
+        padding: 0;
+      }
+    }
   }
 
-  > .content {
-    color: #0E0E40;
-    font-size: 26rpx;
+  > .issue {
+    margin: 0 30rpx;
+    padding: 20rpx 25rpx;
+      
+    box-shadow: 0 10rpx 15rpx rgba(16, 14, 67, 0.25);
+    border-radius: 10rpx;
 
-    > view {
-      display: inline-block;
-      margin: 0 10rpx;
-      padding: 0;
+    > .item {
+      line-height: 2.5em;
+      font-size: 24rpx;
+
+      height: 2.5em;
+      margin-top: 10rpx;
+
+      > view {
+        display: inline-block;
+      }
+
+      > .index {
+        background-color: #F74A29;
+        border-radius: 50%;
+
+        width: 1.5em;
+        height: 1.5em;
+
+        margin: 0.5em 0;
+        padding: 0;
+
+        color: white;
+        text-align: center;
+        line-height: 1.5em;
+      }
+
+      > .value {
+        width: calc(100% - 1.5em - 2 * 20rpx);
+        margin: 0 20rpx;
+        padding: 0;
+
+        box-sizing: content-box;
+
+        font-size: 28rpx;
+
+        border-bottom: 1rpx solid #818085;
+      }
     }
   }
 }

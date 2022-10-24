@@ -1,11 +1,13 @@
 Page<{
-  recommends: Array<string>
+  recommends: Array<string>,
+  issues: Array<string>
 }, {}>({
 
   data: {
-    recommends: ['5', '10']
+    recommends: ['test', 'test-test', 'test-test-test-test'],
+    issues: ['测量不精准', '指示灯不亮', '报警音减弱或不响', '触摸屏失效', '屏幕损坏']
   },
 
-  onLoad () {},
+  onLoad () {}
 
 })

@@ -3,8 +3,16 @@
 <search-bar class="search-bar" move="-28rpx" />
 
 <view class="recommend">
-  <view class="title">猜你想问</view>
-  <view class="content">
-    <view wx:for="{{ recommends }}" wx:key="*this">{{ item }}</view>
+  <view class="selector">
+    <view class="title">猜你想问</view>
+    <view class="content">
+      <view wx:for="{{ recommends }}" wx:key="*this">{{ item }}</view>
+    </view>
+  </view>
+  <view class="issue">
+    <view wx:for="{{ issues }}" wx:key="*this" class="item">
+      <view class="index">{{ index + 1 }}</view>
+      <view class="value">{{ item }}</view>
+    </view>
   </view>
 </view>
