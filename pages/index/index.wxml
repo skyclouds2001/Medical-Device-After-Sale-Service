@@ -1,5 +1,36 @@
-<van-button type="default">默认按钮</van-button>
-<van-button type="primary">主要按钮</van-button>
-<van-button type="info">信息按钮</van-button>
-<van-button type="warning">警告按钮</van-button>
-<van-button type="danger">危险按钮</van-button>
+<welcome />
+
+<search-bar class="search-bar" move="-28rpx" />
+
+<view class="recommend">
+  <view class="selector">
+    <view class="title">猜你想问</view>
+    <view class="content">
+      <view wx:for="{{ recommends }}" wx:key="*this">{{ item }}</view>
+    </view>
+  </view>
+  <view class="issue">
+    <view wx:for="{{ issues }}" wx:key="*this" class="item">
+      <view class="index">{{ index + 1 }}</view>
+      <view class="value">{{ item }}</view>
+    </view>
+  </view>
+</view>
+
+<view class="history">
+  <view class="header">
+    <view class="title">您最近工单</view>
+    <view class="more">查看更多<van-icon name="arrow" /></view>
+  </view>
+  <view class="content">
+    <view class="item">
+      <view class="info">
+        <view class="desc">我家的网络不大好，知道是什么原因?</view>
+        <view class="date">2022年8月3日 11:12:52</view>
+      </view>
+      <view class="operate">
+        <button>查看</button>
+      </view>
+    </view>
+  </view>
+</view>
