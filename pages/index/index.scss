@@ -72,3 +72,73 @@ page {
     }
   }
 }
+
+.history {
+  margin: 30rpx;
+  padding: 30rpx;
+
+  background-color: white;
+  border-radius: 20rpx;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      color: #0E0E40;
+      font-size: 32rpx;
+      font-weight: bold;
+    }
+
+    .more {
+      color: #5C7CEB;
+      font-size: 28rpx;
+    }
+  }
+  .content {
+    > .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin: 0;
+      padding: 10rpx 0;
+
+      border-bottom: 1rpx solid #818085;
+
+      > .info {
+        width: 80%;
+        height: 100%;
+
+        > .desc {
+          font-size: 28rpx;
+          color: #0E0E40;
+          line-height: 2em;
+        }
+
+        > .date {
+          font-size: 26rpx;
+          color: #818085;
+          line-height: 2em;
+        }
+      }
+
+      > .operate {
+        width: 20%;
+        height: 100%;
+
+        > button {
+          color: white;
+          font-size: 26rpx;
+          line-height: 2em;
+          text-align: center;
+          letter-spacing: 1rpx;
+
+          background-color: #5C7CEB;
+          border-radius: 20rpx;
+        }
+      }
+    }
+  }
+}
