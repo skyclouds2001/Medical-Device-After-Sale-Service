@@ -101,3 +101,28 @@ page {
     }
   }
 }
+
+.exit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  bottom: 150rpx;
+
+  width: 100vw;
+  height: auto;
+
+  > button {
+    background-color: #3B4577;
+    border-radius: 10rpx;
+
+    color: #F5F5F5;
+    text-align: center;
+    line-height: 3em;
+    font-size: 28rpx;
+
+    height: 3em;
+    width: 12em;
+  }
+}
