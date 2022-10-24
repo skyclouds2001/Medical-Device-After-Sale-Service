@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/history/history",
-    "pages/repair/repair"
+    "pages/fix/fix",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,14 +23,14 @@
       {
         "iconPath": "icons/repair_fill.png",
         "selectedIconPath": "icons/repair_fill_selected.png",
-        "text": "维修检查",
-        "pagePath": "pages/repair/repair"
+        "text": "设备自检/客服",
+        "pagePath": "pages/fix/fix"
       },
       {
-        "iconPath": "icons/time_fill.png",
-        "selectedIconPath": "icons/time_fill_selected.png",
-        "text": "历史工单",
-        "pagePath": "pages/history/history"
+        "iconPath": "icons/wode_fill.png",
+        "selectedIconPath": "icons/wode_fill_selected.png",
+        "text": "个人中心",
+        "pagePath": "pages/mine/mine"
       }
     ],
     "backgroundColor": "#FFFFFF",
