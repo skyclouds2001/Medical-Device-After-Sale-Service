@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint --fix pages components utils app.ts"
+    "lint": "eslint --fix pages components config service typings utils app.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "",
+  "author": "skyclouds2001",
+  "license": "MIT",
   "dependencies": {
     "@vant/weapp": "^1.10.5"
   },
