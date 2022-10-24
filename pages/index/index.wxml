@@ -4,15 +4,24 @@
 
 <view class="recommend">
   <view class="selector">
-    <view class="title">猜你想问</view>
-    <view class="content">
-      <view wx:for="{{ recommends }}" wx:key="*this">{{ item }}</view>
-    </view>
+    <view class="selected">产品1</view>
+    <view class="">产品2</view>
+    <view class="">产品3</view>
+    <view class="">产品4</view>
+    <view class="">产品5</view>
   </view>
   <view class="issue">
-    <view wx:for="{{ issues }}" wx:key="*this" class="item">
-      <view class="index">{{ index + 1 }}</view>
-      <view class="value">{{ item }}</view>
+    <view class="item">
+      <view class="index">1</view>
+      <view class="content">
+        <view class="above">
+          <view class="title">测量不精准</view>
+          <view class="more">查看详情<van-icon name="arrow" /></view>
+        </view>
+        <view class="below">
+          <view class="solution">解决方案：这是解决方案这是解决方案这是解决方案这是解决方案</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
