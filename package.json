@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint --fix miniprogram"
+    "lint": "eslint --fix pages components utils app.ts"
   },
   "keywords": [],
   "author": "",

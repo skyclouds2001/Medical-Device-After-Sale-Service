@@ -1,0 +1,144 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.recommend {
+  > .selector {
+    margin: 10rpx 0 20rpx;
+    padding: 0 40rpx;
+
+    > .title {
+      color: #0E0E40;
+      font-size: 26rpx;
+      font-weight: bold;
+    }
+
+    > .content {
+      color: #0E0E40;
+      font-size: 26rpx;
+
+      > view {
+        display: inline-block;
+        margin: 0 10rpx;
+        padding: 0;
+      }
+    }
+  }
+
+  > .issue {
+    margin: 0 30rpx;
+    padding: 20rpx 25rpx;
+      
+    box-shadow: 0 10rpx 15rpx rgba(16, 14, 67, 0.25);
+    border-radius: 10rpx;
+
+    > .item {
+      line-height: 2.5em;
+      font-size: 24rpx;
+
+      height: 2.5em;
+      margin-top: 10rpx;
+
+      > view {
+        display: inline-block;
+      }
+
+      > .index {
+        background-color: #F74A29;
+        border-radius: 50%;
+
+        width: 1.5em;
+        height: 1.5em;
+
+        margin: 0.5em 0;
+        padding: 0;
+
+        color: white;
+        text-align: center;
+        line-height: 1.5em;
+      }
+
+      > .value {
+        width: calc(100% - 1.5em - 2 * 20rpx);
+        margin: 0 20rpx;
+        padding: 0;
+
+        box-sizing: content-box;
+
+        font-size: 28rpx;
+
+        border-bottom: 1rpx solid #818085;
+      }
+    }
+  }
+}
+
+.history {
+  margin: 30rpx;
+  padding: 30rpx;
+
+  background-color: white;
+  border-radius: 20rpx;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      color: #0E0E40;
+      font-size: 32rpx;
+      font-weight: bold;
+    }
+
+    .more {
+      color: #5C7CEB;
+      font-size: 28rpx;
+    }
+  }
+  .content {
+    > .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin: 0;
+      padding: 10rpx 0;
+
+      border-bottom: 1rpx solid #818085;
+
+      > .info {
+        width: 80%;
+        height: 100%;
+
+        > .desc {
+          font-size: 28rpx;
+          color: #0E0E40;
+          line-height: 2em;
+        }
+
+        > .date {
+          font-size: 26rpx;
+          color: #818085;
+          line-height: 2em;
+        }
+      }
+
+      > .operate {
+        width: 20%;
+        height: 100%;
+
+        > button {
+          color: white;
+          font-size: 26rpx;
+          line-height: 2em;
+          text-align: center;
+          letter-spacing: 1rpx;
+
+          background-color: #5C7CEB;
+          border-radius: 20rpx;
+        }
+      }
+    }
+  }
+}
