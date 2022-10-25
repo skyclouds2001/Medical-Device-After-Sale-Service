@@ -3,7 +3,7 @@ page {
 }
 
 .userinfo {
-  margin: 50rpx 20rpx;
+  margin: 75rpx 10rpx 50rpx;
   padding: 0;
 
   width: auto;
@@ -61,7 +61,7 @@ page {
 }
 
 .edit-list {
-  margin: 50rpx 20rpx;
+  margin: 50rpx 10rpx;
   padding: 0;
 
   background-color: white;
@@ -87,14 +87,14 @@ page {
     }
 
     > view {
-      width: 70%;
+      width: 65%;
 
       font-size: 30rpx;
       color: #302F3C;
     }
 
     > van-icon:last-child {
-      width: 15%;
+      width: 20%;
 
       font-size: 28rpx;
       color: #464379;
