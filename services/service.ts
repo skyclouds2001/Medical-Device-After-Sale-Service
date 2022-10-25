@@ -1,4 +1,4 @@
-import { HOST } from '../config/config'
+import { HOST } from '../configs/config'
 
 export const request = <T>(params: WechatMiniprogram.RequestOption): Promise<WechatMiniprogram.RequestSuccessCallbackResult<T>> => {
   return new Promise((resolve, reject) => {

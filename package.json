@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint --fix pages components config custom-tab-bar models service typings utils app.ts"
+    "lint": "eslint --fix pages components configs custom-tab-bar models services typings utils app.ts"
   },
   "keywords": [],
   "author": "skyclouds2001",
