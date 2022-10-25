@@ -15,27 +15,22 @@
   "tabBar": {
     "list": [
       {
-        "iconPath": "icons/home_fill.png",
-        "selectedIconPath": "icons/home_fill_selected.png",
         "text": "首页",
         "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "icons/repair_fill.png",
-        "selectedIconPath": "icons/repair_fill_selected.png",
         "text": "设备自检/客服",
         "pagePath": "pages/fix/fix"
       },
       {
-        "iconPath": "icons/wode_fill.png",
-        "selectedIconPath": "icons/wode_fill_selected.png",
         "text": "个人中心",
         "pagePath": "pages/mine/mine"
       }
     ],
     "backgroundColor": "#FFFFFF",
     "selectedColor": "#2D3DAA",
-    "color": "#303030"
+    "color": "#303030",
+    "custom": true
   },
   "sitemapLocation": "sitemap.json",
 
