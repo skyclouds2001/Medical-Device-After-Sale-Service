@@ -1,6 +1,6 @@
 <welcome />
 
-<search-bar class="search-bar" move="-28rpx" />
+<search-bar move="-28rpx" />
 
 <view class="recommend">
   <view class="selector">

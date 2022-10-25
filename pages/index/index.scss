@@ -27,8 +27,9 @@ page {
     margin: 0 30rpx;
     padding: 20rpx 25rpx;
       
-    box-shadow: 0 10rpx 15rpx rgba(16, 14, 67, 0.25);
+    box-shadow: 8rpx 8rpx 14rpx rgba(16, 14, 67, 0.25);
     border-radius: 10rpx;
+    background-color: white;
 
     > .item {
       line-height: 2em;
