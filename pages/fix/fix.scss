@@ -8,6 +8,12 @@ page {
   align-items: flex-start;
 }
 
+.sidebar {
+  position: sticky;
+  top: 250rpx;
+  left: 0;
+}
+
 .products {
   width: 550rpx;
   height: auto;

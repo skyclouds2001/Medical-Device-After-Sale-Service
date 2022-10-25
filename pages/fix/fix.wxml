@@ -3,7 +3,7 @@
 <search-bar class="search-bar" move="-28rpx" />
 
 <view class="main-box">
-  <product-sidebar items="{{ list_items }}" bind:change="handleSwitch" />
+  <product-sidebar class="sidebar" items="{{ list_items }}" bind:change="handleSwitch" />
   <view class="products">
     <view class="product">
       <van-image fit="cover" lazy-load show-error show-loading radius="10rpx" width="160rpx" height="160rpx" src="https://img.yzcdn.cn/vant/cat.jpeg" />
