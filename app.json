@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/index/search-products/search-products",
-    "pages/index/choose-products/choose-products",
     "pages/fix/fix",
     "pages/mine/mine"
   ],
