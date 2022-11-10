@@ -10,7 +10,7 @@
   <view class="content">
     <block wx:if="{{ currentType === '' }}">
       <view class="unchoose">
-        <van-image lazy-load fit="cover" width="250" height="250" src="/images/issue-null.jpg" />
+        <image lazy-load src="/images/issue-null.jpg" mode="aspectFill" />
       </view>
     </block>
     <block wx:else></block>

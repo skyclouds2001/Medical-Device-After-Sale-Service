@@ -1,5 +1,7 @@
 page {
   background-color: #F5F5F5;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .main {
@@ -10,7 +12,6 @@ page {
   box-shadow: 0px 10rpx 10rpx rgba(0, 0, 0, 0.25);
   border-radius: 25rpx;
 
-  position: relative;
   transform: translateY(-300rpx);
 
   &::before {
@@ -62,6 +63,11 @@ page {
 
       margin: 0;
       padding: 100rpx 0;
+
+      > image {
+        width: 600rpx;
+        height: 600rpx;
+      }
     }
   }
 }

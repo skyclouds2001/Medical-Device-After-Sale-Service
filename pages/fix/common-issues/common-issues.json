@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "van-image": "@vant/weapp/image/index",
     "welcome": "/components/welcome/welcome",
     "issue-selector": "/components/issue-selector/issue-selector"
   },
