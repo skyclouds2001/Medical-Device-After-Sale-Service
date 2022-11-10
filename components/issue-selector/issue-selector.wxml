@@ -7,6 +7,6 @@
     <view class="selector-item" wx:for="{{ options }}" wx:key="value" data-id="{{ item.value }}">{{ item.text }}</view>
   </view>
   <view class="selector-overlay">
-    <van-overlay show="{{ !show }}" />
+    <custom-overlay show="{{ !show }}" />
   </view>
 </view>
