@@ -1,6 +1,12 @@
 <view class="selector-show">
   <view class="selector-content">
+    <view>出现了故障怎么办</view>
+    <view><van-icon name="arrow-down" /></view>
   </view>
   <view class="selector-picker">
+    <view class="selector-item" wx:for="{{ options }}" wx:key="value" data-id="{{ item.value }}">{{ item.text }}</view>
+  </view>
+  <view class="selector-overlay">
+    <van-overlay show="{{ !show }}" />
   </view>
 </view>

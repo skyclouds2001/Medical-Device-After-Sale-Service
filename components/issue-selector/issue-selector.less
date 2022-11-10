@@ -1,0 +1,41 @@
+.selector-show {
+  width: 500rpx;
+  height: 2em;
+  margin: 0 10rpx;
+  padding: 0 10rpx;
+
+  font-size: 32rpx;
+  line-height: 2em;
+
+  position: relative;
+  border: 1rpx solid #818085;
+  border-radius: 10rpx;
+
+  .selector-content {
+    color: #818085;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .selector-picker {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    z-index: 9;
+
+    .selector-item {
+      color: #2a2a2b;
+      height: 2em;
+    }
+  }
+
+  .selector-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}

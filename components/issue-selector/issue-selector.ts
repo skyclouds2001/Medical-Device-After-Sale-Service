@@ -1,4 +1,6 @@
-Component<{}, {
+Component<{
+  show: boolean
+}, {
   options: {
     value: Array<object>,
     type: ArrayConstructor
@@ -20,8 +22,12 @@ Component<{}, {
     }
   },
 
-  data: {},
+  data: {
+    show: false
+  },
 
-  methods: {}
+  methods: {
+    handleSelectItem() {}
+  }
 
 })
