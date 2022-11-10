@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "welcome": "/components/welcome/welcome"
+  },
   "navigationBarTitleText": "常见问题解决方案"
 }

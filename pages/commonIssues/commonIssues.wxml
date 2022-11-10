@@ -1,0 +1,17 @@
+<welcome />
+
+<view class="main">
+  <view class="choose-issue">
+    <view>Q:</view>
+    <view>
+    </view>
+  </view>
+  <view class="content">
+    <block wx:if="{{ currentType === '' }}">
+      <view class="unchoose">
+        <van-image lazy-load fit="cover" width="250" height="250" src="/images/issue-null.jpg" />
+      </view>
+    </block>
+    <block wx:else></block>
+  </view>
+</view>
