@@ -3,7 +3,9 @@
 <view class="main">
   <view class="choose-issue">
     <view class="q">Q:</view>
-    <view class="select"></view>
+    <view class="select">
+      <issue-selector value="{{ value }}" options="{{ options }}" />
+    </view>
   </view>
   <view class="content">
     <block wx:if="{{ currentType === '' }}">

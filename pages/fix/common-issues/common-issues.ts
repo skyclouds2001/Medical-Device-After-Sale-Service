@@ -7,7 +7,7 @@ Page<{
 }>({
 
   data: {
-    value: 'default',
+    value: '',
     options: [
       {
         text: 'id-0',
