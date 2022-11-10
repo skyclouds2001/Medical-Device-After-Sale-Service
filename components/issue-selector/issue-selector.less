@@ -2,32 +2,66 @@
   width: 500rpx;
   height: 2em;
   margin: 0 10rpx;
-  padding: 0 10rpx;
+  padding: 0;
 
   font-size: 32rpx;
   line-height: 2em;
 
   position: relative;
-  border: 1rpx solid #818085;
-  border-radius: 10rpx;
+
+  transition: all 0.5s;
 
   .selector-content {
     color: #818085;
 
+    background-color: white;
+    border: 1rpx solid #e5e2e2;
+    border-radius: 10rpx;
+
+    position: relative;
+    z-index: 9999;
+
+    margin: 0;
+    padding: 0 10rpx;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    transition: all 0.5s;
+
+    &.show {
+      border-bottom-left-radius: 10rpx;
+      border-bottom-right-radius: 10rpx;
+      border: none;
+      box-shadow: 0 2rpx 6rpx rgb(201, 201, 201);
+    }
   }
 
   .selector-picker {
     position: absolute;
     top: 2em;
     left: 0;
-    z-index: 9;
+    z-index: 9999;
+
+    width: 100%;
+    height: auto;
+
+    background-color: white;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    transition: all 0.5s;
 
     .selector-item {
       color: #2a2a2b;
+
       height: 2em;
+      margin: 0;
+      padding: 0 10rpx;
+
+      &:not(:last-child) {
+        border-bottom: 1rpx solid #ccc;
+      }
     }
   }
 
@@ -35,6 +69,8 @@
     position: fixed;
     top: 0;
     left: 0;
+
+    transition: all 0.5s;
 
     /* TODO 临时解决遮蔽层漂移问题 */
     transform: translate(-25rpx, -100rpx);

@@ -3,7 +3,9 @@ Component<{}, {
     value: boolean,
     type: BooleanConstructor
   }
-}, {}>({
+}, {
+  handleCloseOverlay: () => void
+}>({
   
   properties: {
     show: {
@@ -14,6 +16,10 @@ Component<{}, {
 
   data: {},
 
-  methods: {}
+  methods: {
+    handleCloseOverlay() {
+      this.triggerEvent('close-overlay', 'close')
+    }
+  }
   
 })

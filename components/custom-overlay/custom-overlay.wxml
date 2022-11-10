@@ -1,1 +1,1 @@
-<view hidden="{{ !show }}" class="custom-overlay"></view>
+<view hidden="{{ !show }}" class="custom-overlay" bind:tap="handleCloseOverlay"></view>
