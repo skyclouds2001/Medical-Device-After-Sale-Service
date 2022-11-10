@@ -1,0 +1,6 @@
+<view class="selector-show">
+  <view class="selector-content">
+  </view>
+  <view class="selector-picker">
+  </view>
+</view>

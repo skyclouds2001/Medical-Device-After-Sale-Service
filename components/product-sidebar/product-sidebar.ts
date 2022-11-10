@@ -1,7 +1,7 @@
 Component<{
   active: number
 }, {
-  items: ArrayConstructor
+  items: { value: Array<string>, type: ArrayConstructor}
 }, {
   handleSwitch: (e: WechatMiniprogram.TouchEvent<{}, {}, {}, {
     id: number
@@ -9,7 +9,10 @@ Component<{
 }>({
 
   properties: {
-    items: Array
+    items: {
+      value: [],
+      type: Array
+    }
   },
 
   data: {

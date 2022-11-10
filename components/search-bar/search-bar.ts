@@ -1,11 +1,17 @@
 Component<{
   keywords: string
 }, {
-  move: StringConstructor
+  move: {
+    value: string,
+    type: StringConstructor
+  }
 }, {}>({
 
   properties: {
-    move: String
+    move: {
+      value: '',
+      type: String
+    }
   },
 
   data: {
