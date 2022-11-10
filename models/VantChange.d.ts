@@ -1,4 +1,4 @@
-interface TabBarChange<
+interface VantChange<
   Detail extends string | number = string | number,
   Mark extends Record<string, any> = Record<string, any>,
   CurrentTargetDataset extends Record<string, any> = Record<string, any>,
