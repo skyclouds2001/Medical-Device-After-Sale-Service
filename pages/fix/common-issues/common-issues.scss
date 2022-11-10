@@ -26,8 +26,8 @@ page {
     }
   }
 
-  .content {
-    .unchoose {
+  > .content {
+    > .unchoose {
       display: flex;
       justify-content: center;
       align-items: center;
