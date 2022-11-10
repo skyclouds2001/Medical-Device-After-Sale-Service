@@ -1,6 +1,13 @@
-Component<{}, {}, {}>({
+Component<{}, {
+  showComment: { value: boolean, type: BooleanConstructor }
+}, {}>({
 
-  properties: {},
+  properties: {
+    showComment: {
+      value: true,
+      type: Boolean
+    }
+  },
 
   data: {},
 

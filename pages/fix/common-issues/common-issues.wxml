@@ -1,10 +1,9 @@
-<welcome />
+<welcome showComment="{{ false }}" />
 
 <view class="main">
   <view class="choose-issue">
-    <view>Q:</view>
-    <view>
-    </view>
+    <view class="q">Q:</view>
+    <view class="select"></view>
   </view>
   <view class="content">
     <block wx:if="{{ currentType === '' }}">
