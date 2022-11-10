@@ -1,6 +1,6 @@
 <view class="selector-show">
   <view class="selector-content {{ show ? 'show' : '' }}" bind:tap="handleStartSelect">
-    <view>出现了故障怎么办</view>
+    <view>{{ val ? val : '出现了故障怎么办' }}</view>
     <view hidden="{{ show }}">
       <van-icon name="arrow-down" />
     </view>

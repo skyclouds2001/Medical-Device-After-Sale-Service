@@ -1,5 +1,6 @@
 Component<{
-  show: boolean
+  show: boolean,
+  val: string | null
 }, {
   options: {
     value: Array<object>,
@@ -27,7 +28,8 @@ Component<{
   },
 
   data: {
-    show: false
+    show: false,
+    val: null
   },
 
   methods: {
@@ -44,6 +46,15 @@ Component<{
     handleEndSelect() {
       this.setData({
         show: false
+      })
+    }
+  },
+
+  lifetimes: {
+    attached: function() {
+      const v: Record<'text' | 'value', string> = this.properties.options.find((v: Record<'text' | 'value', string>) => v.value === this.properties.value)
+      this.setData({
+        val: v?.text ?? null
       })
     }
   }

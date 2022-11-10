@@ -10,11 +10,11 @@ Page<{
     value: '',
     options: [
       {
-        text: 'id-0',
+        text: 'id-00',
         value: 'id-0',
       },
       {
-        text: 'id-1',
+        text: 'id-11',
         value: 'id-1',
       }
     ],
@@ -26,6 +26,10 @@ Page<{
   handleIssueChange(e) {
     this.setData({
       value: e.detail as string
+    })
+    const v: Record<'text' | 'value', string> | undefined = this.data.options.find((v: Record<'text' | 'value', string>) => v.value === e.detail)
+    this.selectComponent('#issue-selector').setData({
+      val: v?.text
     })
   }
 
