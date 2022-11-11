@@ -67,5 +67,49 @@ page {
         height: 600rpx;
       }
     }
+
+    > .choose {
+      margin: 20rpx;
+      padding: 0;
+
+      color: #0E0E40;
+
+      > .solve-way {
+        > .title {
+          font-size: 36rpx;
+          font-weight: bold;
+          line-height: 2em;
+        }
+        > .content {
+          text-indent: 1em;
+          font-size: 30rpx;
+          line-height: 1.25em;
+        }
+        > .images {
+          margin: 0;
+          padding: 30rpx 0 10rpx;
+
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+
+          > image {
+            width: 200rpx;
+            height: 150rpx;
+          }
+        }
+      }
+      > .connect-issue {
+        > .title {
+          font-size: 36rpx;
+          font-weight: bold;
+          line-height: 2em;
+        }
+        > .content {
+          font-size: 30rpx;
+          line-height: 2em;
+        }
+      }
+    }
   }
 }

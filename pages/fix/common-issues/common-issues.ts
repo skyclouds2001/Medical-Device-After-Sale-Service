@@ -1,13 +1,12 @@
 Page<{
   value: string,
-  options: Array<Record<'text' | 'value', string>>,
-  currentType: string
+  options: Array<Record<'text' | 'value', string>>
 }, {
   handleIssueChange: (e: VantChange) => void
 }>({
 
   data: {
-    value: '',
+    value: 'id-0',
     options: [
       {
         text: 'id-00',
@@ -18,7 +17,6 @@ Page<{
         value: 'id-1',
       }
     ],
-    currentType: ''
   },
 
   onLoad() {},
