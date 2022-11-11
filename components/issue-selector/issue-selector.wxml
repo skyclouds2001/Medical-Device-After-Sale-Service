@@ -8,10 +8,10 @@
       <van-icon name="arrow-up" />
     </view>
   </view>
-  <view class="selector-picker" hidden="{{ !show }}" bind:tap="handleSelectItem">
+  <view class="selector-picker {{ show ? 'show' : 'hide' }}" bind:tap="handleSelectItem">
     <view class="selector-item" wx:for="{{ options }}" wx:key="value" mark:id="{{ item.value }}">{{ item.text }}</view>
   </view>
   <view class="selector-overlay">
-    <custom-overlay show="{{ show }}" bind:close-overlay="handleEndSelect" />
+    <custom-overlay class="custom-overlay" show="{{ show }}" bind:close-overlay="handleEndSelect" />
   </view>
 </view>
