@@ -1,0 +1,20 @@
+<welcome />
+
+<search-bar class="search-bar" move="-28rpx" />
+
+<view class="products">
+  <view class="product">
+    <view class="header">
+      <view class="index">1</view>
+      <view class="name">产品名称</view>
+      <view class="version">产品型号1555D</view>
+    </view>
+    <view class="content">
+      <view class="question">Q: 血压仪屏幕没有反应是怎么回事？</view>
+      <view class="answer">A: 这是解决方案这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案</view>
+    </view>
+    <view class="footer">
+      <view class="detail">查看详情<van-icon name="arrow" /></view>
+    </view>
+  </view>
+</view>

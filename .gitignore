@@ -132,6 +132,6 @@ dist
 # Jetbrains
 .idea
 
-# Wexin
+# WeChatMiniprogram
 project.private.config.json
 miniprogram_npm/

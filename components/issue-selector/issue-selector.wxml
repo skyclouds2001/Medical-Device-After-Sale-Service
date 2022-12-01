@@ -1,0 +1,17 @@
+<view class="selector-show">
+  <view class="selector-content {{ show ? 'show' : '' }}" bind:tap="handleStartSelect">
+    <view>{{ val ? val : '出现了故障怎么办' }}</view>
+    <view hidden="{{ show }}">
+      <van-icon name="arrow-down" />
+    </view>
+    <view hidden="{{ !show }}">
+      <van-icon name="arrow-up" />
+    </view>
+  </view>
+  <view class="selector-picker {{ show ? 'show' : 'hide' }}" bind:tap="handleSelectItem">
+    <view class="selector-item" wx:for="{{ options }}" wx:key="value" mark:id="{{ item.value }}">{{ item.text }}</view>
+  </view>
+  <view class="selector-overlay">
+    <custom-overlay class="custom-overlay" show="{{ show }}" bind:close-overlay="handleEndSelect" />
+  </view>
+</view>

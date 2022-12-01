@@ -1,0 +1,29 @@
+<view class="userinfo">
+  <view class="avatar">
+    <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+  </view>
+  <view class="info">
+    <view class="nickname">客服人员</view>
+    <view class="company">企业名称</view>
+  </view>
+  <view class="jump">
+    <van-icon name="arrow" />
+  </view>
+</view>
+
+<view class="edit-list">
+  <view class="edit-item">
+    <van-icon name="edit" />
+    <view>修改密码</view>
+    <van-icon name="arrow" />
+  </view>
+  <view class="edit-item">
+    <van-icon name="edit" />
+    <view>修改绑定手机号</view>
+    <van-icon name="arrow" />
+  </view>
+</view>
+
+<view class="exit-btn">
+  <button>退出登录</button>
+</view>

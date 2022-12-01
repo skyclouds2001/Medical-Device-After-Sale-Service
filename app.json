@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/search-products/search-products",
     "pages/fix/fix",
+    "pages/fix/common-issues/common-issues",
     "pages/mine/mine"
   ],
   "window": {
@@ -35,10 +37,13 @@
     ],
     "backgroundColor": "#FFFFFF",
     "selectedColor": "#2D3DAA",
-    "color": "#303030"
+    "color": "#303030",
+    "custom": true
   },
   "sitemapLocation": "sitemap.json",
-
+  "usingComponents": {
+    "tab-bar": "/custom-tab-bar/index"
+  },
   "debug": true,
   "debugOptions": {
     "enableFPSPanel": true

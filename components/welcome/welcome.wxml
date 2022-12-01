@@ -1,4 +1,6 @@
 <view class="welcome">
-  <view class="user">尊敬的用户：</view>
-  <text class="content">欢迎来到这里，\n看我们有什么能帮助您的？</text>
+  <block wx:if="{{ showComment }}">
+    <view class="user">尊敬的用户：</view>
+    <text class="content">欢迎来到这里，\n看我们有什么能帮助您的？</text>
+  </block>
 </view>
