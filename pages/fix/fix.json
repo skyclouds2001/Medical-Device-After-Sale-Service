@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "welcome": "/components/welcome/welcome",
+    "search-bar": "/components/search-bar/search-bar",
+    "product-sidebar": "/components/product-sidebar/product-sidebar",
+    "van-image": "@vant/weapp/image/index"
+  },
+  "navigationBarTitleText": "维修检查"
 }

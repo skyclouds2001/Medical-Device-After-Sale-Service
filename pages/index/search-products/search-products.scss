@@ -1,0 +1,100 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.products {
+  margin: 0;
+  padding: 0 0 1rpx;
+
+  .product {
+    margin: 25rpx 20rpx;
+    padding: 20rpx;
+
+    border-radius: 20rpx;
+    box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, 0.25);
+    background-color: white;
+
+    .header {
+      font-size: 30rpx;
+      line-height: 2em;
+
+      margin: 0;
+      padding: 10rpx 0;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      border-bottom: 1rpx solid #818085;
+
+      > view {
+        margin: 0 10rpx;
+        padding: 0;
+        width: auto;
+        height: 100%;
+
+        line-height: 100%;
+        text-align: center;
+      }
+
+      .index {
+        background-color: #F74A29;
+        border-radius: 50%;
+
+        width: 1.5em;
+        height: 1.5em;
+
+        color: white;
+        text-align: center;
+        line-height: 1.5em;
+      }
+
+      .name {
+        font-size: 32rpx;
+        color: #0E0E40;
+        font-weight: bold;
+      }
+
+      .version {
+        color: #0E0E40;
+        font-size: 28rpx;
+        font-weight: bold;
+      }
+    }
+
+    .content {
+      color: #0E0E40;
+      font-size: 30rpx;
+      line-height: 1.5em;
+
+      margin: 0;
+      padding: 10rpx 0;
+
+      .question, .answer {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+
+        margin: 10rpx 0;
+        padding: 0 0 0 20rpx;
+      }
+
+      .question {
+        -webkit-line-clamp: 1;
+      }
+
+      .answer {
+        -webkit-line-clamp: 2;
+      }
+    }
+
+    .footer {
+      .detail {
+        color: #5C7CEB;
+        font-size: 26rpx;
+        text-align: right;
+      }
+    }
+  }
+}

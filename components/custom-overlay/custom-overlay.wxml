@@ -1,0 +1,1 @@
+<view class="custom-overlay {{ show ? 'show' : 'hide' }} {{ truelyShow ? 'truely-show' : 'truely-hide' }}" bind:tap="handleCloseOverlay" bind:transitionend="handleTransitionEnd"></view>

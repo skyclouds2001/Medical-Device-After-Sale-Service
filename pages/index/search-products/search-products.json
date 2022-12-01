@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "welcome": "/components/welcome/welcome",
+    "search-bar": "/components/search-bar/search-bar",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "navigationBarTitleText": "搜索"
+}

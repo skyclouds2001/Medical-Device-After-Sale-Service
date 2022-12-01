@@ -1,0 +1,87 @@
+.hide {
+  opacity: 0;
+}
+.show {
+  opacity: 1;
+}
+
+.selector-show {
+  width: 500rpx;
+  height: 2em;
+  margin: 0 10rpx;
+  padding: 0;
+
+  font-size: 32rpx;
+  line-height: 2em;
+
+  position: relative;
+
+  transition: opacity 0.25s;
+
+  .selector-content {
+    color: #818085;
+
+    background-color: #f0f0f0;
+    border: 1rpx solid #e5e2e2;
+    border-radius: 10rpx;
+
+    position: relative;
+    z-index: 9999;
+
+    margin: 0;
+    padding: 0 15rpx;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: opacity 0.25s;
+    transition: background-color 0.25s;
+    transition: color 0.25s;
+
+    &.show {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: white !important;
+      color: #2a2a2b;
+    }
+  }
+
+  .selector-picker {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    z-index: 9999;
+
+    width: 100%;
+    height: auto;
+
+    background-color: white;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    transition: opacity 0.25s;
+
+    .selector-item {
+      color: #2a2a2b;
+
+      height: 2em;
+      margin: 0;
+      padding: 0 10rpx;
+
+      &:not(:last-child) {
+        border-bottom: 1rpx solid #ccc;
+      }
+    }
+  }
+
+  .selector-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    transition: opacity 0.25s;
+
+    /* TODO 临时解决遮蔽层漂移问题 */
+    transform: translate(-25rpx, -100rpx);
+  }
+}

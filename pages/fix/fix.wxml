@@ -1,0 +1,15 @@
+<welcome />
+
+<search-bar class="search-bar" move="-28rpx" />
+
+<view class="main-box">
+  <product-sidebar class="sidebar" items="{{ list_items }}" bind:change="handleSwitch" />
+  <view class="products">
+    <view class="product">
+      <van-image fit="cover" lazy-load show-error show-loading radius="10rpx" width="160rpx" height="160rpx" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      <text>型号1</text>
+    </view>
+  </view>
+</view>
+
+<view class="no-more">-没有更多了-</view>

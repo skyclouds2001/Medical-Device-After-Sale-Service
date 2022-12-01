@@ -1,0 +1,3 @@
+<view class="sidebar" bindtap="handleSwitch">
+  <view wx:for="{{ items }}" wx:key="*this" data-id="{{ index }}" class="sidebar-item {{ active === index ? 'active' :  ''}}">{{ item }}</view>
+</view>
