@@ -1,4 +1,4 @@
-import { SERVER_HOST } from '@/config'
+import { SERVER_HOST } from '@/config/index'
 
 export const request = <T>(params: WechatMiniprogram.RequestOption<Response<T>>) => {
   return new Promise((resolve, reject) => {
