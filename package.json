@@ -1,13 +1,28 @@
 {
   "name": "medical-device-after-sale-service",
   "version": "0.0.0",
-  "description": "",
-  "scripts": {
-    "lint": "eslint --fix pages components configs custom-tab-bar models services typings utils app.ts"
-  },
+  "description": "MedicalDeviceAfterSaleService",
+  "scripts": {},
   "keywords": [],
-  "author": "skyclouds2001",
   "license": "MIT",
+  "author": {
+    "name": "skyclouds2001",
+    "email": "skyclouds2001@163.com",
+    "url": "https://skyclouds2001.github.io"
+  },
+  "contributors": [
+    "skyclouds2001"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WizzStudio/MedicalDeviceAfterSaleService.git"
+  },
+  "homepage": "https://github.com/WizzStudio/MedicalDeviceAfterSaleService#readme",
+  "bugs": {
+    "url": "https://github.com/WizzStudio/MedicalDeviceAfterSaleService/issues",
+    "email": "skyclouds2001@163.com"
+  },
+  "private": true,
   "dependencies": {
     "@vant/weapp": "^1.10.5"
   },
