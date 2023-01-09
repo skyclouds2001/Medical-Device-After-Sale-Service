@@ -19,7 +19,7 @@ export const login = (code: string) => {
 export const auth = (id: number, name: string, phone: string, openid: string) => {
   return request<undefined>({
     url: '/wizz/aftersale/account/customer/authenticate',
-    method: 'GET',
+    method: 'POST',
     data: {
       company_id: id,
       customer_name: name,
