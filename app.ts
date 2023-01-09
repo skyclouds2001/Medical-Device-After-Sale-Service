@@ -1,4 +1,4 @@
-import { login } from '@/apis/index'
+import { login } from '@/apis/admin'
 
 App<App>({
 

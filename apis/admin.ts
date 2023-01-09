@@ -1,4 +1,4 @@
-import { request } from '@/lib/index'
+import { request } from '@/lib/request'
 
 interface LoginResponse {
   customer_id: number
