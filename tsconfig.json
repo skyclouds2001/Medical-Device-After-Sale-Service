@@ -17,6 +17,7 @@
     "strict": true,
     "strictPropertyInitialization": true,
     "lib": ["ESNext"],
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["./*"]
     }
