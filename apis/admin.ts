@@ -7,8 +7,12 @@ interface LoginResponse {
 
 export const login = (code: string) => {
   return request<LoginResponse>({
-    url: `/wizz/aftersale/account/customer/login/${code}`,
-    method: 'GET',
+    url: '/wizz/aftersale/account/customer/login',
+    method: 'POST',
+    data: { code },
+    header: {
+      'content-type': 'application/x-www-form-urlencoded',
+    },
   })
 }
 
