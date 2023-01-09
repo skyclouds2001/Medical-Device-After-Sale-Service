@@ -44,6 +44,21 @@
   "usingComponents": {
     "tab-bar": "/custom-tab-bar/index"
   },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "enablePassiveEvent": true,
+  "resolveAlias": {
+    "@/*": "/*"
+  },
   "debug": true,
   "debugOptions": {
     "enableFPSPanel": true
