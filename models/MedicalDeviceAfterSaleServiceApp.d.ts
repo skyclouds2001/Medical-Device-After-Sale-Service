@@ -1,3 +1,0 @@
-interface MedicalDeviceAfterSaleServiceApp {
-  globalData: {}
-}

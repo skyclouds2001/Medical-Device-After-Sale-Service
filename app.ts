@@ -1,4 +1,4 @@
-App<MedicalDeviceAfterSaleServiceApp>({
+App<App>({
 
   globalData: {},
 
