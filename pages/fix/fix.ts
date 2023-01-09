@@ -1,9 +1,7 @@
 Page<{
   list_items: string[]
 }, {
-  handleSwitch: (e: WechatMiniprogram.CustomEvent<{
-    current: number
-  }>) => void
+  handleSwitch: (e: WechatMiniprogram.CustomEvent<{ current: number }>) => void
 }>({
 
   data: {

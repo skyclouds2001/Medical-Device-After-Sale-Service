@@ -2,7 +2,7 @@ Page<{
   value: string,
   options: Array<Record<'text' | 'value', string>>
 }, {
-  handleIssueChange: (e: VantChange) => void
+  handleIssueChange: (e: { detail: string }) => void
 }>({
 
   data: {
@@ -23,9 +23,9 @@ Page<{
 
   handleIssueChange(e) {
     this.setData({
-      value: e.detail as string
+      value: e.detail
     })
-    const v: Record<'text' | 'value', string> | undefined = this.data.options.find((v: Record<'text' | 'value', string>) => v.value === e.detail)
+    const v = this.data.options.find(v => v.value === e.detail)
     this.selectComponent('#issue-selector').setData({
       val: v?.text
     })

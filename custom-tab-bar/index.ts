@@ -7,7 +7,7 @@ const tabs: Array<string> = [
 Component<{
   active: number
 }, {}, {
-  onChange: (e: VantChange<number>) => void
+  onChange: (e: { detail: number }) => void
 }>({
 
   properties: {},
