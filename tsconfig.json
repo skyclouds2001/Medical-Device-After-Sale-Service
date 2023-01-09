@@ -18,6 +18,8 @@
     "strictPropertyInitialization": true,
     "lib": ["ESNext"],
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "types": ["miniprogram-api-typings"],
     "paths": {
       "@/*": ["./*"]
     }

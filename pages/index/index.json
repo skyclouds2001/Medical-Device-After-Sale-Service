@@ -4,5 +4,5 @@
     "welcome": "/components/welcome/welcome",
     "search-bar": "/components/search-bar/search-bar"
   },
-  "navigationBarTitleText": "问题与反馈"
+  "navigationBarTitleText": "服务大厅"
 }
