@@ -1,3 +1,5 @@
+@import './miniprogram_npm/@vant/weapp/common/index.wxss';
+
 page, view, text, rich-text, swiper, swiper-item, image, navigator, icon, progress, audio, video, camera, canvas, form, input, textarea, button, checkbox, checkbox-group, label, editor, radio, radio-group, slider, switch, map {
   padding: 0;
   margin: 0;
@@ -5,5 +7,6 @@ page, view, text, rich-text, swiper, swiper-item, image, navigator, icon, progre
 }
 
 page {
-  font-family: 'Microsoft YaHei UI' sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }

@@ -22,7 +22,7 @@
     "types": ["miniprogram-api-typings"],
     "paths": {
       "@/*": ["./*"],
-      "@vant/*": ["./miniprogram_npm/@vant/*"]
+      "@vant/weapp/*": ["./miniprogram_npm/@vant/weapp/*"]
     }
   },
   "include": [
