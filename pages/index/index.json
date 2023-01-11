@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
-    "welcome": "/components/welcome/welcome",
+    "welcome": "/components/welcome-bg/welcome-bg",
     "search-bar": "/components/search-bar/search-bar"
   },
   "navigationBarTitleText": "服务大厅"

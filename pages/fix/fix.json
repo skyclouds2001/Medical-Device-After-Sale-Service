@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "welcome": "/components/welcome/welcome",
+    "welcome": "/components/welcome-bg/welcome-bg",
     "search-bar": "/components/search-bar/search-bar",
     "product-sidebar": "/components/product-sidebar/product-sidebar",
     "van-image": "@vant/weapp/image/index"
