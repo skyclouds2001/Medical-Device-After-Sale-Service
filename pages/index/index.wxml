@@ -1,4 +1,4 @@
-<welcome />
+<welcome-bg />
 
 <view class="service-list">
   <view class="header">服务列表</view>

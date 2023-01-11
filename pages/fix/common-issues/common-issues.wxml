@@ -1,4 +1,4 @@
-<welcome showComment="{{ false }}" />
+<welcome-bg showComment="{{ false }}" />
 
 <view class="main">
 
