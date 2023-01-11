@@ -1,3 +1,5 @@
 interface App {
-  globalData: {}
+  globalData: {
+    token: string
+  }
 }

@@ -1,6 +1,8 @@
 App<App>({
 
-  globalData: {},
+  globalData: {
+    token: '',
+  },
 
   onLaunch () {},
 
