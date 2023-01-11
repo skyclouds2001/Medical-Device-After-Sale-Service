@@ -21,7 +21,8 @@
     "baseUrl": ".",
     "types": ["miniprogram-api-typings"],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@vant/*": ["./miniprogram_npm/@vant/*"]
     }
   },
   "include": [
