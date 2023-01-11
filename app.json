@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/register/register",
     "pages/index/index",
     "pages/index/search-products/search-products",
     "pages/fix/fix",
