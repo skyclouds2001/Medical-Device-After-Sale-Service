@@ -5,16 +5,16 @@
 
 <view class="form">
   <view class="form-item">
-    <van-field name="company" placeholder="请选择企业" readonly mark:flag="{{ true }}" bind:tap="handleManageSelector" />
+    <van-field name="company" value="{{ company.company_name }}" placeholder="请选择企业" readonly mark:flag="{{ true }}" bind:tap="handleManageSelector" />
     <van-popup show="{{ show }}" position="bottom">
-      <van-picker title="选择公司" columns="{{ companies }}" show-toolbar  bind:cancel="handleManageSelector" bind:confirm="handleManageSelector" />
+      <van-picker title="选择公司" value-key="company_name" columns="{{ companies }}" show-toolbar  bind:cancel="handleManageSelector" bind:confirm="handleManageSelector" />
     </van-popup>
   </view>
   <view class="form-item">
-    <van-field name="phone" model:value="{{ phone }}" placeholder="请输入手机号码" border="{{ false }}" clearable />
+    <van-field name="password" model:value="{{ name }}" placeholder="请输入姓名" border="{{ false }}" clearable />
   </view>
   <view class="form-item">
-    <van-field name="password" model:value="{{ password }}" placeholder="请输入密码" border="{{ false }}" clearable password />
+    <van-field name="phone" model:value="{{ phone }}" placeholder="请输入手机号码" border="{{ false }}" clearable />
   </view>
   <view class="btn" bind:tap="userRegister">注册</view>
 </view>
