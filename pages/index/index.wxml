@@ -16,10 +16,10 @@
     <view class="more">查看更多<van-icon name="arrow" /></view>
   </view>
   <view class="content">
-    <view class="item">
+    <view wx:for="{{ conductHistories }}" wx:key="history_id" class="item">
       <view class="info">
-        <view class="desc">我家的网络不大好，知道是什么原因?</view>
-        <view class="date">2023年1月11日 11:32:52</view>
+        <view class="desc">{{ item.topic }}</view>
+        <view class="date">{{ item.consult_time }}</view>
       </view>
       <view class="operate">
         <view>巡检</view>
@@ -33,3 +33,5 @@
   <van-icon class="icon" name="service-o" />
   <view class="text">联系客服</view>
 </view>
+
+<van-toast id="van-toast" />

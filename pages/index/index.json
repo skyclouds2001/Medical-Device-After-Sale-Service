@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
     "van-icon": "@vant/weapp/icon/index",
     "welcome-bg": "/components/welcome-bg/welcome-bg",
     "search-bar": "/components/search-bar/search-bar"
