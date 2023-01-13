@@ -1,13 +1,17 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getHistories, getKfLink } from '@/apis/consult'
+import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 
 Page<{
   conductHistories: ConsultHistory[]
 }, {
   conductHistoryPage: number
   conductHistoryPageAmount: number
+
   loadConductHistory: (first: boolean, page: number) => Promise<void>
-  handleConnectKefu: () => void
+  loadKefuLink: (id: number) => Promise<string | null>
+
+  handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
 }>({
 
   data: {
@@ -61,6 +65,33 @@ Page<{
     }
   },
 
-  handleConnectKefu () {},
+  async loadKefuLink (id) {
+    try {
+      const res = await getKfLink(id)
+      if (res.code === 0) {
+        return res.data.kf_link
+      } else {}
+    } catch {}
+    return null
+  },
+
+  async handleConnectKefu (e) {
+    let link = e.mark?.link ?? (await this.loadKefuLink(-1))
+
+    if (!link) {
+      Toast.fail('获取客服链接失败')
+      return
+    }
+
+    wx.openCustomerServiceChat({
+      extInfo: {
+        url: link as string,
+      },
+      corpId: CUSTOMER_SERVICE_COMPANY_ID,
+      fail: (err) => {
+        Toast.fail(err.errMsg)
+      },
+    })
+  },
 
 })

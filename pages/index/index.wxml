@@ -23,13 +23,13 @@
       </view>
       <view class="operate">
         <view>巡检</view>
-        <button>查看</button>
+        <button bind:tap="handleConnectKefu" mark:link="{{ item.kf_link }}">查看</button>
       </view>
     </view>
   </view>
 </view>
 
-<view class="connect-customer-servier">
+<view class="connect-customer-servier" bind:tap="handleConnectKefu">
   <van-icon class="icon" name="service-o" />
   <view class="text">联系客服</view>
 </view>
