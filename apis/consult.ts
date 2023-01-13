@@ -2,7 +2,7 @@ import { request } from '@/lib/request'
 
 interface GetHistoriesResponse {
   history_list: ConsultHistory[]
-  total_page_num: boolean
+  total_page_num: number
 }
 
 export const getHistories = (isFirstQuery: boolean, pageNum: number) => {
