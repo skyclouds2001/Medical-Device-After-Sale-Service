@@ -3,9 +3,11 @@
 <view class="service-list">
   <view class="header">服务列表</view>
   <view class="content">
-    <view class="item">
-      <van-icon class="icon" name="phone" />
-      <view class="text">安装</view>
+    <view wx:for="{{ serviceItems }}" wx:key="id" class="item">
+      <view class="icon" style="background-color: {{ item.bg }};">
+        <van-image width="25" height="25" src="{{ item.img }}" />
+      </view>
+      <view class="text">{{ item.text }}</view>
     </view>
   </view>
 </view>

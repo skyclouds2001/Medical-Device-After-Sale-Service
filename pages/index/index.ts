@@ -1,9 +1,12 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getHistories, getKfLink } from '@/apis/consult'
 import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
+import { services } from '@/data/index'
+import type { Service } from '@/data/index'
 
 Page<{
   conductHistories: ConsultHistory[]
+  serviceItems: Service[]
 }, {
   conductHistoryPage: number
   conductHistoryPageAmount: number
@@ -21,6 +24,7 @@ Page<{
       kf_link: '666',
       topic: '我家的网络不大好，请问是什么原因?',
     }],
+    serviceItems: services,
   },
 
   onLoad () {
