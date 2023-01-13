@@ -28,6 +28,10 @@ page {
   align-items: center;
   flex-wrap: wrap;
 
+  > .empty {
+    padding: 0 5rpx;
+  }
+
   .product {
     display: flex;
     flex-direction: column;
