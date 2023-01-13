@@ -2,9 +2,9 @@
   "pages": [
     "pages/register/register",
     "pages/index/index",
-    "pages/index/search-products/search-products",
+    "pages/search-products/search-products",
     "pages/fix/fix",
-    "pages/fix/common-issues/common-issues",
+    "pages/common-issues/common-issues",
     "pages/mine/mine"
   ],
   "window": {
