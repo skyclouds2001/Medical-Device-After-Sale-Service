@@ -1,14 +1,7 @@
 import { request } from '@/lib/request'
 
-interface History {
-  consult_time: string
-  history_id: number
-  kf_link: string
-  topic: string
-}
-
 interface GetHistoriesResponse {
-  history_list: History[]
+  history_list: ConsultHistory[]
   total_page_num: boolean
 }
 
