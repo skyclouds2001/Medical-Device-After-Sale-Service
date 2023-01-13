@@ -4,6 +4,8 @@ App<App>({
     token: '',
   },
 
-  onLaunch () {},
+  onLaunch () {
+    this.globalData.token = wx.getStorageSync('token')
+  },
 
 })
