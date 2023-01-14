@@ -3,8 +3,8 @@
 <view class="service-list">
   <view class="header">服务列表</view>
   <view class="content">
-    <view wx:for="{{ serviceItems }}" wx:key="id" class="item">
-      <view class="icon" style="background-color: {{ item.bg }};">
+    <view wx:for="{{ serviceItems }}" wx:key="id" class="item" mark:id="{{ item.id }}" bind:tap="handleCreateWorkOrder">
+      <view class="icon" style="background-color: {{ item.bg }}">
         <van-image width="25" height="25" src="{{ item.img }}" />
       </view>
       <view class="text">{{ item.text }}</view>

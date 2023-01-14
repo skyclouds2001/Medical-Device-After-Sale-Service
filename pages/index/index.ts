@@ -14,6 +14,7 @@ Page<{
   loadConductHistory: (first: boolean, page: number) => Promise<void>
   loadKefuLink: (id: number) => Promise<string | null>
 
+  handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
   handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
 }>({
 
@@ -75,6 +76,13 @@ Page<{
       } else {}
     } catch {}
     return null
+  },
+
+  handleCreateWorkOrder (e) {
+    const { id } = e.mark!
+    wx.navigateTo({
+      url: `/pages/fix/fix?id=${id}`,
+    })
   },
 
   async handleConnectKefu (e) {
