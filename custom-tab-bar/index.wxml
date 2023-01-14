@@ -1,17 +1,7 @@
-<van-tabbar active-color="#2D3DAA" inactive-color="#303030" active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item>
-    <image slot="icon" src="/icons/home_fill.png" mode="aspectFit" style="width: 25px; height: 25px;" />
-    <image slot="icon-active" src="/icons/home_fill_selected.png" mode="aspectFit" style="width: 25px; height: 25px;" />
-    首页
-  </van-tabbar-item>
-  <van-tabbar-item>
-    <image slot="icon" src="/icons/repair_fill.png" mode="aspectFit" style="width: 25px; height: 25px;" />
-    <image slot="icon-active" src="/icons/repair_fill_selected.png" mode="aspectFit" style="width: 25px; height: 25px;" />
-    设备自检/客服
-  </van-tabbar-item>
-  <van-tabbar-item>
-    <image slot="icon" src="/icons/wode_fill.png" mode="aspectFit" style="width: 25px; height: 25px;" />
-    <image slot="icon-active" src="/icons/wode_fill_selected.png" mode="aspectFit" style="width: 25px; height: 25px;" />
-    个人中心
+<van-tabbar active-color="#2D3DAA" inactive-color="#303030" active="{{ active }}" bind:change="onChange" placeholder>
+  <van-tabbar-item wx:for="{{ tabs }}" wx:key="id">
+    <image class="img" slot="icon" src="{{ item.icon }}" mode="aspectFit" />
+    <image class="img" slot="icon-active" src="{{ item.icon_active }}" mode="aspectFit" />
+    <text>{{ item.name }}</text>
   </van-tabbar-item>
 </van-tabbar>

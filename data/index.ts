@@ -43,3 +43,28 @@ export const services: Service[] = [
     bg: '#5C7CEB',
   },
 ]
+
+export interface Tab {
+  id: number
+  name: string
+  path: string
+  icon: string
+  icon_active: string
+}
+
+export const tabs: Tab[] = [
+  {
+    id: 1,
+    name: '首页',
+    path: '/pages/index/index',
+    icon: '/icons/home_fill.png',
+    icon_active: '/icons/home_fill_selected.png',
+  },
+  {
+    id: 2,
+    name: '个人中心',
+    path: '/pages/mine/mine',
+    icon: '/icons/wode_fill.png',
+    icon_active: '/icons/wode_fill_selected.png',
+  },
+]

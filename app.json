@@ -24,12 +24,6 @@
         "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "icons/repair_fill.png",
-        "selectedIconPath": "icons/repair_fill_selected.png",
-        "text": "设备自检/客服",
-        "pagePath": "pages/fix/fix"
-      },
-      {
         "iconPath": "icons/wode_fill.png",
         "selectedIconPath": "icons/wode_fill_selected.png",
         "text": "个人中心",
