@@ -1,9 +1,9 @@
-<view class="userinfo">
+<view class="userinfo" bind:tap="showLoginDialog">
   <view class="avatar">
-    <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="{{ avatar }}" />
   </view>
   <view class="info">
-    <view class="nickname">客服人员</view>
+    <view class="nickname">{{ nickname }}</view>
     <view class="company">企业名称</view>
   </view>
   <view class="jump">
@@ -12,12 +12,12 @@
 </view>
 
 <view class="edit-list">
-  <view class="edit-item">
+  <view class="edit-item" bind:tap="editPassword">
     <van-icon name="edit" />
     <view>修改密码</view>
     <van-icon name="arrow" />
   </view>
-  <view class="edit-item">
+  <view class="edit-item" bind:tap="editBindPhone">
     <van-icon name="edit" />
     <view>修改绑定手机号</view>
     <van-icon name="arrow" />
@@ -25,5 +25,9 @@
 </view>
 
 <view class="exit-btn">
-  <button>退出登录</button>
+  <button bind:tap="exitLogin">退出登录</button>
 </view>
+
+<userinfo-dialog show="{{ show }}" bind:confirm="confirmLogin" />
+
+<van-toast id="van-toast" />

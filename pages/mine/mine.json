@@ -2,7 +2,9 @@
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
     "van-image": "@vant/weapp/image/index",
-    "tab-bar": "/custom-tab-bar/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "tab-bar": "/custom-tab-bar/index",
+    "userinfo-dialog": "/components/userinfo-dialog/index"
   },
   "navigationBarTitleText": "个人中心"
 }

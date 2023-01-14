@@ -16,23 +16,18 @@ page {
   justify-content: center;
   align-items: center;
 
-  > view {
+  view {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  > .avatar {
+  .avatar {
     width: 25%;
     height: 100%;
-
-    > van-image {
-      width: 100rpx;
-      height: 100rpx;
-    }
   }
 
-  > .info {
+  .info {
     width: 55%;
     height: 100%;
     margin: 0;
@@ -43,11 +38,11 @@ page {
     justify-content: space-evenly;
     align-items: flex-start;
 
-    > .nickname {
+    .nickname {
       font-size: 30rpx;
     }
 
-    > .company {
+    .company {
       color: #818085;
     }
   }
