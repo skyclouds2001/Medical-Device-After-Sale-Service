@@ -2,10 +2,11 @@
   "pages": [
     "pages/register/register",
     "pages/index/index",
-    "pages/search-products/search-products",
     "pages/fix/fix",
+    "pages/workorder/workorder",
+    "pages/mine/mine",
     "pages/common-issues/common-issues",
-    "pages/mine/mine"
+    "pages/search-products/search-products"
   ],
   "window": {
     "backgroundTextStyle": "light",
