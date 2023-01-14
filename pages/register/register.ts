@@ -4,8 +4,6 @@ import { getCompanyList } from '@/apis/company'
 import { DEFAULT_PAGE_SIZE } from '@/config/index'
 import { validatePhone, validatePassword } from '@/utils/validate'
 
-const app = getApp<App>()
-
 Page<{
   companies: any[]
   show: boolean
@@ -87,7 +85,7 @@ Page<{
         wx.switchTab({
           url: '/pages/index/index',
         })
-        app.globalData.token = token
+        getApp<App>().globalData.token = token
         wx.setStorageSync('token', token)
       } else if (res.code === 1070) {
         this.openid = res.data.toString()
@@ -126,7 +124,7 @@ Page<{
           wx.switchTab({
             url: '/pages/index/index',
           })
-          app.globalData.token = token
+          getApp<App>().globalData.token = token
           wx.setStorageSync('token', token)
         } else {
           Toast.fail('登录失败')
