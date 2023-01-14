@@ -36,9 +36,6 @@
     "custom": true
   },
   "sitemapLocation": "sitemap.json",
-  "usingComponents": {
-    "tab-bar": "/custom-tab-bar/index"
-  },
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,
