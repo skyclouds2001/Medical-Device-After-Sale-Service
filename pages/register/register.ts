@@ -87,8 +87,16 @@ Page<{
         })
         getApp<App>().globalData.token = token
         getApp<App>().globalData.id = customer_id
-        wx.setStorageSync<string>('token', token)
-        wx.setStorageSync<number>('id', customer_id)
+        wx.batchSetStorageSync([
+          {
+            key: 'token',
+            value: token,
+          },
+          {
+            key: 'id',
+            value: customer_id,
+          },
+        ])
       } else if (res.code === 1070) {
         this.openid = res.data.toString()
       } else {
@@ -128,8 +136,16 @@ Page<{
           })
           getApp<App>().globalData.token = token
           getApp<App>().globalData.id = customer_id
-          wx.setStorageSync<string>('token', token)
-          wx.setStorageSync<number>('id', customer_id)
+          wx.batchSetStorageSync([
+            {
+              key: 'token',
+              value: token,
+            },
+            {
+              key: 'id',
+              value: customer_id,
+            },
+          ])
         } else {
           Toast.fail('登录失败')
         }
