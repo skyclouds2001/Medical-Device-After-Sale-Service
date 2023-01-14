@@ -35,7 +35,7 @@ Page<{
 
   onLoad() {
     this.loadCompanyList()
-    // this.userLogin()
+    this.userLogin()
   },
 
   openid: '',
