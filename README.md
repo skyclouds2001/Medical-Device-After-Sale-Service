@@ -15,3 +15,4 @@
 [接口文档说明](https://wizzstudio.feishu.cn/docx/QYondktQKoDH2vx6n0BcEedCnVh)
 [账号管理&客户咨询模块接口文档(aftersale1119)](https://www.eolink.com/share/index?shareCode=qvPkxP) 
 [产品管理模块接口文档(wizz)](https://www.eolink.com/share/index?shareCode=FugySB)
+[工单模块接口文档(wizz)](https://www.eolink.com/share/index?shareCode=Ynzy7T)
