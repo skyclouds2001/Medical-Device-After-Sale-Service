@@ -12,7 +12,6 @@ Page<{
     avatar: string
     nickname: string
   }>) => void
-  editPassword: () => void
   editBindPhone: () => void
   exitLogin: () => void
 }>({
@@ -65,8 +64,6 @@ Page<{
       avatar,
     })
   },
-
-  editPassword () {},
 
   editBindPhone () {},
 

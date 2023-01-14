@@ -12,11 +12,6 @@
 </view>
 
 <view class="edit-list">
-  <view class="edit-item" bind:tap="editPassword">
-    <van-icon name="edit" />
-    <view>修改密码</view>
-    <van-icon name="arrow" />
-  </view>
   <view class="edit-item" bind:tap="editBindPhone">
     <van-icon name="edit" />
     <view>修改绑定手机号</view>
