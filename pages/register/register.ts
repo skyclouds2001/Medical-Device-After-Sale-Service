@@ -7,21 +7,21 @@ import { validatePhone, validatePassword } from '@/utils/validate'
 const app = getApp<App>()
 
 Page<{
-  companies: any[],
-  show: boolean,
+  companies: any[]
+  show: boolean
 
-  phone: string,
-  name: string,
-  company: Company | null,
+  phone: string
+  name: string
+  company: Company | ''
 }, {
-  openid: string,
+  openid: string
 
-  loadCompanyList: () => Promise<void>,
+  loadCompanyList: () => Promise<void>
 
-  userLogin: () => Promise<void>,
-  userRegister: () => Promise<void>,
+  userLogin: () => Promise<void>
+  userRegister: () => Promise<void>
 
-  handleManageSelector: (e: WechatMiniprogram.TouchEvent<{ value: Company }, { flag: boolean }>) => void,
+  handleManageSelector: (e: WechatMiniprogram.TouchEvent<{ value: Company }, { flag: boolean }>) => void
 }>({
 
   data: {
@@ -30,12 +30,12 @@ Page<{
 
     name: '',
     phone: '',
-    company: null,
+    company: '',
   },
 
   onLoad() {
     this.loadCompanyList()
-    this.userLogin()
+    // this.userLogin()
   },
 
   openid: '',
@@ -44,17 +44,17 @@ Page<{
     try {
       let page = 1
       const res = await getCompanyList(page, true)
-      if (res.code !== 0) throw ''
+      if (res.code !== 0) throw res.data.toString()
       ++page
 
-      const { total_page_num: len } = res.data
+      const { total_num: num } = res.data
       this.setData({
         companies: [...res.data.company_list],
       })
 
-      while (page <= len / DEFAULT_PAGE_SIZE + 1) {
+      while (page <= num / DEFAULT_PAGE_SIZE + 1) {
         const res = await getCompanyList(page, false)
-        if (res.code !== 0) throw ''
+        if (res.code !== 0) throw res.data.toString()
         this.setData({
           companies: [...this.data.companies, ...res.data.company_list]
         })
@@ -69,11 +69,13 @@ Page<{
     if (e.type === 'confirm') {
       this.setData({
         company: e.detail.value,
+        show: Boolean(e.mark?.flag),
+      })
+    } else {
+      this.setData({
+        show: Boolean(e.mark?.flag),
       })
     }
-    this.setData({
-      show: Boolean(e.mark?.flag),
-    })
   },
 
   async userLogin() {
@@ -100,7 +102,7 @@ Page<{
   async userRegister() {
     const { phone, name, company } = this.data
 
-    if (!company?.company_id) {
+    if (company === '') {
       Toast.fail('需选择所属企业')
       return
     }

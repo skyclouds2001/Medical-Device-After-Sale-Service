@@ -2,7 +2,7 @@ import { request } from '@/lib/request'
 
 interface GetCompanyListResponse {
   company_list: Company[]
-  total_page_num: number
+  total_num: number
 }
 
 export const getCompanyList = (pageNum: number, isFirstQuery: boolean) => {
