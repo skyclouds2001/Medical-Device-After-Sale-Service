@@ -81,12 +81,14 @@ Page<{
       const { code } = await wx.login()
       const res = await login(code)
       if (res.code === 0) {
-        const { token } = res.data
+        const { token, customer_id } = res.data
         wx.switchTab({
           url: '/pages/index/index',
         })
         getApp<App>().globalData.token = token
-        wx.setStorageSync('token', token)
+        getApp<App>().globalData.id = customer_id
+        wx.setStorageSync<string>('token', token)
+        wx.setStorageSync<number>('id', customer_id)
       } else if (res.code === 1070) {
         this.openid = res.data.toString()
       } else {
@@ -120,12 +122,14 @@ Page<{
         const { code } = await wx.login()
         const res = await login(code)
         if (res.code === 0) {
-          const { token } = res.data
+          const { token, customer_id } = res.data
           wx.switchTab({
             url: '/pages/index/index',
           })
           getApp<App>().globalData.token = token
-          wx.setStorageSync('token', token)
+          getApp<App>().globalData.id = customer_id
+          wx.setStorageSync<string>('token', token)
+          wx.setStorageSync<number>('id', customer_id)
         } else {
           Toast.fail('登录失败')
         }
