@@ -59,7 +59,7 @@ Page<{
       nickname,
       avatar,
     })
-    wx.setStorageSync('userinfo', {
+    wx.setStorageSync<UserInfo>('userinfo', {
       nickname,
       avatar,
     })
