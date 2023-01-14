@@ -8,7 +8,9 @@ Page<{
 }, {
   loadProductTypes: () => Promise<void>
   loadProductModels: (current?: number) => Promise<void>
-  handleSwitch: (e: WechatMiniprogram.CustomEvent<{ current: number }>) => void
+
+  handleSwitch: (e: WechatMiniprogram.TouchEvent<{ current: number }>) => void
+  handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 
   data: {
@@ -60,11 +62,18 @@ Page<{
     }
   },
 
-  handleSwitch(e) {
+  handleSwitch (e) {
     const { current } = e.detail
     this.loadProductModels(current)
     this.setData({
       currentType: current,
+    })
+  },
+
+  handleCreateWorkOrder (e) {
+    const { id } = e.mark!
+    wx.navigateTo({
+      url: `/pages/workorder/workorder?id=${id}`,
     })
   },
 
