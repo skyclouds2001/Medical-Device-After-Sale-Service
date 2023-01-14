@@ -10,8 +10,8 @@ page {
   border-radius: 20rpx;
 
   .header {
-    margin: 0;
-    padding: 10rpx 20rpx;
+    margin: 0 40rpx;
+    padding: 20rpx 0 10rpx;
 
     color: #0E0E40;
     font-size: 32rpx;
@@ -73,8 +73,10 @@ page {
     justify-content: space-between;
     align-items: center;
 
-    margin: 0;
-    padding: 20rpx 40rpx;
+    margin: 0 40rpx;
+    padding: 20rpx 0 10rpx;
+
+    border-bottom: 1rpx solid #818085;
 
     .title {
       color: #0E0E40;
@@ -102,6 +104,10 @@ page {
       box-shadow: 0 3rpx 0rpx rgba(0, 0, 0, 0.25);
       border-radius: 10rpx;
 
+      &:last-child {
+        box-shadow: none;
+      }
+
       .info {
         width: 80%;
         height: 100%;
@@ -122,15 +128,6 @@ page {
       .operate {
         width: 20%;
         height: 100%;
-
-        > view {
-          margin: 0;
-          padding: 10rpx;
-
-          font-size: 30rpx;
-          text-align: center;
-          color: #2D3DAA;
-        }
 
         > button {
           color: white;
