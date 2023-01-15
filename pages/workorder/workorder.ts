@@ -20,7 +20,8 @@ Page<{
   cancelChooseDate: () => void
   submitWorkOrder: () => Promise<void>
 
-  id: number
+  pid: number
+  sid: number
   loadProductModel: (id: number) => Promise<void>
 }>({
 
@@ -34,12 +35,14 @@ Page<{
     addition: '',
   },
 
-  onLoad (options: { id: string }) {
-    this.loadProductModel(parseInt(options.id))
-    this.id = parseInt(options.id)
+  onLoad (options: { sid: string, pid: string }) {
+    this.loadProductModel(parseInt(options.pid))
+    this.pid = parseInt(options.pid)
+    this.sid = parseInt(options.sid)
   },
 
-  id: 0,
+  pid: 0,
+  sid: 0,
 
   async loadProductModel (id) {
     try {
@@ -82,20 +85,22 @@ Page<{
   async submitWorkOrder () {
     const { address, date } = this.data
     const { id: cid } = app.globalData
-    const { id: pid } = this
+    const { pid, sid  } = this
     try {
       const res = await postWorkOrder(address, date, cid, pid, [{ storage_path: 'ls', serial_number: 1 }])
       if (res.code === 0) {
         Toast.success('提交成功')
         setTimeout(() => {
           wx.navigateTo({
-            url: '/pages/submited/submited',
+            url: `/pages/submited/submited?sid=${sid}&pid=${pid}`,
           })
         }, 2000)
       } else {
         Toast.fail(res.data.toString())
       }
-    } catch {}
+    } catch {
+      Toast.fail('提交失败')
+    }
   },
 
 })

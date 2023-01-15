@@ -6,6 +6,8 @@ Page<{
   currentType: number
   productModels: ProductModel[]
 }, {
+  sid: number
+
   loadProductTypes: () => Promise<void>
   loadProductModels: (current?: number) => Promise<void>
 
@@ -19,9 +21,12 @@ Page<{
     productModels: [],
   },
 
-  onLoad () {
+  onLoad (options: { sid: string }) {
+    this.sid = parseInt(options.sid)
     this.loadProductTypes()
   },
+
+  sid: 0,
 
   async loadProductTypes () {
     try {
@@ -71,9 +76,10 @@ Page<{
   },
 
   handleCreateWorkOrder (e) {
-    const { id } = e.mark!
+    const { id: pid } = e.mark!
+    const { sid } = this
     wx.navigateTo({
-      url: `/pages/workorder/workorder?id=${id}`,
+      url: `/pages/workorder/workorder?sid=${sid}&pid=${pid}`,
     })
   },
 
