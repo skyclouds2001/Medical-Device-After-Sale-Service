@@ -87,7 +87,7 @@ Page<{
     const { id: cid } = app.globalData
     const { pid, sid  } = this
     try {
-      const res = await postWorkOrder(address, date, cid, pid, [{ storage_path: 'ls', serial_number: 1 }])
+      const res = await postWorkOrder(address, date, cid, pid, [])
       if (res.code === 0) {
         Toast.success('提交成功')
         setTimeout(() => {
