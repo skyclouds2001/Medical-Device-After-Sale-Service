@@ -1,45 +1,38 @@
-<welcome />
+<welcome-bg />
 
-<search-bar move="-28rpx" />
-
-<view class="recommend">
-  <view class="selector">
-    <view class="selected">产品1</view>
-    <view class="">产品2</view>
-    <view class="">产品3</view>
-    <view class="">产品4</view>
-    <view class="">产品5</view>
-  </view>
-  <view class="issue">
-    <view class="item">
-      <view class="index">1</view>
-      <view class="content">
-        <view class="above">
-          <view class="title">测量不精准</view>
-          <view class="more">查看详情<van-icon name="arrow" /></view>
-        </view>
-        <view class="below">
-          <view class="solution">解决方案：这是解决方案这是解决方案这是解决方案这是解决方案</view>
-        </view>
+<view class="service-list">
+  <view class="header">服务列表</view>
+  <view class="content">
+    <view wx:for="{{ serviceItems }}" wx:key="id" class="item" mark:id="{{ item.id }}" bind:tap="handleCreateWorkOrder">
+      <view class="icon" style="background-color: {{ item.bg }}">
+        <van-image width="25" height="25" src="{{ item.img }}" />
       </view>
+      <view class="text">{{ item.text }}</view>
     </view>
   </view>
 </view>
 
 <view class="history">
   <view class="header">
-    <view class="title">您最近工单</view>
+    <view class="title">最近提交工单</view>
     <view class="more">查看更多<van-icon name="arrow" /></view>
   </view>
   <view class="content">
-    <view class="item">
+    <view wx:for="{{ conductHistories }}" wx:key="history_id" class="item">
       <view class="info">
-        <view class="desc">我家的网络不大好，知道是什么原因?</view>
-        <view class="date">2022年8月3日 11:12:52</view>
+        <view class="desc">{{ item.topic }}</view>
+        <view class="date">{{ item.consult_time }}</view>
       </view>
       <view class="operate">
-        <button>查看</button>
+        <button bind:tap="" mark:link="{{ item.kf_link }}">查看</button>
       </view>
     </view>
   </view>
 </view>
+
+<view class="connect-customer-servier" bind:tap="handleConnectKefu">
+  <van-icon class="icon" name="service-o" />
+  <view class="text">联系客服</view>
+</view>
+
+<van-toast id="van-toast" />

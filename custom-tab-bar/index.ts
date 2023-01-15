@@ -1,25 +1,24 @@
-const tabs: Array<string> = [
-  '/pages/index/index',
-  '/pages/fix/fix',
-  '/pages/mine/mine'
-]
+import { tabs } from '@/data/index'
+import type { Tab } from '@/data/index'
 
 Component<{
   active: number
+  tabs: Tab[]
 }, {}, {
-  onChange: (e: VantChange<number>) => void
+  onChange: (e: { detail: number }) => void
 }>({
 
   properties: {},
 
   data: {
-    active: 0,
+    active: 1,
+    tabs: tabs,
   },
 
   methods: {
     onChange(e) {
       wx.switchTab({
-        url: tabs[e.detail]
+        url: tabs[e.detail].path
       })
     },
   },

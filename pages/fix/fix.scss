@@ -18,7 +18,7 @@ page {
   width: 550rpx;
   height: auto;
   margin: 20rpx;
-  padding: 30rpx 5rpx;
+  padding: 30rpx 20rpx;
 
   background-color: white;
   border-radius: 10rpx;
@@ -28,13 +28,17 @@ page {
   align-items: center;
   flex-wrap: wrap;
 
+  &.empty {
+    padding: 0 20rpx;
+  }
+
   .product {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 
-    width: 180rpx;
+    width: 170rpx;
     height: auto;
     margin: 0;
     padding: 5rpx 10rpx;

@@ -2,8 +2,8 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "module": "CommonJS",
-    "target": "ES2020",
+    "module": "ESNext",
+    "target": "ESNext",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -16,10 +16,14 @@
     "noUnusedParameters": true,
     "strict": true,
     "strictPropertyInitialization": true,
-    "lib": ["ES2020"],
-    "typeRoots": [
-      "./typings"
-    ]
+    "lib": ["ESNext"],
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "types": ["miniprogram-api-typings"],
+    "paths": {
+      "@/*": ["./*"],
+      "@vant/weapp/*": ["./miniprogram_npm/@vant/weapp/*"]
+    }
   },
   "include": [
     "./**/*.ts"

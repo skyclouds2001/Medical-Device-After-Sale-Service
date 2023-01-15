@@ -1,0 +1,43 @@
+<view class="context">
+  <view class="product-info">
+    <view class="product-img">
+      <van-image width="50" height="50" fit="cover" lazy-load webp src="https://img.yzcdn.cn/vant/cat.jpeg" alt="" />
+    </view>
+    <view class="product-title">
+      {{ info }}
+    </view>
+  </view>
+  <view class="form">
+    <view class="form-item">
+      <van-field model:value="{{ name }}" name="name" required label="联系人信息" placeholder="请输入联系人信息" clearable border="{{ false }}" />
+    </view>
+    <view class="form-item">
+      <van-field model:value="{{ phone }}" name="phone" required label="联系人电话" placeholder="请输入联系人电话" clearable border="{{ false }}" />
+    </view>
+    <view class="form-item">
+      <van-field model:value="{{ address }}" name="address" required label="联系人地址" placeholder="请输入联系人地址" clearable border="{{ false }}" />
+    </view>
+    <view class="form-item">
+      <van-field model:value="{{ date }}" name="time" required readonly label="预约服务时间" placeholder="请选择服务时间" clearable border="{{ false }}" bind:click-input="openDatePicker" />
+    </view>
+    <view class="form-item">
+      <van-field model:value="{{ addition }}" name="addition" label="其他信息（选填）" placeholder="请补充其他信息" clearable border="{{ false }}" />
+    </view>
+  </view>
+  <view class="detail">
+    <view class="suggest">可以描述您需要维修的机器问题和状况，以便工程师更好为您提供服务。</view>
+    <view class="upload">
+      <van-uploader name="img" image-fit="aspectFill" max-count="1" accept="image" file-list="{{ [] }}" bind:after-read="" />
+    </view>
+  </view>
+</view>
+
+<view class="submit">
+  <button class="btn" bind:tap="submitWorkOrder">提交</button>
+</view>
+
+<van-popup show="{{ show }}" position="bottom">
+  <van-datetime-picker type="datetime" bind:confirm="confirmChooseDate" bind:cancel="cancelChooseDate" />
+</van-popup>
+
+<van-toast id="van-toast" />

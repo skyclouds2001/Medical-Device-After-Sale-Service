@@ -1,15 +1,19 @@
-<welcome />
+<welcome-bg />
 
 <search-bar class="search-bar" move="-28rpx" />
 
 <view class="main-box">
-  <product-sidebar class="sidebar" items="{{ list_items }}" bind:change="handleSwitch" />
-  <view class="products">
-    <view class="product">
-      <van-image fit="cover" lazy-load show-error show-loading radius="10rpx" width="160rpx" height="160rpx" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-      <text>型号1</text>
+  <product-sidebar class="sidebar" items="{{ productTypes }}" bind:change="handleSwitch" />
+  <view class="products {{ productModels.length === 0 ? 'empty' : '' }}">
+    <view wx:for="{{ productModels }}" wx:key="model_id" mark:id="{{ item.model_id }}" bind:tap="handleCreateWorkOrder" class="product">
+      <view>
+        <van-image fit="cover" lazy-load show-error show-loading radius="10rpx" width="160rpx" height="160rpx" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      </view>
+      <text class="van-ellipsis">{{ item.model_name }}</text>
     </view>
   </view>
 </view>
 
 <view class="no-more">-没有更多了-</view>
+
+<van-toast id="van-toast" />

@@ -1,8 +1,11 @@
 {
   "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
     "van-icon": "@vant/weapp/icon/index",
-    "welcome": "/components/welcome/welcome",
-    "search-bar": "/components/search-bar/search-bar"
+    "van-image": "@vant/weapp/image/index",
+    "welcome-bg": "/components/welcome-bg/welcome-bg",
+    "search-bar": "/components/search-bar/search-bar",
+    "tab-bar": "/custom-tab-bar/index"
   },
-  "navigationBarTitleText": "问题与反馈"
+  "navigationBarTitleText": "服务大厅"
 }
