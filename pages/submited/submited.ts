@@ -1,7 +1,15 @@
-Page<{}, {}>({
+Page<{}, {
+  doneSubmit: () => void
+}>({
 
   data: {},
 
-  onLoad() {},
+  onLoad () {},
+
+  doneSubmit () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
 
 })

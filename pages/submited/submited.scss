@@ -1,0 +1,59 @@
+.content {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    width: 2em;
+    height: 2em;
+    margin: 50rpx 0;
+    padding: 0;
+    
+    font-size: 50rpx;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 2em;
+
+    background-color: #52C89D;
+    border-radius: 50%;
+  }
+  .text {
+    margin: 50rpx 0;
+    padding: 0;
+
+    font-size: 40rpx;
+    font-weight: bold;
+    letter-spacing: 1rpx;
+  }
+  .box {
+    margin: 100rpx 0;
+    padding: 0;
+
+    .btn {
+      width: 500rpx;
+      height: 2.5em;
+      margin: 50rpx 0;
+      padding: 0;
+  
+      background-image: linear-gradient(145.41deg, #4468E9 20.41%, #181673 107.86%);
+      border-radius: 20rpx;
+  
+      color: white;
+      line-height: 2.5em;
+      font-size: 36rpx;
+      text-align: center;
+      letter-spacing: 1rpx;
+  
+      transition: all ease-in-out 250ms 0;
+  
+      &:active {
+        filter: saturate(95%) brightness(95%);
+      }
+    }
+  }
+}
