@@ -1,10 +1,13 @@
 {
   "pages": [
+    "pages/register/register",
     "pages/index/index",
-    "pages/index/search-products/search-products",
     "pages/fix/fix",
-    "pages/fix/common-issues/common-issues",
-    "pages/mine/mine"
+    "pages/workorder/workorder",
+    "pages/submited/submited",
+    "pages/mine/mine",
+    "pages/common-issues/common-issues",
+    "pages/search-products/search-products"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,12 +26,6 @@
         "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "icons/repair_fill.png",
-        "selectedIconPath": "icons/repair_fill_selected.png",
-        "text": "设备自检/客服",
-        "pagePath": "pages/fix/fix"
-      },
-      {
         "iconPath": "icons/wode_fill.png",
         "selectedIconPath": "icons/wode_fill_selected.png",
         "text": "个人中心",
@@ -41,8 +38,16 @@
     "custom": true
   },
   "sitemapLocation": "sitemap.json",
-  "usingComponents": {
-    "tab-bar": "/custom-tab-bar/index"
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "enablePassiveEvent": true,
+  "resolveAlias": {
+    "@/*": "/*"
   },
   "debug": true,
   "debugOptions": {

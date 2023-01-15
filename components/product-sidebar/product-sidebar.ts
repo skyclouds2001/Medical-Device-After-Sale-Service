@@ -1,32 +1,37 @@
 Component<{
-  active: number
+  active: number,
 }, {
-  items: { value: Array<string>, type: ArrayConstructor}
+  items: {
+    value: ProductType[],
+    type: ArrayConstructor,
+  },
 }, {
   handleSwitch: (e: WechatMiniprogram.TouchEvent<{}, {}, {}, {
-    id: number
-  }>) => void
+    id: number,
+  }>) => void,
 }>({
 
   properties: {
     items: {
       value: [],
-      type: Array
-    }
+      type: Array,
+    },
   },
 
   data: {
-    active: 0
+    active: -1,
   },
 
   methods: {
     handleSwitch(e) {
-      const { id } = e.target.dataset;
+      const { id } = e.target.dataset
       this.setData({
-        active: id
+        active: id,
       })
-      this.triggerEvent('change', { current: id })
-    }
-  }
+      this.triggerEvent('change', {
+        current: id,
+      })
+    },
+  },
 
 })

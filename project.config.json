@@ -6,7 +6,7 @@
   },
   "miniprogramRoot": "",
   "compileType": "miniprogram",
-  "projectname": "ts-sass-demo",
+  "projectname": "MedicalDeviceAfterSaleService",
   "setting": {
     "useCompilerPlugins": [
       "typescript",
@@ -18,7 +18,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "uglifyFileName": true,
+    "uglifyFileName": false,
     "minified": true,
     "postcss": true,
     "es6": true,
@@ -35,8 +35,8 @@
   "simulatorPluginLibVersion": {},
   "condition": {},
   "srcMiniprogramRoot": "",
-  "appid": "wx0f011012e5bb4d62",
-  "libVersion": "2.26.0",
+  "appid": "wxad12fa22fba03295",
+  "libVersion": "2.29.1",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

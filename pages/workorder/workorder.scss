@@ -1,0 +1,101 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.context {
+  margin: 50rpx 25rpx;
+  padding: 20rpx;
+
+  background-color: white;
+  border-radius: 20rpx;
+
+  .product-info {
+    background-color: #F0F3FE;
+    border-radius: 20rpx;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 20rpx;
+
+    .product-img {
+      flex: 1;
+
+      .image-class, .van-image__img {
+        border-radius: 10rpx !important;
+      }
+    }
+    .product-title {
+      flex: 3;
+
+      color: #0E0E40;
+      letter-spacing: 1rpx;
+    }
+  }
+  .form {
+    margin: 0;
+    padding: 10rpx 0;
+    
+    .form-item {
+      .label-class, .van-field__label {
+        color: #0E0E40 !important;
+      }
+    }
+  }
+  .detail {
+    background-color: #F0F3FE;
+    border-radius: 20rpx;
+
+    margin: 0;
+    padding: 20rpx;
+
+    .suggest {
+      color: #7A7982;
+      font-size: 26rpx;
+    }
+    .upload {
+      margin: 70rpx 0 0;
+      padding: 0;
+
+      .van-uploader__preview, .van-uploader__upload {
+        background-color: #FFFFFF !important;
+        border: 1rpx dashed #5C7CEB !important;
+        border-radius: 15rpx !important;
+      }
+
+      .van-icon {
+        color: #5C7CEB !important;
+        font-size: 70rpx !important;
+      }
+    }
+  }
+}
+
+.submit {
+  margin: 0 100rpx;
+  padding: 0;
+
+  .btn {
+    width: 100%;
+    height: 2.5em;
+    margin: 50rpx 0;
+    padding: 0;
+
+    background-image: linear-gradient(145.41deg, #4468E9 20.41%, #181673 107.86%);
+    border-radius: 20rpx;
+
+    color: white;
+    line-height: 2.5em;
+    font-size: 36rpx;
+    text-align: center;
+    letter-spacing: 1rpx;
+
+    transition: all ease-in-out 250ms 0;
+
+    &:active {
+      filter: saturate(95%) brightness(95%);
+    }
+  }
+}

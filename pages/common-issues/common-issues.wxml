@@ -1,0 +1,42 @@
+<welcome-bg showComment="{{ false }}" />
+
+<view class="main">
+
+  <view class="choose-issue">
+    <view class="q">Q:</view>
+    <view class="select">
+      <issue-selector id="issue-selector" value="{{ value }}" options="{{ options }}" bind:select-issue="handleIssueChange" />
+    </view>
+  </view>
+
+  <view class="content">
+
+    <block wx:if="{{ value === '' }}">
+      <view class="unchoose">
+        <image lazy-load src="/images/issue-null.jpg" mode="aspectFill" />
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="choose">
+        <view class="solve-way">
+          <view class="title">解决方案</view>
+          <view class="content">这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案这是解决方案这是解决方案，这是解决方案这是解决方案，这是解决方案这是解决方案。</view>
+          <view class="images">
+            <image src="https://img01.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+            <image src="https://img01.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+          </view>
+        </view>
+        <view class="connect-issue">
+          <view class="title">相关问题</view>
+          <view class="content">
+            <view class="item">Q：血压仪屏幕没有反应是怎么回事？</view>
+            <view class="item">Q：血压仪屏幕没有反应是怎么回事？</view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+
+</view>
