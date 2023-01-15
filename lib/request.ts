@@ -4,7 +4,7 @@ const app = getApp<App>()
 
 export const request = <T>(params: WechatMiniprogram.RequestOption<Response<T>>) => {
   const header = WHITE_LIST.includes(params.url) ? {} : {
-    Authorization: app.globalData.token,
+    Authorization: 'Bearer ' + app.globalData.token,
   }
   return new Promise<Response<T>>((resolve, reject) => {
     wx.request<Response<T>>({
