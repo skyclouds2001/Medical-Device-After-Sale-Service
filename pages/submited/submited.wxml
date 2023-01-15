@@ -4,6 +4,8 @@
   </view>
   <view class="text">工单提交成功</view>
   <view class="box">
-    <button class="btn" bind:tap="doneSubmit">返回首页</button>
+    <button class="btn" bind:tap="doneSubmit">{{ text }}</button>
   </view>
 </view>
+
+<van-toast id="van-toast" />
