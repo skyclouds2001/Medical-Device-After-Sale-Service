@@ -86,7 +86,7 @@ Page<{
   },
 
   async handleConnectKefu (e) {
-    let link = e.mark?.link ?? (await this.loadKefuLink(-1))
+    const link = e.mark?.link ?? (await this.loadKefuLink(-1))
 
     if (!link) {
       Toast.fail('获取客服链接失败')
@@ -95,7 +95,7 @@ Page<{
 
     wx.openCustomerServiceChat({
       extInfo: {
-        url: link as string,
+        url: link!,
       },
       corpId: CUSTOMER_SERVICE_COMPANY_ID,
       fail: (err) => {

@@ -39,6 +39,9 @@ Page<{
               url: res.data.kf_link,
             },
             corpId: CUSTOMER_SERVICE_COMPANY_ID,
+            fail: (err) => {
+              Toast.fail(err.errMsg)
+            },
           })
         } else {
           Toast.fail(res.data.toString())
