@@ -4,7 +4,9 @@
 
 - 注册 | page/register/register
 - 首页&服务大厅 | pages/index/index
-- 设备自检/客服&维修与检查 | pages/fix/fix
+- 选择产品 | pages/fix/fix
+- 创建工单 | pages/workorder/workorder
+- 提交工单成功反馈 | pages/submited/submited
 - 个人中心 | pages/mine/mine
 
 ## 文档
