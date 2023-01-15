@@ -2,7 +2,7 @@ import { request } from '@/lib/request'
 
 type PostWorkOrderResponse = {}
 
-export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: unknown[] = []) => {
+export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: Accessory[]) => {
   return request<PostWorkOrderResponse>({
     url: '/wizz/aftersale/work-order/add',
     method: 'POST',
