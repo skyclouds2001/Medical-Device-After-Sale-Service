@@ -20,3 +20,15 @@ export const getProductModelByTypeId = (id: number) => {
     },
   })
 }
+
+type GetProductModelByModelIdResponse = ProductModel
+
+export const getProductModelByModelId = (id: number) => {
+  return request<GetProductModelByModelIdResponse>({
+    url: '/wizz/aftersale/product-model/get',
+    method: 'GET',
+    data: {
+      productModelId: id,
+    },
+  })
+}
