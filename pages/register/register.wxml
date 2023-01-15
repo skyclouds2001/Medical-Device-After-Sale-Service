@@ -8,7 +8,7 @@
     <van-field name="company" value="{{ company.company_name }}" placeholder="请选择企业" readonly mark:flag="{{ true }}" bind:tap="handleManageSelector" />
   </view>
   <view class="form-item">
-    <van-field name="password" model:value="{{ name }}" placeholder="请输入姓名" border="{{ false }}" clearable />
+    <van-field name="name" model:value="{{ name }}" placeholder="请输入姓名" border="{{ false }}" clearable />
   </view>
   <view class="form-item">
     <van-field name="phone" model:value="{{ phone }}" placeholder="请输入手机号码" border="{{ false }}" clearable />

@@ -5,12 +5,12 @@ import { DEFAULT_PAGE_SIZE } from '@/config/index'
 import { validatePhone, validatePassword } from '@/utils/validate'
 
 Page<{
-  companies: any[]
+  companies: Company[]
   show: boolean
 
   phone: string
   name: string
-  company: Company | ''
+  company: Company
 }, {
   openid: string
 
@@ -23,12 +23,15 @@ Page<{
 }>({
 
   data: {
-    companies: ['666', '777'],
+    companies: [],
     show: false,
 
     name: '',
     phone: '',
-    company: '',
+    company: {
+      company_id: -1,
+      company_name: '',
+    },
   },
 
   onLoad() {
@@ -78,13 +81,23 @@ Page<{
 
   async userLogin() {
     try {
+      Toast.loading({
+        message: '登录中',
+        duration: 0,
+        mask: true,
+      })
       const { code } = await wx.login()
       const res = await login(code)
       if (res.code === 0) {
         const { token, customer_id } = res.data
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
+        setTimeout(() => {
+          Toast.success('登录成功')
+        }, 1000)
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }, 2000)
         getApp<App>().globalData.token = token
         getApp<App>().globalData.id = customer_id
         wx.batchSetStorageSync([
@@ -98,6 +111,7 @@ Page<{
           },
         ])
       } else if (res.code === 1070) {
+        Toast.clear()
         this.openid = res.data.toString()
       } else {
         Toast.fail(res.data.toString())
@@ -110,7 +124,7 @@ Page<{
   async userRegister() {
     const { phone, name, company } = this.data
 
-    if (company === '') {
+    if (company.company_id === -1 || company.company_name === '') {
       Toast.fail('需选择所属企业')
       return
     }
