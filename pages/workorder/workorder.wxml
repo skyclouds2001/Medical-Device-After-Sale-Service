@@ -39,3 +39,5 @@
 <van-popup show="{{ show }}" position="bottom">
   <van-datetime-picker type="datetime" bind:confirm="confirmChooseDate" bind:cancel="cancelChooseDate" />
 </van-popup>
+
+<van-toast id="van-toast" />
