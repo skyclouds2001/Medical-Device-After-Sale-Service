@@ -2,6 +2,7 @@ import Toast from '@vant/weapp/toast/toast'
 import { login, auth } from '@/apis/admin'
 import { getCompanyList } from '@/apis/company'
 import { DEFAULT_PAGE_SIZE } from '@/config/index'
+import { setStorage } from '@/lib/storage'
 import { validatePhone, validatePassword } from '@/utils/validate'
 
 Page<{
@@ -91,6 +92,7 @@ Page<{
       if (res.code === 0) {
         const { token, customer_id } = res.data
         setTimeout(() => {
+          Toast.clear()
           Toast.success('登录成功')
         }, 1000)
         setTimeout(() => {
@@ -100,7 +102,7 @@ Page<{
         }, 2000)
         getApp<App>().globalData.token = token
         getApp<App>().globalData.id = customer_id
-        wx.batchSetStorageSync([
+        setStorage(
           {
             key: 'token',
             value: token,
@@ -109,7 +111,7 @@ Page<{
             key: 'id',
             value: customer_id,
           },
-        ])
+        )
       } else if (res.code === 1070) {
         Toast.clear()
         this.openid = res.data.toString()
@@ -150,7 +152,7 @@ Page<{
           })
           getApp<App>().globalData.token = token
           getApp<App>().globalData.id = customer_id
-          wx.batchSetStorageSync([
+          setStorage(
             {
               key: 'token',
               value: token,
@@ -159,7 +161,7 @@ Page<{
               key: 'id',
               value: customer_id,
             },
-          ])
+          )
         } else {
           Toast.fail('登录失败')
         }

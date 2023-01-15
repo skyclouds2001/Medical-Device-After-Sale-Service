@@ -1,3 +1,5 @@
+import { getStorage } from '@/lib/storage'
+
 App<App>({
 
   globalData: {
@@ -10,7 +12,7 @@ App<App>({
   },
 
   onLaunch () {
-    const [token, id, userinfo] = wx.batchGetStorageSync(['token', 'id', 'userinfo']) as [string, number, UserInfo]
+    const [token, id, userinfo] = getStorage('token', 'id', 'userinfo') as [string, number, UserInfo]
     this.globalData.token = token ?? ''
     this.globalData.id = id ?? ''
     this.globalData.userinfo.nickname = userinfo?.nickname ?? '点击登录'
