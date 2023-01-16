@@ -1,7 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getProductModelByModelId } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
-import { transform } from '@/utils/date'
+import { transformDate } from '@/utils/date'
 
 const app = getApp<App>()
 
@@ -73,7 +73,7 @@ Page<{
 
   confirmChooseDate (e) {
     this.setData({
-      date: transform(new Date(e.detail)),
+      date: transformDate(new Date(e.detail)),
     })
     this.closeDatePicker()
   },
