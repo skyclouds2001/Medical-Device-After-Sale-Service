@@ -8,5 +8,6 @@ interface GetCompanyListResponse {
 export const getCompanyList = (pageNum: number, isFirstQuery: boolean) => {
   return request<GetCompanyListResponse>({
     url: `/wizz/aftersale/account/company/query/${isFirstQuery}/${pageNum}`,
+    method: 'GET',
   })
 }

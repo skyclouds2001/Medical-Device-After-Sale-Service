@@ -16,6 +16,7 @@ Page<{
 
   handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
   handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
+  handleHistoryWorkOrder: () => void
 }>({
 
   data: {
@@ -101,6 +102,12 @@ Page<{
       fail: (err) => {
         Toast.fail(err.errMsg)
       },
+    })
+  },
+
+  handleHistoryWorkOrder () {
+    wx.navigateTo({
+      url: '/pages/history/history',
     })
   },
 

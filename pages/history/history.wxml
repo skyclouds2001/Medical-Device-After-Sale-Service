@@ -1,0 +1,21 @@
+<view class="search">
+  <search-bar move="0" />
+</view>
+
+<status-selector />
+
+<view class="workorder-list">
+  <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
+    <view class="left">
+      <view class="desc">{{ item.model_name }}</view>
+      <view class="date">{{ item.appointment_time }}</view>
+    </view>
+    <view class="right">
+      <view class="status">处理中</view>
+    </view>
+  </view>
+</view>
+
+<view class="no-more">-没有更多了-</view>
+
+<van-toast id="van-toast" />
