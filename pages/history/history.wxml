@@ -5,10 +5,10 @@
 <view class="status-bar"></view>
 
 <view class="workorder-list">
-  <view class="work-order-item">
+  <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
     <view class="left">
-      <view class="desc">我家的网络不大好，知道是什么原因？我家的网络不大好，知道是什么原因？</view>
-      <view class="date">2022年8月3日11:32:20</view>
+      <view class="desc">{{ item.model_name }}</view>
+      <view class="date">{{ item.appointment_time }}</view>
     </view>
     <view class="right">
       <view class="status">处理中</view>
@@ -17,3 +17,5 @@
 </view>
 
 <view class="no-more">-没有更多了-</view>
+
+<van-toast id="van-toast" />
