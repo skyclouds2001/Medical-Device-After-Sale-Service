@@ -16,8 +16,10 @@ export const login = (code: string) => {
   })
 }
 
+type AuthResponse = {}
+
 export const auth = (id: number, name: string, phone: string, openid: string) => {
-  return request<undefined>({
+  return request<AuthResponse>({
     url: '/wizz/aftersale/account/customer/authenticate',
     method: 'POST',
     data: {
@@ -25,6 +27,9 @@ export const auth = (id: number, name: string, phone: string, openid: string) =>
       customer_name: name,
       mobile: phone,
       open_id: openid,
+    },
+    header: {
+      'content-type': 'application/json',
     },
   })
 }
