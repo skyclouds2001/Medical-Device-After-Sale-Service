@@ -2,7 +2,7 @@
   <search-bar move="0" />
 </view>
 
-<view class="status-bar"></view>
+<status-selector />
 
 <view class="workorder-list">
   <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">

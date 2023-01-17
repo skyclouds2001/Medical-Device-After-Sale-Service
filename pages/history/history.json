@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "van-toast": "@vant/weapp/toast/index",
-    "search-bar": "/components/search-bar/search-bar"
+    "search-bar": "/components/search-bar/search-bar",
+    "status-selector": "/components/status-selector/status-selector"
   },
   "navigationBarTitleText": "历史工单"
 }
