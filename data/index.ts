@@ -68,3 +68,39 @@ export const tabs: Tab[] = [
     icon_active: '/icons/wode_fill_selected.png',
   },
 ]
+
+export interface Status {
+  id: number
+  name: string
+}
+
+export const statuses: Status[] = [
+  {
+    id: 0,
+    name: '全部',
+  },
+  {
+    id: 1,
+    name: '未受理',
+  },
+  {
+    id: 2,
+    name: '处理中',
+  },
+  {
+    id: 3,
+    name: '有回复',
+  },
+  {
+    id: 4,
+    name: '已解决',
+  },
+  {
+    id: 5,
+    name: '已完成',
+  },
+  {
+    id: 6,
+    name: '已评价',
+  },
+]

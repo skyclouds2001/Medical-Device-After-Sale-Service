@@ -6,6 +6,7 @@
     "pages/workorder/workorder",
     "pages/submited/submited",
     "pages/mine/mine",
+    "pages/history/history",
     "pages/common-issues/common-issues",
     "pages/search-products/search-products"
   ],

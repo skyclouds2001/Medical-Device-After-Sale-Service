@@ -18,3 +18,15 @@ export const postWorkOrder = (address: string, time: string, cid: number, mid: n
     },
   })
 }
+
+type GetUserWorkOrderResponse = WorkOrder[]
+
+export const getUserWorkOrder = (id: number) => {
+  return request<GetUserWorkOrderResponse>({
+    url: '/wizz/aftersale/work-order/all',
+    method: 'GET',
+    data: {
+      customerId: id,
+    },
+  })
+}
