@@ -15,7 +15,7 @@
 <view class="history">
   <view class="header">
     <view class="title">最近提交工单</view>
-    <view class="more">查看更多<van-icon name="arrow" /></view>
+    <view class="more" bind:tap="handleHistoryWorkOrder">查看更多<van-icon name="arrow" /></view>
   </view>
   <view class="content">
     <view wx:for="{{ conductHistories }}" wx:key="history_id" class="item">
