@@ -24,7 +24,7 @@
         <view class="date">{{ item.consult_time }}</view>
       </view>
       <view class="operate">
-        <button bind:tap="" mark:link="{{ item.kf_link }}">查看</button>
+        <button bind:tap="handleWorkOrderDetail" mark:id="{{ item.history_id }}">查看</button>
       </view>
     </view>
   </view>

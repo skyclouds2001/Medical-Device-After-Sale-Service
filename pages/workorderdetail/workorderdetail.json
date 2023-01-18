@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "welcome-bg": "/components/welcome-bg/welcome-bg"
+  },
+  "navigationBarTitleText": "工单详情"
 }

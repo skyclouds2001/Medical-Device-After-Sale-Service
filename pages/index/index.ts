@@ -17,6 +17,7 @@ Page<{
   handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
   handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
   handleHistoryWorkOrder: () => void
+  handleWorkOrderDetail: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 
   data: {
@@ -108,6 +109,13 @@ Page<{
   handleHistoryWorkOrder () {
     wx.navigateTo({
       url: '/pages/history/history',
+    })
+  },
+
+  handleWorkOrderDetail (e) {
+    const { id } = e.mark!
+    wx.navigateTo({
+      url: `/pages/workorderdetail/workorderdetail?id=${id}`,
     })
   },
 

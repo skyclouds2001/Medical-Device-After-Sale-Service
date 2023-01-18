@@ -1,0 +1,17 @@
+<welcome-bg showComment="{{ false }}" />
+
+<view class="context">
+  <view class="wo-info">
+    <view class="header">
+      <view class="title">{{ workOrder.model_name }}</view>
+      <view class="status">处理中</view>
+    </view>
+    <view class="desc">暂无</view>
+    <view class="footer">
+      <view class="phone">unknown</view>
+      <view class="address">{{ workOrder.address }}</view>
+    </view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />
