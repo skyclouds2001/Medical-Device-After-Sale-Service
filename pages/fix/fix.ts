@@ -1,10 +1,12 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getAllProductTypes, getProductModelByTypeId } from '@/apis/product'
+import { DEFAULT_PRODUCT_IMG_SRC } from '@/config/index'
 
 Page<{
   productTypes: ProductType[]
   currentType: number
   productModels: ProductModel[]
+  default_img_src: string
 }, {
   sid: number
 
@@ -19,6 +21,7 @@ Page<{
     productTypes: [],
     currentType: -1,
     productModels: [],
+    default_img_src: DEFAULT_PRODUCT_IMG_SRC,
   },
 
   onLoad (options: { sid: string }) {
