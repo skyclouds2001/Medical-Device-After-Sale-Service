@@ -1,3 +1,4 @@
+import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
 import { getStorage } from '@/lib/storage'
 
 App<App>({
@@ -15,8 +16,8 @@ App<App>({
     const [token, id, userinfo] = getStorage('token', 'id', 'userinfo') as [string, number, UserInfo]
     this.globalData.token = token ?? ''
     this.globalData.id = id ?? ''
-    this.globalData.userinfo.nickname = userinfo?.nickname ?? '点击登录'
-    this.globalData.userinfo.avatar = userinfo?.avatar ?? '/icons/user.svg'
+    this.globalData.userinfo.nickname = userinfo?.nickname ?? DEFAULT_NICKNAME
+    this.globalData.userinfo.avatar = userinfo?.avatar ?? DEFAULT_AVATAR
   },
 
 })
