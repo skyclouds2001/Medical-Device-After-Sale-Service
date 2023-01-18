@@ -7,22 +7,22 @@ page {
 
   .wo-info {
     margin: 20rpx;
-    padding: 20rpx;
-  
+    padding: 10rpx 20rpx;
+
     background-color: #fff;
     border-radius: 20rpx;
     box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, 0.25);
-  
+
     .header {
       font-size: 32rpx;
       line-height: 2em;
 
       border-bottom: 1rpx solid #818085;
-  
+
       > view {
         display: inline-block;
       }
-  
+
       .title {
         width: 75%;
 
@@ -31,7 +31,7 @@ page {
         font-size: 32rpx;
         font-weight: bold;
       }
-  
+
       .status {
         width: 25%;
 
@@ -40,32 +40,35 @@ page {
         font-size: 30rpx;
       }
     }
-  
+
     .desc {
       color: #0E0E40;
       line-height: 1.5em;
 
       padding: 20rpx 0;
+      min-height: 10em;
     }
-  
+
     .footer {
       font-size: 30rpx;
       line-height: 2em;
-  
+
+      border-top: 1rpx solid #818085;
+
       > view {
         display: inline-block;
       }
-  
-      .phone {
-        width: 75%;
-        
+
+      .address {
+        width: 50%;
+
         color: #0E0E40;
         text-align: left;
         font-size: 28rpx;
       }
-  
-      .address {
-        width: 25%;
+
+      .date {
+        width: 50%;
 
         color: #818085;
         text-align: right;

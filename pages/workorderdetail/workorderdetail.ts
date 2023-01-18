@@ -26,8 +26,9 @@ Page<{
     try {
       const res = await getWorkOrderById(id)
       if (res.code === 0) {
+        const product = res.data
         this.setData({
-          workOrder: res.data,
+          workOrder: { ...product },
         })
       } else {
         Toast.fail(res.data.toString())

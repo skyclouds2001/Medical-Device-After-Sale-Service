@@ -8,8 +8,8 @@
     </view>
     <view class="desc">暂无</view>
     <view class="footer">
-      <view class="phone">unknown</view>
       <view class="address">{{ workOrder.address }}</view>
+      <view class="date">{{ workOrder.appointment_time }}</view>
     </view>
   </view>
 </view>
