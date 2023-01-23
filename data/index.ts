@@ -1,3 +1,4 @@
+/** 首页展示的服务类型数据结构 */
 export interface Service {
   id: number
   img: string
@@ -5,6 +6,7 @@ export interface Service {
   bg: string
 }
 
+/** 首页展示的服务类型 */
 export const services: Service[] = [
   {
     id: 1,
@@ -44,6 +46,7 @@ export const services: Service[] = [
   },
 ]
 
+/** Tabbar数据结构 */
 export interface Tab {
   id: number
   name: string
@@ -52,6 +55,7 @@ export interface Tab {
   icon_active: string
 }
 
+/** Tabbars数据 */
 export const tabs: Tab[] = [
   {
     id: 1,
@@ -69,11 +73,13 @@ export const tabs: Tab[] = [
   },
 ]
 
+/** 产品状态数据结构 */
 export interface Status {
   id: number
   name: string
 }
 
+/** 产品状态数据 */
 export const statuses: Status[] = [
   {
     id: 0,
