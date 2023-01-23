@@ -2,6 +2,15 @@ import { request } from '@/lib/request'
 
 type PostWorkOrderResponse = {}
 
+/**
+ * 提交工单方法
+ *
+ * @param address 地址
+ * @param time 预定时间
+ * @param cid 客户ID
+ * @param mid 产品模型ID
+ * @param accessories 工单附件
+ */
 export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: Accessory[]) => {
   return request<PostWorkOrderResponse>({
     url: '/wizz/aftersale/work-order/add',
@@ -21,6 +30,11 @@ export const postWorkOrder = (address: string, time: string, cid: number, mid: n
 
 type GetUserWorkOrderResponse = WorkOrder[]
 
+/**
+ * 根据用户ID获取工单方法
+ *
+ * @param id 用户ID
+ */
 export const getUserWorkOrder = (id: number) => {
   return request<GetUserWorkOrderResponse>({
     url: '/wizz/aftersale/work-order/all',
@@ -33,6 +47,11 @@ export const getUserWorkOrder = (id: number) => {
 
 type GetWorkOrderByIdResponse = WorkOrder
 
+/**
+ * 根据工单ID获取工单方法
+ *
+ * @param id 工单ID
+ */
 export const getWorkOrderById = (id: number) => {
   return request<GetWorkOrderByIdResponse>({
     url: '/wizz/aftersale/work-order/get',

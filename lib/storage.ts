@@ -4,7 +4,7 @@
  * @param params 存储键名组
  * @returns 批量获取的存储键值对组
  */
-export const getStorage = (...params: string[]): Array<{ key: string, value: any }> => {
+export const getStorage = (...params: string[]): any[] => {
   if (wx.canIUse('batchGetStorageSync')) {
     return wx.batchGetStorageSync([...params])
   } else {
