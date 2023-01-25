@@ -1,7 +1,7 @@
 <view class="context">
   <view class="product-info">
     <view class="product-img">
-      <van-image width="50" height="50" fit="cover" lazy-load webp src="https://img.yzcdn.cn/vant/cat.jpeg" alt="" />
+      <van-image width="50" height="50" fit="cover" lazy-load webp src="{{ default_img_src }}" alt="" />
     </view>
     <view class="product-title">
       {{ info }}

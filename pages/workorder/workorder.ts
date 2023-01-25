@@ -1,6 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getProductModelByModelId } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
+import { DEFAULT_PRODUCT_IMG_SRC } from '@/config/index'
 import { transformDate } from '@/utils/date'
 
 const app = getApp<App>()
@@ -13,6 +14,7 @@ Page<{
   address: string
   date: string
   addition: string
+  default_img_src: string
 }, {
   openDatePicker: () => void
   closeDatePicker: () => void
@@ -33,6 +35,7 @@ Page<{
     address: '',
     date: '',
     addition: '',
+    default_img_src: DEFAULT_PRODUCT_IMG_SRC,
   },
 
   onLoad (options: { sid: string, pid: string }) {

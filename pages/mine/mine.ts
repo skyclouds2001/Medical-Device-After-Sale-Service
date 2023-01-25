@@ -1,4 +1,5 @@
 import Toast from '@vant/weapp/toast/toast'
+import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
 
 const app = getApp<App>()
 
@@ -17,15 +18,15 @@ Page<{
 }>({
 
   data: {
-    nickname: '点击登录',
-    avatar: '/icons/user.svg',
+    nickname: DEFAULT_NICKNAME,
+    avatar: DEFAULT_AVATAR,
     show: false,
   },
 
   onLoad () {
     const { userinfo } = app.globalData
     this.setData({
-      nickname: userinfo. nickname,
+      nickname: userinfo.nickname,
       avatar: userinfo.avatar,
     })
   },
@@ -38,7 +39,7 @@ Page<{
 
   showLoginDialog () {
     const { nickname, avatar } = this.data
-    if (nickname === '点击登录' || avatar === '/icons/user.svg') {
+    if (nickname === DEFAULT_NICKNAME || avatar === DEFAULT_AVATAR) {
       this.setData({
         show: true,
       })
@@ -71,8 +72,8 @@ Page<{
     wx.removeStorageSync('token')
     wx.removeStorageSync('userinfo')
     app.globalData.token = ''
-    app.globalData.userinfo.nickname = '点击登录'
-    app.globalData.userinfo.avatar = '/icons/user.svg'
+    app.globalData.userinfo.nickname = DEFAULT_NICKNAME
+    app.globalData.userinfo.avatar = DEFAULT_AVATAR
     wx.reLaunch({
       url: '/pages/register/register',
     })
