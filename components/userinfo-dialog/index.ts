@@ -1,3 +1,5 @@
+import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
+
 Component<{
   avatar: string
   nickname: string
@@ -19,8 +21,8 @@ Component<{
   },
 
   data: {
-    avatar: '/icons/user.svg',
-    nickname: '',
+    avatar: DEFAULT_AVATAR,
+    nickname: DEFAULT_NICKNAME,
   },
 
   methods: {

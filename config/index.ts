@@ -18,3 +18,12 @@ export const SESSION_EXPIRE: number = 3 * 24 * 60 * 60 * 1000
 
 /** 微信客服企业ID */
 export const CUSTOMER_SERVICE_COMPANY_ID: string = 'ww562acecf4b6b8caf'
+
+/** 默认产品图片地址 */
+export const DEFAULT_PRODUCT_IMG_SRC: string = '/icons/product.svg'
+
+/** 默认用户昵称 */
+export const DEFAULT_NICKNAME: string = '点击登录'
+
+/** 默认用户头像 */
+export const DEFAULT_AVATAR: string = '/icons/user.svg'

@@ -30,3 +30,15 @@ export const getUserWorkOrder = (id: number) => {
     },
   })
 }
+
+type GetWorkOrderByIdResponse = WorkOrder
+
+export const getWorkOrderById = (id: number) => {
+  return request<GetWorkOrderByIdResponse>({
+    url: '/wizz/aftersale/work-order/get',
+    method: 'GET',
+    data: {
+      workOrderId: id,
+    },
+  })
+}
