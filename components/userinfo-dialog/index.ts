@@ -20,7 +20,7 @@ Component<{
   },
 
   data: {
-    avatar: '',
+    avatar: '/icons/user.svg',
     nickname: '',
   },
 
