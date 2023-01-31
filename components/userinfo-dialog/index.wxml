@@ -1,4 +1,4 @@
-<van-dialog id="van-dialog" use-slot show="{{ show }}" show-cancel-button bind:confirm="handleConfirm" >
+<van-dialog id="van-dialog" use-slot show="{{ show }}" show-cancel-button bind:confirm="handleConfirm" bind:cancel="handleCancel" >
   <view class="form">
     <view class="form-item">
       <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="{{ avatar }}" />

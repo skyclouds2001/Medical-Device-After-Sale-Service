@@ -1,5 +1,3 @@
-import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
-
 Component<{
   avatar: string
   nickname: string
@@ -11,6 +9,7 @@ Component<{
 }, {
   getUserAvatar: (e: WechatMiniprogram.TouchEvent<{ avatarUrl: string }>) => void
   handleConfirm: () => void
+  handleCancel: () => void
 }>({
 
   properties: {
@@ -21,8 +20,8 @@ Component<{
   },
 
   data: {
-    avatar: DEFAULT_AVATAR,
-    nickname: DEFAULT_NICKNAME,
+    avatar: '',
+    nickname: '',
   },
 
   methods: {
@@ -34,6 +33,9 @@ Component<{
     handleConfirm () {
       const { nickname, avatar } = this.data
       this.triggerEvent('confirm', { nickname, avatar })
+    },
+    handleCancel () {
+      this.triggerEvent('cancel')
     },
   },
 

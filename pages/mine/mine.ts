@@ -13,6 +13,7 @@ Page<{
     avatar: string
     nickname: string
   }>) => void
+  cancelLogin: () => void
   editBindPhone: () => void
   exitLogin: () => void
 }>({
@@ -59,10 +60,17 @@ Page<{
     this.setData({
       nickname,
       avatar,
+      show: false,
     })
     wx.setStorageSync<UserInfo>('userinfo', {
       nickname,
       avatar,
+    })
+  },
+
+  cancelLogin () {
+    this.setData({
+      show: false,
     })
   },
 
