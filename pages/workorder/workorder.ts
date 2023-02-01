@@ -7,23 +7,73 @@ import { transformDate } from '@/utils/date'
 const app = getApp<App>()
 
 Page<{
+  /**
+   * 产品名称
+   */
   info: string
+  /**
+   * 控制日期选择器显示与否
+   */
   show: boolean
+  /**
+   * 联系人姓名
+   */
   name: string
+  /**
+   * 联系人手机
+   */
   phone: string
+  /**
+   * 联系人地址
+   */
   address: string
+  /**
+   * 预约服务时间
+   */
   date: string
+  /**
+   * 其他信息
+   */
   addition: string
+  /**
+   * 默认产品图片链接
+   */
   default_img_src: string
 }, {
+  /**
+   * 打开日期选择器回调方法
+   */
   openDatePicker: () => void
+  /**
+   * 关闭日期选择器回调方法
+   */
   closeDatePicker: () => void
+  /**
+   * 确认选择日期回调方法
+   *
+   * @param e 选取日期事件
+   */
   confirmChooseDate: (e: { detail: number }) => void
+  /**
+   * 取消选择日期回调方法
+   */
   cancelChooseDate: () => void
+  /**
+   * 提交工单方法
+   */
   submitWorkOrder: () => Promise<void>
 
+  /**
+   * 工单所属产品ID
+   */
   pid: number
+  /**
+   * 工单所属服务ID
+   */
   sid: number
+  /**
+   * 加载产品模型方法
+   */
   loadProductModel: (id: number) => Promise<void>
 }>({
 

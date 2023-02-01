@@ -3,11 +3,23 @@ import { getKfLink } from '@/apis/consult'
 import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 
 Page<{
+  /**
+   * 提交后按钮文字
+   */
   text: '返回首页' | '转入人工客服'
 }, {
+  /**
+   * 工单对应服务ID
+   */
   sid: number
+  /**
+   * 工单对应产品ID
+   */
   pid: number
 
+  /**
+   * 完成提交工单回调方法
+   */
   doneSubmit: () => Promise<void>
 }>({
 

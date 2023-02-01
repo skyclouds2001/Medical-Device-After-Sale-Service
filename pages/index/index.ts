@@ -8,15 +8,46 @@ import type { Service } from '@/data/index'
 const app = getApp<App>()
 
 Page<{
+  /**
+   * 最近工单列表
+   */
   histories: WorkOrder[]
+  /**
+   * 服务列表
+   */
   serviceItems: Service[]
 }, {
+  /**
+   * 加载工单方法
+   */
   loadWorkOrderList: () => Promise<void>
+  /**
+   * 获取客服链接方法
+   *
+   * @param id 产品ID
+   */
   loadKefuLink: (id: number) => Promise<string | null>
-
+  /**
+   * 跳转服务列表方法
+   *
+   * @param e 点击事件
+   */
   handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
+  /**
+   * 点击联系客服回调方法
+   *
+   * @param e 点击事件
+   */
   handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
+  /**
+   * 点击查看更多工单回调方法
+   */
   handleHistoryWorkOrder: () => void
+  /**
+   * 点击查看工单详情回调方法
+   *
+   * @param e 点击事件
+   */
   handleWorkOrderDetail: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 

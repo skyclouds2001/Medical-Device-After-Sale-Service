@@ -2,8 +2,14 @@ import { getWorkOrderById } from '@/apis/work-order'
 import Toast from '@vant/weapp/toast/toast'
 
 Page<{
+  /**
+   * 工单详情信息
+   */
   workOrder: WorkOrder
 }, {
+  /**
+   * 加载工单详情回调方法
+   */
   loadWorkOrderDetail: (id: number) => void
 }>({
 
@@ -15,6 +21,7 @@ Page<{
       model_id: -1,
       model_name: '',
       order_attachment_list: [],
+      order_id: -1,
     },
   },
 

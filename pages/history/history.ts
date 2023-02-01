@@ -4,8 +4,14 @@ import { getUserWorkOrder } from '@/apis/work-order'
 const app = getApp<App>()
 
 Page<{
+  /**
+   * 工单列表
+   */
   wos: WorkOrder[]
 }, {
+  /**
+   * 加载工单列表方法
+   */
   loadWorkOrderList: () => void
 }>({
 

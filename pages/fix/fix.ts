@@ -3,17 +3,44 @@ import { getAllProductTypes, getProductModelByTypeId } from '@/apis/product'
 import { DEFAULT_PRODUCT_IMG_SRC } from '@/config/index'
 
 Page<{
+  /**
+   * 产品大类列表
+   */
   productTypes: ProductType[]
+  /**
+   * 当前产品大类
+   */
   currentType: number
+  /**
+   * 产品大类对应产品类型列表
+   */
   productModels: ProductModel[]
+  /**
+   * 默认产品图片URL
+   */
   default_img_src: string
 }, {
+  /**
+   * 服务类型ID
+   */
   sid: number
 
+  /**
+   * 加载产品大类列表方法
+   */
   loadProductTypes: () => Promise<void>
+  /**
+   * 加载产品类型方法
+   */
   loadProductModels: (current?: number) => Promise<void>
 
+  /**
+   * 切换产品大类回调方法
+   */
   handleSwitch: (e: WechatMiniprogram.TouchEvent<{ current: number }>) => void
+  /**
+   * 点击选取工单方法
+   */
   handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 

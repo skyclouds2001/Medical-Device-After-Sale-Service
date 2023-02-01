@@ -4,17 +4,43 @@ import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
 const app = getApp<App>()
 
 Page<{
+  /**
+   * 用户昵称
+   */
   nickname: string
+  /**
+   * 用户头像
+   */
   avatar: string
+  /**
+   * 显示用户登录弹窗
+   */
   show: boolean
 }, {
+  /**
+   * 显示登录弹窗方法
+   */
   showLoginDialog: () => void
+  /**
+   * 确认登录回调方法
+   *
+   * @param e 确认登录方法
+   */
   confirmLogin: (e: WechatMiniprogram.CustomEvent<{
     avatar: string
     nickname: string
   }>) => void
+  /**
+   * 取消登录回调方法
+   */
   cancelLogin: () => void
+  /**
+   * 修改绑定手机号方法
+   */
   editBindPhone: () => void
+  /**
+   * 退出登录方法
+   */
   exitLogin: () => void
 }>({
 
