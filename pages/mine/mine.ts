@@ -74,7 +74,9 @@ Page<{
     })
   },
 
-  editBindPhone () {},
+  editBindPhone () {
+    Toast.fail('小程序端暂不支持修改手机，请联系客服人员')
+  },
 
   exitLogin () {
     wx.removeStorageSync('token')
@@ -82,9 +84,6 @@ Page<{
     app.globalData.token = ''
     app.globalData.userinfo.nickname = DEFAULT_NICKNAME
     app.globalData.userinfo.avatar = DEFAULT_AVATAR
-    wx.reLaunch({
-      url: '/pages/register/register',
-    })
   },
 
 })
