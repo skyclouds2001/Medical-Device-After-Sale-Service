@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "welcome-bg": "/components/welcome-bg/welcome-bg",
-    "issue-selector": "/components/issue-selector/issue-selector"
-  },
-  "navigationBarTitleText": "常见问题解决方案"
-}
