@@ -1,6 +1,5 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getAllProductTypes, getProductModelByTypeId } from '@/apis/product'
-import { DEFAULT_PRODUCT_IMG_SRC } from '@/config/index'
 
 Page<{
   /**
@@ -15,10 +14,6 @@ Page<{
    * 产品大类对应产品类型列表
    */
   productModels: ProductModel[]
-  /**
-   * 默认产品图片URL
-   */
-  default_img_src: string
 }, {
   /**
    * 服务类型ID
@@ -48,7 +43,6 @@ Page<{
     productTypes: [],
     currentType: -1,
     productModels: [],
-    default_img_src: DEFAULT_PRODUCT_IMG_SRC,
   },
 
   onLoad (options: { sid: string }) {

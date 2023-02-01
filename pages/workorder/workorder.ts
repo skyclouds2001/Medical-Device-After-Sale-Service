@@ -12,6 +12,10 @@ Page<{
    */
   info: string
   /**
+   * 产品图片链接
+   */
+  img_src: string
+  /**
    * 控制日期选择器显示与否
    */
   show: boolean
@@ -35,10 +39,6 @@ Page<{
    * 其他信息
    */
   addition: string
-  /**
-   * 默认产品图片链接
-   */
-  default_img_src: string
 }, {
   /**
    * 打开日期选择器回调方法
@@ -85,7 +85,7 @@ Page<{
     address: '',
     date: '',
     addition: '',
-    default_img_src: DEFAULT_PRODUCT_IMG_SRC,
+    img_src: '',
   },
 
   onLoad (options: { sid: string, pid: string }) {
@@ -103,6 +103,7 @@ Page<{
       if (res.code === 0) {
         this.setData({
           info: res.data.model_name,
+          img_src: res.data.pic_url ?? '',
         })
       } else {
         Toast.fail(res.data.toString())

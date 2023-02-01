@@ -7,7 +7,7 @@
   <view class="products {{ productModels.length === 0 ? 'empty' : '' }}">
     <view wx:for="{{ productModels }}" wx:key="model_id" mark:id="{{ item.model_id }}" bind:tap="handleCreateWorkOrder" class="product">
       <view>
-        <van-image fit="cover" lazy-load show-error show-loading radius="10rpx" width="160rpx" height="160rpx" src="{{ default_img_src }}" />
+        <van-image fit="cover" lazy-load show-error show-loading radius="10rpx" width="160rpx" height="160rpx" src="{{ item.pic_url ? item.pic_url : '' }}" />
       </view>
       <text class="van-ellipsis">{{ item.model_name }}</text>
     </view>
