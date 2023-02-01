@@ -10,8 +10,9 @@ type PostWorkOrderResponse = {}
  * @param cid 客户ID
  * @param mid 产品模型ID
  * @param accessories 工单附件
+ * @param type 工单类型
  */
-export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: Accessory[]) => {
+export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: Accessory[], type: number) => {
   return request<PostWorkOrderResponse>({
     url: '/wizz/aftersale/work-order/add',
     method: 'POST',
@@ -21,6 +22,7 @@ export const postWorkOrder = (address: string, time: string, cid: number, mid: n
       customer_id: cid,
       model_id: mid,
       order_attachment_list: accessories,
+      order_type: type,
     },
     header: {
       'content-type': 'application/json',

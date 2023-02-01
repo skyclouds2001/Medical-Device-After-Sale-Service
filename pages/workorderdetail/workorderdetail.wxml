@@ -4,12 +4,13 @@
   <view class="wo-info">
     <view class="header">
       <view class="title">{{ workOrder.model_name }}</view>
+      <view class="type">{{ workOrder.service }}</view>
       <view class="status">处理中</view>
     </view>
-    <view class="desc">暂无</view>
+    <view class="desc">暂无更多描述~</view>
     <view class="footer">
-      <view class="address">{{ workOrder.address }}</view>
-      <view class="date">{{ workOrder.appointment_time }}</view>
+      <view class="address">预约地址：{{ workOrder.address }}</view>
+      <view class="date">预约时间：{{ workOrder.appointment_time }}</view>
     </view>
   </view>
 </view>
