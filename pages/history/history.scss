@@ -2,20 +2,24 @@ page {
   background-color: #F5F5F5;
 }
 
+.bg {
+  transform: translateY(-100rpx);
+}
+
 .search {
   margin: 40rpx 0;
   padding: 0;
 }
 
 .selector {
-  transform: translateY(-75rpx);
+  transform: translateY(-175rpx);
 }
 
 .workorder-list {
   margin: 10rpx 0;
   padding: 0;
 
-  transform: translateY(-75rpx);
+  transform: translateY(-175rpx);
 
   .work-order-item {
     margin: 20rpx;
@@ -41,19 +45,22 @@ page {
       .desc {
         font-size: 28rpx;
         line-height: 2em;
-
-        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-weight: bold;
+
+        overflow: hidden;
 
         width: 100%;
         height: 2em;
       }
+
       .date {
         font-size: 26rpx;
         line-height: 1.5em;
       }
     }
+
     .right {
       font-size: 30rpx;
       line-height: 1.5em;
@@ -70,6 +77,6 @@ page {
   color: #818085;
   text-align: center;
 
-  margin: 40rpx 0;
+  margin: 50rpx 0;
   padding: 0;
 }

@@ -1,7 +1,9 @@
-<welcome-bg showComment="{{ false }}" />
+<view class="bg">
+  <welcome-bg showComment="{{ false }}" />
+</view>
 
 <view class="search">
-  <search-bar move="-75rpx" />
+  <search-bar move="-175rpx" />
 </view>
 
 <view class="selector">
