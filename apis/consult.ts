@@ -1,5 +1,8 @@
 import { request } from '@/lib/request'
 
+/**
+ * @deprecated
+ */
 interface GetHistoriesResponse {
   history_list: ConsultHistory[]
   total_page_num: number
@@ -8,6 +11,7 @@ interface GetHistoriesResponse {
 /**
  * 获取咨询历史（分页）方法
  *
+ * @deprecated
  * @param isFirstQuery 是否首次查询
  * @param pageNum 页码
  */
@@ -27,9 +31,9 @@ interface GetKfLinkResponse {
  *
  * @param productModelId 产品模型ID
  */
-export const getKfLink = (productModelId: number) => {
+export const getKfLink = (productModelId: number, kefuTypeCode: -1 | 1 | 2 | 3) => {
   return request<GetKfLinkResponse>({
-    url: `/wizz/aftersale/consult/getKfLink/${productModelId}`,
+    url: `/wizz/aftersale/consult/getKfLink/${productModelId}/${kefuTypeCode}`,
     method: 'GET',
   })
 }
