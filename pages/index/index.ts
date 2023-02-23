@@ -26,7 +26,7 @@ Page<{
    *
    * @param id 产品ID
    */
-  loadKefuLink: (id: number) => Promise<string | null>
+  loadKefuLink: (id: number, type: -1 | 1 | 2 | 3) => Promise<string | null>
   /**
    * 跳转服务列表方法
    *
@@ -81,9 +81,9 @@ Page<{
     }
   },
 
-  async loadKefuLink (id) {
+  async loadKefuLink (id, type) {
     try {
-      const res = await getKfLink(id)
+      const res = await getKfLink(id, type)
       if (res.code === 0) {
         return res.data.kf_link
       } else {}
@@ -99,7 +99,7 @@ Page<{
   },
 
   async handleConnectKefu (e) {
-    const link = e.mark?.link ?? (await this.loadKefuLink(-1))
+    const link = e.mark?.link ?? (await this.loadKefuLink(-1, -1))
 
     if (!link) {
       Toast.fail('获取客服链接失败')
