@@ -1,7 +1,6 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getProductModelByModelId } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
-import { DEFAULT_PRODUCT_IMG_SRC } from '@/config/index'
 import { transformDate } from '@/utils/date'
 
 const app = getApp<App>()
@@ -15,10 +14,6 @@ Page<{
    * 产品图片链接
    */
   img_src: string
-  /**
-   * 控制日期选择器显示与否
-   */
-  show: boolean
   /**
    * 联系人姓名
    */
@@ -39,6 +34,19 @@ Page<{
    * 其他信息
    */
   addition: string
+
+  /**
+   * 控制日期选择器显示与否
+   */
+  show: boolean
+  /**
+   * 日期选择器开始时间
+   */
+  startDate: number
+  /**
+   * 日期选择器结束时间
+   */
+  endDate: number
 }, {
   /**
    * 打开日期选择器回调方法
@@ -79,19 +87,28 @@ Page<{
 
   data: {
     info: '',
-    show: false,
     name: '',
     phone: '',
     address: '',
     date: '',
     addition: '',
     img_src: '',
+
+    show: false,
+    startDate: Number.MIN_VALUE,
+    endDate: Number.MAX_VALUE,
   },
 
   onLoad (options: { sid: string, pid: string }) {
     this.loadProductModel(parseInt(options.pid))
     this.pid = parseInt(options.pid)
     this.sid = parseInt(options.sid)
+
+    const current = new Date().getTime()
+    this.setData({
+      startDate: current - current % (1000 * 60) + 60 * 1000,
+      endDate: current - current % (1000 * 60) + 60 * 1000 + 1000 * 60 * 60 * 24 * 365,
+    })
   },
 
   pid: 0,
