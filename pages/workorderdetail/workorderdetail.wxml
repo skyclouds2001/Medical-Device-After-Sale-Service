@@ -4,13 +4,15 @@
   <view class="wo-info">
     <view class="header">
       <view class="title">{{ workOrder.model_name }}</view>
-      <view class="type">{{ workOrder.service }}</view>
-      <view class="status">处理中</view>
     </view>
-    <view class="desc">暂无更多描述~</view>
+    <view class="content">
+      <view class="section type">工单类型：{{ workOrder.service }}</view>
+      <view class="section address">预约地址：{{ workOrder.address }}</view>
+      <view class="section date">预约时间：{{ workOrder.appointment_time }}</view>
+      <view class="section desc">工单描述：暂无更多描述~</view>
+    </view>
     <view class="footer">
-      <view class="address">预约地址：{{ workOrder.address }}</view>
-      <view class="date">预约时间：{{ workOrder.appointment_time }}</view>
+      <view class="date">创建时间：{{ workOrder.create_time }}</view>
     </view>
   </view>
 </view>

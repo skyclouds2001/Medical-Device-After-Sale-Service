@@ -31,30 +31,17 @@ page {
         font-size: 34rpx;
         font-weight: bold;
       }
-
-      .type {
-        width: 20%;
-
-        text-align: center;
-        color: #0E0E40;
-        font-size: 32rpx;
-      }
-
-      .status {
-        width: 20%;
-
-        text-align: right;
-        color: #818085;
-        font-size: 30rpx;
-      }
     }
 
-    .desc {
-      color: #0E0E40;
-      line-height: 1.5em;
-
+    .content {
+      margin: 0;
       padding: 20rpx 0;
-      min-height: 10em;
+
+      .section {
+        color: #0E0E40;
+        font-size: 28rpx;
+        line-height: 2em;
+      }
     }
 
     .footer {
@@ -63,23 +50,9 @@ page {
 
       border-top: 1rpx solid #818085;
 
-      > view {
-        display: inline-block;
-      }
-
-      .address {
-        width: 50%;
-
-        color: #0E0E40;
-        text-align: left;
-        font-size: 28rpx;
-      }
-
       .date {
-        width: 50%;
-
         color: #818085;
-        text-align: right;
+        text-align: left;
         font-size: 24rpx;
       }
     }

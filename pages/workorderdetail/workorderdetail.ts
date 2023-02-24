@@ -18,12 +18,12 @@ Page<{
     workOrder: {
       address: '',
       appointment_time: '',
-      customer_id: -1,
-      model_id: -1,
+      customer_id: 0,
+      model_id: 0,
       model_name: '',
       order_attachment_list: [],
-      order_id: -1,
-      order_type: -1,
+      order_id: 0,
+      order_type: 0,
     },
   },
 
@@ -39,7 +39,7 @@ Page<{
         this.setData({
           workOrder: {
             ...product,
-            service: services.find(v => v.id === product.order_type)?.text ?? '',
+            service: services.find(v => v.id - 1 === product.order_type)?.text ?? '未知',
           },
         })
       } else {
