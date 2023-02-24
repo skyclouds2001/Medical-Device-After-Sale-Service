@@ -39,7 +39,7 @@ page {
       justify-content: center;
       align-items: flex-start;
 
-      width: 75%;
+      width: 80%;
       height: auto;
 
       .desc {
@@ -66,8 +66,25 @@ page {
       line-height: 1.5em;
       text-align: center;
 
-      width: 25%;
+      width: 20%;
       height: auto;
+
+      > button {
+        color: white;
+        font-size: 28rpx;
+        line-height: 1.5em;
+        text-align: center;
+        letter-spacing: 1rpx;
+
+        background-color: #2D3DAA;
+        border-radius: 20rpx;
+
+        transition: all 500ms ease-in-out 0;
+
+        &:active {
+          background-color: #4d6ee6;
+        }
+      }
     }
   }
 }

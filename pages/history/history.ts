@@ -13,6 +13,12 @@ Page<{
    * 加载工单列表方法
    */
   loadWorkOrderList: () => void
+  /**
+   * 点击查看工单详情回调方法
+   *
+   * @param e 点击事件
+   */
+  handleWorkOrderDetail: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 
   data: {
@@ -36,6 +42,13 @@ Page<{
     } catch (err) {
       Toast.fail('加载历史工单列表失败')
     }
+  },
+
+  handleWorkOrderDetail (e) {
+    const { id } = e.mark!
+    wx.navigateTo({
+      url: `/pages/workorderdetail/workorderdetail?id=${id}`,
+    })
   },
 
 })

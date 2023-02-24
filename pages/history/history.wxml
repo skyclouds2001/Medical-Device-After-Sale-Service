@@ -14,11 +14,11 @@
   <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
     <view class="left">
       <view class="desc">{{ item.model_name }}</view>
-      <view class="date">{{ item.appointment_time }}</view>
+      <view class="date">{{ item.create_time }}</view>
     </view>
     <view class="right">
-      <view class="status">处理中</view>
-    </view>
+        <button bind:tap="handleWorkOrderDetail" mark:id="{{ item.order_id }}">查看</button>
+      </view>
   </view>
 </view>
 

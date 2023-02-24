@@ -21,7 +21,7 @@
     <view wx:for="{{ histories }}" wx:key="order_id" class="item">
       <view class="info">
         <view class="desc">{{ item.model_name }}</view>
-        <view class="date">{{ item.appointment_time }}</view>
+        <view class="date">{{ item.create_time }}</view>
       </view>
       <view class="operate">
         <button bind:tap="handleWorkOrderDetail" mark:id="{{ item.order_id }}">查看</button>
