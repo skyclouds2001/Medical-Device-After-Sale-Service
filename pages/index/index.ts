@@ -38,7 +38,7 @@ Page<{
    *
    * @param e 点击事件
    */
-  handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
+  handleConnectKefu: () => Promise<void>
   /**
    * 点击查看更多工单回调方法
    */
@@ -98,8 +98,8 @@ Page<{
     })
   },
 
-  async handleConnectKefu (e) {
-    const link = e.mark?.link ?? (await this.loadKefuLink(-1, -1))
+  async handleConnectKefu () {
+    const link = await this.loadKefuLink(-1, -1)
 
     if (!link) {
       Toast.fail('获取客服链接失败')
@@ -108,7 +108,7 @@ Page<{
 
     wx.openCustomerServiceChat({
       extInfo: {
-        url: link!,
+        url: link,
       },
       corpId: CUSTOMER_SERVICE_COMPANY_ID,
       fail: (err) => {
