@@ -6,10 +6,6 @@
   <search-bar move="-175rpx" />
 </view>
 
-<view class="selector">
-  <status-selector />
-</view>
-
 <view class="workorder-list">
   <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
     <view class="left">
