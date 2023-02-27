@@ -93,11 +93,18 @@ page {
     margin: 0;
     padding: 0;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     .item {
       display: flex;
       justify-content: center;
       align-items: center;
 
+      width: 100%;
+      height: auto;
       margin: 0;
       padding: 10rpx 40rpx;
 
@@ -146,6 +153,11 @@ page {
           }
         }
       }
+    }
+
+    .img {
+      margin: 0;
+      padding: 10px 0;
     }
   }
 }
