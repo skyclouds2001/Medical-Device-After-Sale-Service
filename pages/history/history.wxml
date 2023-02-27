@@ -7,17 +7,20 @@
 </view>
 
 <view class="workorder-list">
-  <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
-    <view class="left">
-      <view class="desc">{{ item.model_name }}</view>
-      <view class="date">{{ item.create_time }}</view>
-    </view>
-    <view class="right">
+  <block wx:if="{{ wos.length !== 0 }}">
+    <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
+      <view class="left">
+        <view class="desc">{{ item.model_name }}</view>
+        <view class="date">{{ item.create_time }}</view>
+      </view>
+      <view class="right">
         <button bind:tap="handleWorkOrderDetail" mark:id="{{ item.order_id }}">查看</button>
       </view>
-  </view>
+    </view>
+  </block>
+  <block wx:else>
+    <image class="img" src="/images/empty-workorder.png" mode="aspectFit" />
+  </block>
 </view>
-
-<view class="no-more">-没有更多了-</view>
 
 <van-toast id="van-toast" />

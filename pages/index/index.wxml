@@ -30,7 +30,7 @@
       </view>
     </block>
     <block wx:else>
-      <image class="img" src="/images/empty-content.png" mode="aspectFit" />
+      <image class="img" src="/images/empty-workorder.png" mode="aspectFit" />
     </block>
   </view>
 </view>
