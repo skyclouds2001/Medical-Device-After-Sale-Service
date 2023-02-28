@@ -23,6 +23,6 @@
   <button bind:tap="exitLogin">退出登录</button>
 </view>
 
-<userinfo-dialog show="{{ show }}" bind:confirm="confirmLogin" />
+<userinfo-dialog show="{{ show }}" bind:confirm="confirmLogin" bind:cancel="cancelLogin" />
 
 <van-toast id="van-toast" />

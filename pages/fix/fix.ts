@@ -1,19 +1,43 @@
 import Toast from '@vant/weapp/toast/toast'
+import { getKfLink } from '@/apis/consult'
 import { getAllProductTypes, getProductModelByTypeId } from '@/apis/product'
-import { DEFAULT_PRODUCT_IMG_SRC } from '@/config/index'
+import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 
 Page<{
+  /**
+   * 产品大类列表
+   */
   productTypes: ProductType[]
+  /**
+   * 当前产品大类
+   */
   currentType: number
+  /**
+   * 产品大类对应产品类型列表
+   */
   productModels: ProductModel[]
-  default_img_src: string
 }, {
+  /**
+   * 服务类型ID
+   */
   sid: number
 
+  /**
+   * 加载产品大类列表方法
+   */
   loadProductTypes: () => Promise<void>
+  /**
+   * 加载产品类型方法
+   */
   loadProductModels: (current?: number) => Promise<void>
 
+  /**
+   * 切换产品大类回调方法
+   */
   handleSwitch: (e: WechatMiniprogram.TouchEvent<{ current: number }>) => void
+  /**
+   * 点击选取工单方法
+   */
   handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 
@@ -21,7 +45,6 @@ Page<{
     productTypes: [],
     currentType: -1,
     productModels: [],
-    default_img_src: DEFAULT_PRODUCT_IMG_SRC,
   },
 
   onLoad (options: { sid: string }) {
@@ -78,12 +101,33 @@ Page<{
     })
   },
 
-  handleCreateWorkOrder (e) {
+  async handleCreateWorkOrder (e) {
     const { id: pid } = e.mark!
     const { sid } = this
-    wx.navigateTo({
-      url: `/pages/workorder/workorder?sid=${sid}&pid=${pid}`,
-    })
+    if (sid === 1 || sid === 2 || sid === 3) {
+      const res = await getKfLink(pid, sid)
+      if (res.code === 0) {
+        wx.openCustomerServiceChat({
+          extInfo: {
+            url: res.data.kf_link,
+          },
+          corpId: CUSTOMER_SERVICE_COMPANY_ID,
+          fail: (err) => {
+            Toast.fail(err.errMsg)
+          },
+        })
+      } else {
+        Toast.fail(res.data?.toString() ?? '获取客服链接失败')
+      }
+    } else if (sid === 4 || sid === 5) {
+      wx.navigateTo({
+        url: `/pages/workorder/workorder?sid=${sid}&pid=${pid}`,
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/software/software?sid=${sid}&pid=${pid}`,
+      })
+    }
   },
 
 })

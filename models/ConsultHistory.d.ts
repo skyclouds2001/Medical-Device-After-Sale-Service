@@ -1,6 +1,8 @@
-/**
+/** 
  * 历史咨询数据结构
- */
+ *
+ * @deprecated
+ */ 
 interface ConsultHistory {
   /** 咨询时间。格式：yyyy年MM月dd日HH:mm:ss */
   consult_time: string

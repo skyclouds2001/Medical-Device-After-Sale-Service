@@ -8,15 +8,46 @@ import type { Service } from '@/data/index'
 const app = getApp<App>()
 
 Page<{
+  /**
+   * 最近工单列表
+   */
   histories: WorkOrder[]
+  /**
+   * 服务列表
+   */
   serviceItems: Service[]
 }, {
+  /**
+   * 加载工单方法
+   */
   loadWorkOrderList: () => Promise<void>
-  loadKefuLink: (id: number) => Promise<string | null>
-
+  /**
+   * 获取客服链接方法
+   *
+   * @param id 产品ID
+   */
+  loadKefuLink: (id: number, type: -1 | 1 | 2 | 3) => Promise<string | null>
+  /**
+   * 跳转服务列表方法
+   *
+   * @param e 点击事件
+   */
   handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
-  handleConnectKefu: (e: WechatMiniprogram.TouchEvent<{}, { link?: string }>) => Promise<void>
+  /**
+   * 点击联系客服回调方法
+   *
+   * @param e 点击事件
+   */
+  handleConnectKefu: () => Promise<void>
+  /**
+   * 点击查看更多工单回调方法
+   */
   handleHistoryWorkOrder: () => void
+  /**
+   * 点击查看工单详情回调方法
+   *
+   * @param e 点击事件
+   */
   handleWorkOrderDetail: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 
@@ -50,9 +81,9 @@ Page<{
     }
   },
 
-  async loadKefuLink (id) {
+  async loadKefuLink (id, type) {
     try {
-      const res = await getKfLink(id)
+      const res = await getKfLink(id, type)
       if (res.code === 0) {
         return res.data.kf_link
       } else {}
@@ -67,8 +98,8 @@ Page<{
     })
   },
 
-  async handleConnectKefu (e) {
-    const link = e.mark?.link ?? (await this.loadKefuLink(-1))
+  async handleConnectKefu () {
+    const link = await this.loadKefuLink(-1, -1)
 
     if (!link) {
       Toast.fail('获取客服链接失败')
@@ -77,7 +108,7 @@ Page<{
 
     wx.openCustomerServiceChat({
       extInfo: {
-        url: link!,
+        url: link,
       },
       corpId: CUSTOMER_SERVICE_COMPANY_ID,
       fail: (err) => {

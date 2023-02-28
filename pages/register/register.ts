@@ -6,20 +6,52 @@ import { setStorage } from '@/lib/storage'
 import { validatePhone, validatePassword } from '@/utils/validate'
 
 Page<{
+  /**
+   * 公司列表
+   */
   companies: Company[]
+  /**
+   * 控制公司选择弹窗显示与否
+   */
   show: boolean
 
+  /**
+   * 手机号
+   */
   phone: string
+  /**
+   * 用户姓名
+   */
   name: string
+  /**
+   * 用户所属公司
+   */
   company: Company
 }, {
+  /**
+   * 用户openid
+   */
   openid: string
 
+  /**
+   * 加载公司列表方法
+   */
   loadCompanyList: () => Promise<void>
 
+  /**
+   * 用户登录回调方法
+   */
   userLogin: () => Promise<void>
+  /**
+   * 用户注册回调方法
+   */
   userRegister: () => Promise<void>
 
+  /**
+   * 选择企业回调方法
+   *
+   * @param e 点击事件
+   */
   handleManageSelector: (e: WechatMiniprogram.TouchEvent<{ value: Company }, { flag: boolean }>) => void
 }>({
 

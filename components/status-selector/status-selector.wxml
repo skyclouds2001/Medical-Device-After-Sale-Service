@@ -1,3 +1,0 @@
-<view class="selector">
-  <view wx:for="{{ statuses }}" wx:key="id" mark:id="{{ item.id }}" bind:tap="handleActive" class="item {{ item.id === active ? 'active' : ''}}">{{ item.name }}</view>
-</view>

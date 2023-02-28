@@ -4,12 +4,11 @@
     "pages/index/index",
     "pages/fix/fix",
     "pages/workorder/workorder",
+    "pages/software/software",
     "pages/submited/submited",
     "pages/mine/mine",
     "pages/history/history",
-    "pages/workorderdetail/workorderdetail",
-    "pages/common-issues/common-issues",
-    "pages/search-products/search-products"
+    "pages/workorderdetail/workorderdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

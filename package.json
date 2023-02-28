@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/WizzStudio/MedicalDeviceAfterSaleService.git"
+    "url": "git+https://github.com/WizzStudio/MedicalDeviceAfterSaleService.git"
   },
   "homepage": "https://github.com/WizzStudio/MedicalDeviceAfterSaleService#readme",
   "bugs": {
