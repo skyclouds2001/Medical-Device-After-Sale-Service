@@ -4,6 +4,8 @@
 interface WorkOrder {
   /** 工单id */
   order_id: number
+  /** 工单类型 */
+  order_type: number
   /** 地址 */
   address: string
   /** 上门预约时间 */

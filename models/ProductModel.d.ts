@@ -10,4 +10,6 @@ interface ProductModel {
   type_id: number
   /** 产品型号所属大类 */
   type_name: string
+  /** 产品图片URL */
+  pic_url: string
 }
