@@ -8,7 +8,7 @@
   <view class="content">
     <view wx:for="{{ serviceItems }}" wx:key="id" class="item" mark:id="{{ item.id }}" bind:tap="handleCreateWorkOrder">
       <view class="icon" style="background-color: {{ item.bg }}">
-        <van-image width="25" height="25" src="{{ item.img }}" />
+        <van-image width="30" height="30" src="{{ item.img }}" />
       </view>
       <view class="text">{{ item.text }}</view>
     </view>
