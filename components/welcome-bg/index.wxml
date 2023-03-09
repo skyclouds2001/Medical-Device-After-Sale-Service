@@ -1,6 +1,5 @@
 <view class="welcome">
-  <block wx:if="{{ showComment }}">
-    <view class="user">尊敬的用户：</view>
-    <text class="content">欢迎来到这里，\n看我们有什么能帮助您的？</text>
-  </block>
+  <text class="content">专注医药食品行业 GMP/cGMP 实施助力客户轻松实现数字化转型</text>
+  <image class="bg" src="/images/home-bg.png" mode="aspectFit" lazy-load />
+  <image class="brand" src="/images/brand.png" mode="aspectFit" lazy-load />
 </view>
