@@ -43,12 +43,6 @@ Page<{
    * 点击查看更多工单回调方法
    */
   handleHistoryWorkOrder: () => void
-  /**
-   * 点击查看工单详情回调方法
-   *
-   * @param e 点击事件
-   */
-  handleWorkOrderDetail: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
 }>({
 
   data: {
@@ -120,13 +114,6 @@ Page<{
   handleHistoryWorkOrder () {
     wx.navigateTo({
       url: '/pages/history/history',
-    })
-  },
-
-  handleWorkOrderDetail (e) {
-    const { id } = e.mark!
-    wx.navigateTo({
-      url: `/pages/workorderdetail/workorderdetail?id=${id}`,
     })
   },
 
