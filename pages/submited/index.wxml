@@ -1,10 +1,11 @@
 <view class="content">
   <view class="icon">
-    <van-icon name="success" />
+    <image src="/icons/correct.svg" mode="aspectFit" lazy-load />
   </view>
-  <view class="text">工单提交成功</view>
+  <view class="text">预约提交成功</view>
   <view class="box">
-    <button class="btn" bind:tap="doneSubmit">{{ text }}</button>
+    <button bind:tap="openCustomerService">转入人工客服</button>
+    <button bind:tap="returnHomePage">返回首页</button>
   </view>
 </view>
 
