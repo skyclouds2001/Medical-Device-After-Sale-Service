@@ -22,12 +22,6 @@ Page<{
    */
   loadWorkOrderList: () => Promise<void>
   /**
-   * 获取客服链接方法
-   *
-   * @param id 产品ID
-   */
-  loadKefuLink: (id: number, type: -1 | 1 | 2 | 3) => Promise<string | null>
-  /**
    * 跳转服务列表方法
    *
    * @param e 点击事件
@@ -75,16 +69,6 @@ Page<{
     }
   },
 
-  async loadKefuLink (id, type) {
-    try {
-      const res = await getKfLink(id, type)
-      if (res.code === 0) {
-        return res.data.kf_link
-      } else {}
-    } catch {}
-    return null
-  },
-
   handleCreateWorkOrder (e) {
     const { id } = e.mark!
     wx.navigateTo({
@@ -93,22 +77,24 @@ Page<{
   },
 
   async handleConnectKefu () {
-    const link = await this.loadKefuLink(-1, -1)
-
-    if (!link) {
+    try {
+      const res = await getKfLink(-1, -1)
+      if (res.code === 0) {
+        wx.openCustomerServiceChat({
+          extInfo: {
+            url: res.data.kf_link,
+          },
+          corpId: CUSTOMER_SERVICE_COMPANY_ID,
+          fail: (err) => {
+            Toast.fail(err.errMsg)
+          },
+        })
+      } else {
+        Toast.fail(res.data?.toString() ?? '获取客服链接失败')
+      }
+    } catch {
       Toast.fail('获取客服链接失败')
-      return
     }
-
-    wx.openCustomerServiceChat({
-      extInfo: {
-        url: link,
-      },
-      corpId: CUSTOMER_SERVICE_COMPANY_ID,
-      fail: (err) => {
-        Toast.fail(err.errMsg)
-      },
-    })
   },
 
   handleHistoryWorkOrder () {
