@@ -68,14 +68,14 @@ export const tabs: Tab[] = [
   {
     id: 1,
     name: '首页',
-    path: '/pages/index/index',
+    path: '/pages/home/index',
     icon: '/icons/home_fill.png',
     icon_active: '/icons/home_fill_selected.png',
   },
   {
     id: 2,
     name: '个人中心',
-    path: '/pages/mine/mine',
+    path: '/pages/mine/index',
     icon: '/icons/wode_fill.png',
     icon_active: '/icons/wode_fill_selected.png',
   },

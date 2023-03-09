@@ -1,15 +1,15 @@
 {
   "pages": [
-    "pages/register/register",
-    "pages/index/index",
-    "pages/fix/fix",
-    "pages/workorder/workorder",
-    "pages/software/software",
-    "pages/submited/submited",
+    "pages/register/index",
+    "pages/home/index",
+    "pages/product-list/index",
+    "pages/workorder/index",
+    "pages/software/index",
+    "pages/submited/index",
     "pages/document-list/index",
-    "pages/mine/mine",
-    "pages/history/history",
-    "pages/workorderdetail/workorderdetail"
+    "pages/mine/index",
+    "pages/history/index",
+    "pages/workorderdetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,13 +25,13 @@
         "iconPath": "icons/home_fill.png",
         "selectedIconPath": "icons/home_fill_selected.png",
         "text": "首页",
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/home/index"
       },
       {
         "iconPath": "icons/wode_fill.png",
         "selectedIconPath": "icons/wode_fill_selected.png",
         "text": "个人中心",
-        "pagePath": "pages/mine/mine"
+        "pagePath": "pages/mine/index"
       }
     ],
     "backgroundColor": "#FFFFFF",

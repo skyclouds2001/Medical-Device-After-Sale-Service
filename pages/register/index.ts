@@ -129,7 +129,7 @@ Page<{
         }, 1000)
         setTimeout(() => {
           wx.switchTab({
-            url: '/pages/index/index',
+            url: '/pages/home/index',
           })
         }, 2000)
         getApp<App>().globalData.token = token

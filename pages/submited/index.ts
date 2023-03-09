@@ -39,7 +39,7 @@ Page<{
 
   async doneSubmit () {
     wx.switchTab({
-      url: '/pages/index/index',
+      url: '/pages/home/index',
     })
   },
 

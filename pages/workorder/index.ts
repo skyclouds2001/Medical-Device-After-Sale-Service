@@ -163,7 +163,7 @@ Page<{
         Toast.success('提交成功')
         setTimeout(() => {
           wx.navigateTo({
-            url: `/pages/submited/submited?sid=${sid}&pid=${pid}`,
+            url: `/pages/submited/index?sid=${sid}&pid=${pid}`,
           })
         }, 2000)
       } else {

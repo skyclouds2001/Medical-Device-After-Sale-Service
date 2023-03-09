@@ -88,7 +88,7 @@ Page<{
   handleCreateWorkOrder (e) {
     const { id } = e.mark!
     wx.navigateTo({
-      url: `/pages/fix/fix?sid=${id}`,
+      url: `/pages/product-list/index?sid=${id}`,
     })
   },
 
@@ -113,7 +113,7 @@ Page<{
 
   handleHistoryWorkOrder () {
     wx.navigateTo({
-      url: '/pages/history/history',
+      url: '/pages/history/index',
     })
   },
 

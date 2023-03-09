@@ -17,7 +17,6 @@
 - components/ 自定义组件目录
   - product-sidebar 产品大类选择器
   - search-bar 搜索框
-  - status-selector 工单状态选择器
   - userinfo-dialog 填写用户头像昵称弹窗
   - welcome-bg 欢迎背景
 - config/ 自定义配置目录
@@ -41,8 +40,8 @@
   - WorkOrder.d.ts 工单数据结构
 - pages/ 页面目录
   - register 注册页
-  - index 首页
-  - fix 创建工单-选取产品页
+  - home 首页
+  - product-list 创建工单-选取产品页
   - workorder 创建工单-填写工单信息页
   - submited 创建工单-提交工单页
   - mine 个人中心页
@@ -66,14 +65,14 @@
 
 ## 页面路由
 
-- 注册 | page/register/register
-- 首页&服务大厅 | pages/index/index
-- 选择产品 | pages/fix/fix
-- 创建工单 | pages/workorder/workorder
-- 提交工单成功反馈 | pages/submited/submited
-- 个人中心 | pages/mine/mine
-- 历史工单列表 | pages/history/history
-- 工单详情 | pages/workorderdetail/workorderdetail
+- 注册 | page/register/index
+- 首页&服务大厅 | pages/home/index
+- 选择产品 | pages/fix/index
+- 创建工单 | pages/workorder/index
+- 提交工单成功反馈 | pages/submited/index
+- 个人中心 | pages/mine/index
+- 历史工单列表 | pages/history/index
+- 工单详情 | pages/workorderdetail/index
 
 ## 开发文档
 

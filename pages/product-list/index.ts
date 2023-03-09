@@ -104,7 +104,7 @@ Page<{
     const { sid } = this
     if ([1, 2, 3, 4].includes(sid)) {
       wx.navigateTo({
-        url: `/pages/workorder/workorder?sid=${sid}&pid=${pid}`,
+        url: `/pages/workorder/index?sid=${sid}&pid=${pid}`,
       })
     } else if ([5, 6].includes(sid)) {
       wx.navigateTo({
