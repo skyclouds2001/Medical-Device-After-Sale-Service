@@ -1,7 +1,5 @@
 import Toast from '@vant/weapp/toast/toast'
-import { getKfLink } from '@/apis/consult'
 import { getAllProductTypes, getProductModelByTypeId } from '@/apis/product'
-import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 
 Page<{
   /**
@@ -104,28 +102,13 @@ Page<{
   async handleCreateWorkOrder (e) {
     const { id: pid } = e.mark!
     const { sid } = this
-    if (sid === 1 || sid === 2 || sid === 3) {
-      const res = await getKfLink(pid, sid)
-      if (res.code === 0) {
-        wx.openCustomerServiceChat({
-          extInfo: {
-            url: res.data.kf_link,
-          },
-          corpId: CUSTOMER_SERVICE_COMPANY_ID,
-          fail: (err) => {
-            Toast.fail(err.errMsg)
-          },
-        })
-      } else {
-        Toast.fail(res.data?.toString() ?? '获取客服链接失败')
-      }
-    } else if (sid === 4 || sid === 5) {
+    if ([1, 2, 3, 4].includes(sid)) {
       wx.navigateTo({
         url: `/pages/workorder/workorder?sid=${sid}&pid=${pid}`,
       })
-    } else {
+    } else if ([5, 6].includes(sid)) {
       wx.navigateTo({
-        url: `/pages/software/software?sid=${sid}&pid=${pid}`,
+        url: `/pages/document-list/index`,
       })
     }
   },
