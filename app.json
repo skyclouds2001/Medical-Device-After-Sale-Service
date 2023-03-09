@@ -6,6 +6,7 @@
     "pages/workorder/workorder",
     "pages/software/software",
     "pages/submited/submited",
+    "pages/document-list/index",
     "pages/mine/mine",
     "pages/history/history",
     "pages/workorderdetail/workorderdetail"
