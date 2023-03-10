@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/register/index",
+    "pages/login/index",
     "pages/home/index",
     "pages/product-list/index",
     "pages/workorder/index",
