@@ -38,7 +38,10 @@ Page<{
   /**
    * 图片列表
    */
-  images: string[]
+  images: Array<{
+    url: string
+    name: string
+  }>
 
   /**
    * 控制日期选择器显示与否
@@ -95,7 +98,10 @@ Page<{
    */
   handleDeleteImage: (e: {
     detail: {
-      file: string
+      file: {
+        url: string
+        name: string
+      }
       index: number
       name: string
     }
@@ -192,7 +198,10 @@ Page<{
     const { file } = e.detail
     const { images } = this.data
     this.setData({
-      images: [...images, file.url],
+      images: [...images, {
+        url: file.url,
+        name: '',
+      }],
     })
     try {
       const res = await uploadFile({
@@ -203,7 +212,10 @@ Page<{
       const result: Response<string> = JSON.parse(res.data)
       if (result.code === 0) {
         this.setData({
-          images: [...images, result.data],
+          images: [...images, {
+            url: result.data,
+            name: '',
+          }],
         })
       } else {
         Toast.fail(result.data?.toString() ?? '上传图片失败')
@@ -219,8 +231,9 @@ Page<{
   handleDeleteImage (e) {
     const { file } = e.detail
     const { images } = this.data
+    console.log(images, file)
     this.setData({
-      images: images.filter(v => v !== file),
+      images: images.filter(v => v.url !== file.url),
     })
   },
 
@@ -230,7 +243,7 @@ Page<{
     const { pid, sid  } = this
     try {
       const res = await postWorkOrder(address, date, cid, pid, images.map((v, i) => ({
-        storage_path: v,
+        storage_path: v.url,
         serial_number: i,
       })), sid - 1)
       if (res.code === 0) {
