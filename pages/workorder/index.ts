@@ -200,7 +200,7 @@ Page<{
         filePath: file.url,
         name: 'file',
       })
-      const result: Response<string> = JSON.parse(res)
+      const result: Response<string> = JSON.parse(res.data)
       if (result.code === 0) {
         this.setData({
           images: [...images, result.data],
