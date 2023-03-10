@@ -18,7 +18,7 @@ Page<{
   /**
    * 服务类型ID
    */
-  sid: number
+  sid: null | 1 | 2 | 3 | 4
 
   /**
    * 加载产品大类列表方法
@@ -46,11 +46,24 @@ Page<{
   },
 
   onLoad (options: { sid: string }) {
-    this.sid = parseInt(options.sid)
+    const sid = parseInt(options.sid)
+
+    if (sid !== 1 && sid !== 2 && sid !== 3 && sid !== 4) {
+      Toast.fail('非法的服务类型')
+
+      setTimeout(() => {
+        wx.navigateBack()
+      }, 1500)
+
+      return
+    }
+
+    this.sid = sid
+
     this.loadProductTypes()
   },
 
-  sid: 0,
+  sid: null,
 
   async loadProductTypes () {
     try {
@@ -101,16 +114,12 @@ Page<{
 
   async handleCreateWorkOrder (e) {
     const { id: pid } = e.mark!
-    const { sid } = this
-    if ([1, 2, 3, 4].includes(sid)) {
-      wx.navigateTo({
-        url: `/pages/workorder/index?sid=${sid}&pid=${pid}`,
-      })
-    } else if ([5, 6].includes(sid)) {
-      wx.navigateTo({
-        url: `/pages/document-list/index`,
-      })
-    }
+
+    if (typeof this.sid === 'object') return
+
+    wx.navigateTo({
+      url: `/pages/workorder/index?sid=${this.sid}&pid=${pid}`,
+    })
   },
 
 })

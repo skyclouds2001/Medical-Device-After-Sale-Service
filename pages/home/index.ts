@@ -26,7 +26,7 @@ Page<{
    *
    * @param e 点击事件
    */
-  handleCreateWorkOrder: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
+  handleOperateService: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
   /**
    * 点击联系客服回调方法
    *
@@ -69,11 +69,17 @@ Page<{
     }
   },
 
-  handleCreateWorkOrder (e) {
+  handleOperateService (e) {
     const { id } = e.mark!
-    wx.navigateTo({
-      url: `/pages/product-list/index?sid=${id}`,
-    })
+    if ([1, 2, 3, 4].includes(id)) {
+      wx.navigateTo({
+        url: `/pages/product-list/index?sid=${id}`,
+      })
+    } else if ([5, 6].includes(id)) {
+      wx.navigateTo({
+        url: `/pages/document-list/index?sid=${id}`,
+      })
+    }
   },
 
   async handleConnectKefu () {
