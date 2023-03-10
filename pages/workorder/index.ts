@@ -158,7 +158,7 @@ Page<{
           img_src: res.data.pic_url ?? '',
         })
       } else {
-        Toast.fail(res.data.toString())
+        Toast.fail(res.data?.toString() ?? '加载产品详情失败')
       }
     } catch {
       Toast.fail('加载产品详情失败')
@@ -190,7 +190,6 @@ Page<{
 
   async handleUploadImage (e) {
     const { file } = e.detail
-    console.log(file)
     this.setData({
       images: [file.url],
     })
@@ -207,14 +206,14 @@ Page<{
           images: [result.data],
         })
       } else {
-        Toast.fail('上传图片失败')
+        Toast.fail(result.data?.toString() ?? '上传图片失败')
         this.setData({
           img_src: '',
           images: [],
         })
       }
-    } catch (error) {
-      console.error(error)
+    } catch {
+      Toast.fail('上传图片失败')
     }
   },
 
@@ -227,11 +226,14 @@ Page<{
   },
 
   async submitWorkOrder () {
-    const { address, date } = this.data
+    const { address, date, img_src } = this.data
     const { id: cid } = app.globalData
     const { pid, sid  } = this
     try {
-      const res = await postWorkOrder(address, date, cid, pid, [], sid)
+      const res = await postWorkOrder(address, date, cid, pid, [{
+        storage_path: img_src,
+        serial_number: 0,
+      }], sid - 1)
       if (res.code === 0) {
         Toast.success('提交成功')
         setTimeout(() => {
