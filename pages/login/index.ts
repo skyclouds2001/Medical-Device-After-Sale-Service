@@ -151,7 +151,7 @@ Page<{
             },
           )
         } else {
-          Toast.fail('登录失败')
+          Toast.fail(res.data?.toString() ?? '登录失败')
         }
       } else {
         Toast.fail('注册失败')
