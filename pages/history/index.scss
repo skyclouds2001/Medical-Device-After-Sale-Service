@@ -2,25 +2,22 @@ page {
   background-color: #F5F5F5;
 }
 
-.bg {
-  transform: translateY(-100rpx);
-}
-
 .search {
   margin: 40rpx 0;
   padding: 0;
+
+  width: 100vw;
+  height: 60rpx;
 }
 
 .workorder-list {
-  margin: 10rpx 0;
+  margin: 25rpx 0;
   padding: 0 20rpx;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  transform: translateY(-175rpx);
 
   .work-order-item {
     width: 100%;

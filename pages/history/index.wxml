@@ -1,9 +1,5 @@
-<view class="bg">
-  <welcome-bg showComment="{{ false }}" />
-</view>
-
 <view class="search">
-  <search-bar move="-175rpx" />
+  <search-bar move="0" />
 </view>
 
 <view class="workorder-list">
