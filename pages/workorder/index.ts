@@ -1,6 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getProductModelByModelId } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
+import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
 
 const app = getApp<App>()
@@ -47,6 +48,10 @@ Page<{
    * 日期选择器结束时间
    */
   endDate: number
+  /**
+   * 图片列表
+   */
+  images: string[]
 }, {
   /**
    * 打开日期选择器回调方法
@@ -61,11 +66,40 @@ Page<{
    *
    * @param e 选取日期事件
    */
-  confirmChooseDate: (e: { detail: number }) => void
+  confirmChooseDate: (e: {
+    detail: number
+  }) => void
   /**
    * 取消选择日期回调方法
    */
   cancelChooseDate: () => void
+  /**
+   * 上传图片回调方法
+   *
+   * @param e 上传图片事件
+   */
+  handleUploadImage: (e: {
+    detail: {
+      file: {
+        size: number
+        thumb: string
+        url: string
+        type: 'image'
+      }
+    }
+  }) => void
+  /**
+   * 删除图片回调方法
+   *
+   * @param e 删除图片事件
+   */
+  handleDeleteImage: (e: {
+    detail: {
+      file: string
+      index: number
+      name: string
+    }
+  }) => void
   /**
    * 提交工单方法
    */
@@ -97,6 +131,7 @@ Page<{
     show: false,
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
+    images: [],
   },
 
   onLoad (options: { sid: string, pid: string }) {
@@ -151,6 +186,44 @@ Page<{
 
   cancelChooseDate () {
     this.closeDatePicker()
+  },
+
+  async handleUploadImage (e) {
+    const { file } = e.detail
+    console.log(file)
+    this.setData({
+      images: [file.url],
+    })
+    try {
+      const res = await uploadFile({
+        url: '/wizz/aftersale/media/upload',
+        filePath: file.url,
+        name: 'file',
+      })
+      const result = JSON.parse(res)
+      if (result.code === 0) {
+        this.setData({
+          img_src: result.data,
+          images: [result.data],
+        })
+      } else {
+        Toast.fail('上传图片失败')
+        this.setData({
+          img_src: '',
+          images: [],
+        })
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  },
+
+  handleDeleteImage (e) {
+    const { file } = e.detail
+    const { images } = this.data
+    this.setData({
+      images: images.filter(v => v !== file),
+    })
   },
 
   async submitWorkOrder () {
