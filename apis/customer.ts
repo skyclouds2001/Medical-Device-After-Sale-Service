@@ -14,8 +14,5 @@ export const resetUserPassword = (oldPwd: string, newPwd: string) => {
       oldPassword: oldPwd,
       newPassword: newPwd,
     },
-    header: {
-      'content-type': 'application/x-www-form-urlencoded',
-    },
   })
 }
