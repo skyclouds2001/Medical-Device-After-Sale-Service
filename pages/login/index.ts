@@ -60,11 +60,11 @@ Page<{
           Toast.success('登录成功')
         }, 500)
 
-        // setTimeout(() => {
-        //   wx.switchTab({
-        //     url: '/pages/home/index',
-        //   })
-        // }, 2500)
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/home/index',
+          })
+        }, 2500)
 
         app.globalData.token = token
         app.globalData.id = customer_id
