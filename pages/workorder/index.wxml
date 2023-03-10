@@ -21,14 +21,17 @@
       <van-field model:value="{{ date }}" name="time" required readonly label="预约服务时间" placeholder="请选择服务时间" clearable border="{{ false }}" bind:click-input="openDatePicker" />
     </view>
     <view class="form-item">
-      <van-field model:value="{{ addition }}" name="addition" label="其他信息（选填）" placeholder="请补充其他信息" clearable border="{{ false }}" />
+      <van-field name="addition" label="其他信息（选填）" placeholder="" clearable readonly border="{{ false }}" title-width="8em" />
     </view>
   </view>
   <view class="detail">
-    <view class="suggest">可以描述您需要维修的机器问题和状况，以便工程师更好为您提供服务。</view>
-    <view class="upload">
-      <van-uploader name="img" image-fit="aspectFill" max-count="1" accept="image" file-list="{{ images }}" bind:after-read="handleUploadImage" bind:delete="handleDeleteImage" />
-    </view>
+    <van-field model:value="{{ addition }}" name="addition" type="textarea" placeholder="可以描述您需要维修的机器问题和状况，以便工程师更好为您提供服务。" border="{{ false }}" placeholder-style="color: #7A7982; font-size: 26rpx;" :autosize="{{ { maxHeight: 200, minHeight: 100 } }}" />
+  </view>
+  <view class="media">
+    <van-field name="media" label="上传图片（选填）" placeholder="" clearable readonly border="{{ false }}" title-width="8em" />
+  </view>
+  <view class="upload">
+    <van-uploader name="img" image-fit="aspectFill" max-count="1" accept="image" file-list="{{ images }}" bind:after-read="handleUploadImage" bind:delete="handleDeleteImage" />
   </view>
 </view>
 

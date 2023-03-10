@@ -135,9 +135,9 @@ Page<{
   },
 
   onLoad (options: { sid: string, pid: string }) {
-    this.loadProductModel(parseInt(options.pid))
     this.pid = parseInt(options.pid)
     this.sid = parseInt(options.sid)
+    this.loadProductModel(parseInt(options.pid))
 
     const current = new Date().getTime()
     this.setData({

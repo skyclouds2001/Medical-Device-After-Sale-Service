@@ -27,6 +27,7 @@ page {
         border-radius: 10rpx !important;
       }
     }
+
     .product-title {
       flex: 3;
 
@@ -44,31 +45,46 @@ page {
       }
     }
   }
+
   .detail {
     background-color: #F0F3FE;
     border-radius: 20rpx;
 
-    margin: 0;
-    padding: 20rpx;
+    margin: 0 10rpx;
+    padding: 0;
 
-    .suggest {
-      color: #7A7982;
-      font-size: 26rpx;
+    width: auto;
+    height: 100px;
+
+    .custom-class, .van-cell {
+      background-color: transparent !important;
     }
-    .upload {
-      margin: 70rpx 0 0;
-      padding: 0;
 
-      .van-uploader__preview, .van-uploader__upload {
-        background-color: #FFFFFF !important;
-        border: 1rpx dashed #5C7CEB !important;
-        border-radius: 15rpx !important;
-      }
+    .input-class, .van-field__control {
+      min-height: 100px !important;
+      max-height: 200px !important;
+    }
+  }
 
-      .van-icon {
-        color: #5C7CEB !important;
-        font-size: 70rpx !important;
-      }
+  .media {
+    .label-class, .van-field__label {
+      color: #0E0E40 !important;
+    }
+  }
+
+  .upload {
+    margin: 0;
+    padding: 0 16px;
+
+    .van-uploader__preview, .van-uploader__upload {
+      background-color: #F0F3FE !important;
+      border: 1rpx dashed #5C7CEB !important;
+      border-radius: 15rpx !important;
+    }
+
+    .van-icon {
+      color: #5C7CEB !important;
+      font-size: 70rpx !important;
     }
   }
 }
