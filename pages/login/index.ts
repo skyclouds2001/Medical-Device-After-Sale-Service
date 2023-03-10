@@ -60,11 +60,11 @@ Page<{
           Toast.success('登录成功')
         }, 500)
 
-        setTimeout(() => {
-          wx.switchTab({
-            url: '/pages/home/index',
-          })
-        }, 2500)
+        // setTimeout(() => {
+        //   wx.switchTab({
+        //     url: '/pages/home/index',
+        //   })
+        // }, 2500)
 
         app.globalData.token = token
         app.globalData.id = customer_id
@@ -154,7 +154,7 @@ Page<{
           Toast.fail(res.data?.toString() ?? '登录失败')
         }
       } else {
-        Toast.fail('注册失败')
+        Toast.fail(res.data?.toString() ?? '注册失败')
       }
     } catch {
       Toast.fail('注册失败')

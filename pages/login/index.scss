@@ -21,10 +21,38 @@ $transition-direction: -50rpx;
   }
 }
 
+.recommend {
+  text-align: right;
+
+  position: relative;
+
+  image {
+    width: 260rpx;
+    height: 120rpx;
+  }
+
+  text {
+    position: absolute;
+    right: 0;
+    top: 35%;
+    z-index: 9;
+
+    width: 200rpx;
+    height: auto;
+
+    font-size: 20rpx;
+    line-height: 1.25em;
+    color: white;
+    text-align: center;
+
+    transform: translateY(-50%);
+  }
+}
+
 .form {
   width: 500rpx;
   height: auto;
-  margin: 25rpx 125rpx 0;
+  margin: 50rpx 125rpx 0;
   padding: 0;
 
   transform: translateY($transition-direction);
@@ -51,4 +79,10 @@ $transition-direction: -50rpx;
     text-align: center;
     letter-spacing: 1rpx;
   }
+}
+
+.brand {
+  position: fixed;
+  left: 50rpx;
+  top: 100rpx;
 }

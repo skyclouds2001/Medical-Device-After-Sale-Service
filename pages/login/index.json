@@ -6,5 +6,6 @@
     "van-picker": "@vant/weapp/picker/index",
     "van-popup": "@vant/weapp/popup/index"
   },
-  "navigationBarTitleText": "注册"
+  "navigationBarTitleText": "注册",
+  "navigationStyle": "custom"
 }
