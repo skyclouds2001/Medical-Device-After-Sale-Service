@@ -62,6 +62,10 @@ page {
         align-items: center;
 
         border-radius: 10rpx;
+
+        image {
+          transform: translateY(4rpx);
+        }
       }
 
       .text {

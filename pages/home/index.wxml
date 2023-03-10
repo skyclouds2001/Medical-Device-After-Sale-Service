@@ -6,7 +6,22 @@
     <view class="more" bind:tap="handleHistoryWorkOrder">进度查询<van-icon name="arrow" /></view>
   </view>
   <view class="content">
-    <view wx:for="{{ serviceItems }}" wx:key="id" class="item" mark:id="{{ item.id }}" bind:tap="handleCreateWorkOrder">
+    <view wx:for="{{ basicServices }}" wx:key="id" class="item" mark:id="{{ item.id }}" bind:tap="handleOperateService">
+      <view class="icon" style="background-color: {{ item.bg }}">
+        <van-image width="30" height="30" src="{{ item.img }}" />
+      </view>
+      <view class="text">{{ item.text }}</view>
+    </view>
+  </view>
+</view>
+
+<view class="service-list">
+  <view class="header">
+    <view class="title">其他服务</view>
+    <view class="more">服务查询<van-icon name="arrow" /></view>
+  </view>
+  <view class="content">
+    <view wx:for="{{ otherServices }}" wx:key="id" class="item" mark:id="{{ item.id }}">
       <view class="icon" style="background-color: {{ item.bg }}">
         <van-image width="30" height="30" src="{{ item.img }}" />
       </view>

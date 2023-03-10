@@ -2,7 +2,7 @@ import Toast from '@vant/weapp/toast/toast'
 import { getKfLink } from '@/apis/consult'
 import { getUserWorkOrder } from '@/apis/work-order'
 import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
-import { services } from '@/data/index'
+import { basicServices, otherServices } from '@/data/index'
 import type { Service } from '@/data/index'
 
 const app = getApp<App>()
@@ -13,9 +13,13 @@ Page<{
    */
   histories: WorkOrder[]
   /**
-   * 服务列表
+   * 基础服务列表
    */
-  serviceItems: Service[]
+  basicServices: Service[]
+  /**
+   * 其他服务列表
+   */
+  otherServices: Service[]
 }, {
   /**
    * 加载工单方法
@@ -41,7 +45,8 @@ Page<{
 
   data: {
     histories: [],
-    serviceItems: services,
+    basicServices,
+    otherServices,
   },
 
   onLoad () {
