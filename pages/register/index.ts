@@ -5,6 +5,8 @@ import { DEFAULT_PAGE_SIZE } from '@/config/index'
 import { setStorage } from '@/lib/storage'
 import { validatePhone, validatePassword } from '@/utils/validate'
 
+const app = getApp<App>()
+
 Page<{
   /**
    * 公司列表
@@ -122,7 +124,7 @@ Page<{
       const { code } = await wx.login()
       const res = await login(code)
       if (res.code === 0) {
-        const { token, customer_id } = res.data
+        const { token, customer_id, company_name, email: phone } = res.data
         setTimeout(() => {
           Toast.clear()
           Toast.success('登录成功')
@@ -132,8 +134,10 @@ Page<{
             url: '/pages/home/index',
           })
         }, 2000)
-        getApp<App>().globalData.token = token
-        getApp<App>().globalData.id = customer_id
+        app.globalData.token = token
+        app.globalData.id = customer_id
+        app.globalData.company = company_name
+        app.globalData.phone = phone
         setStorage(
           {
             key: 'token',
@@ -142,6 +146,14 @@ Page<{
           {
             key: 'id',
             value: customer_id,
+          },
+          {
+            key: 'company',
+            value: company_name,
+          },
+          {
+            key: 'phone',
+            value: phone,
           },
         )
       } else if (res.code === 1070) {
@@ -178,12 +190,14 @@ Page<{
         const { code } = await wx.login()
         const res = await login(code)
         if (res.code === 0) {
-          const { token, customer_id } = res.data
+          const { token, customer_id, company_name, email: phone } = res.data
           wx.switchTab({
             url: '/pages/index/index',
           })
-          getApp<App>().globalData.token = token
-          getApp<App>().globalData.id = customer_id
+          app.globalData.token = token
+          app.globalData.id = customer_id
+          app.globalData.company = company_name
+          app.globalData.phone = phone
           setStorage(
             {
               key: 'token',
@@ -192,6 +206,14 @@ Page<{
             {
               key: 'id',
               value: customer_id,
+            },
+            {
+              key: 'company',
+              value: company_name,
+            },
+            {
+              key: 'phone',
+              value: phone,
             },
           )
         } else {

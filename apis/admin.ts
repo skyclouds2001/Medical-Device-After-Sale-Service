@@ -2,6 +2,8 @@ import { request } from '@/lib/request'
 
 interface LoginResponse {
   customer_id: number
+  company_name: string
+  email: string
   token: string
 }
 
