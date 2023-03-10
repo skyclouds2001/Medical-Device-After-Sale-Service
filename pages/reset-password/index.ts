@@ -1,6 +1,6 @@
 import Toast from '@vant/weapp/toast/toast'
 import { resetUserPassword } from '@/apis/customer'
-import { validatePassword } from '@/utils/validate'
+import { validatePassword, validatePhone } from '@/utils/validate'
 
 Page<{
   /**
@@ -35,24 +35,28 @@ Page<{
   async handleSubmit () {
     const { phone, oldPwd, newPwd, confirmPwd } = this.data
 
-    if (phone !== '') {
+    if (phone === '') {
       Toast.fail('手机号不能为空')
       return
     }
-    if (oldPwd !== '') {
+    if (oldPwd === '') {
       Toast.fail('旧密码不能为空')
       return
     }
-    if (newPwd !== '') {
+    if (newPwd === '') {
       Toast.fail('新密码不能为空')
       return
     }
-    if (confirmPwd !== '') {
+    if (confirmPwd === '') {
       Toast.fail('确认密码不能为空')
       return
     }
-    if (newPwd !== oldPwd) {
+    if (newPwd === oldPwd) {
       Toast.fail('新密码与确认密码必须相同')
+      return
+    }
+    if (!validatePhone(phone)) {
+      Toast.fail('手机号格式非法')
       return
     }
     if (!validatePassword(newPwd)) {
@@ -71,7 +75,7 @@ Page<{
           })
         }, 1500)
       } else {
-        Toast.fail(res.data?.toString() ?? '修改失败')
+        Toast.fail(res.msg ?? '修改失败')
       }
     } catch (error) {
       console.error(error)      
