@@ -39,7 +39,7 @@
   - UserInfo.d.ts 用户信息数据结构
   - WorkOrder.d.ts 工单数据结构
 - pages/ 页面目录
-  - register 注册页
+  - login 登录页
   - home 首页
   - product-list 创建工单-选取产品页
   - workorder 创建工单-填写工单信息页
