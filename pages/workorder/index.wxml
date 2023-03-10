@@ -31,7 +31,7 @@
     <van-field name="media" label="上传图片（选填）" placeholder="" clearable readonly border="{{ false }}" title-width="8em" />
   </view>
   <view class="upload">
-    <van-uploader name="img" image-fit="aspectFill" max-count="1" accept="image" file-list="{{ images }}" bind:after-read="handleUploadImage" bind:delete="handleDeleteImage" />
+    <van-uploader name="img" image-fit="aspectFill" max-count="5" accept="image" file-list="{{ images }}" bind:after-read="handleUploadImage" bind:delete="handleDeleteImage" />
   </view>
 </view>
 

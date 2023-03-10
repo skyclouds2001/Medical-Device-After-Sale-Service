@@ -35,6 +35,10 @@ Page<{
    * 其他信息
    */
   addition: string
+  /**
+   * 图片列表
+   */
+  images: string[]
 
   /**
    * 控制日期选择器显示与否
@@ -48,10 +52,6 @@ Page<{
    * 日期选择器结束时间
    */
   endDate: number
-  /**
-   * 图片列表
-   */
-  images: string[]
 }, {
   /**
    * 打开日期选择器回调方法
@@ -127,11 +127,11 @@ Page<{
     date: '',
     addition: '',
     img_src: '',
+    images: [],
 
     show: false,
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
-    images: [],
   },
 
   onLoad (options: { sid: string, pid: string }) {
@@ -141,7 +141,7 @@ Page<{
 
     const current = new Date().getTime()
     this.setData({
-      startDate: current - current % (1000 * 60) + 60 * 1000,
+      startDate: current - current % (1000 * 60) + 1000 * 60 * 60,
       endDate: current - current % (1000 * 60) + 60 * 1000 + 1000 * 60 * 60 * 24 * 365,
     })
   },
@@ -190,8 +190,9 @@ Page<{
 
   async handleUploadImage (e) {
     const { file } = e.detail
+    const { images } = this.data
     this.setData({
-      images: [file.url],
+      images: [...images, file.url],
     })
     try {
       const res = await uploadFile({
@@ -199,17 +200,15 @@ Page<{
         filePath: file.url,
         name: 'file',
       })
-      const result = JSON.parse(res)
+      const result: Response<string> = JSON.parse(res)
       if (result.code === 0) {
         this.setData({
-          img_src: result.data,
-          images: [result.data],
+          images: [...images, result.data],
         })
       } else {
         Toast.fail(result.data?.toString() ?? '上传图片失败')
         this.setData({
-          img_src: '',
-          images: [],
+          images: [...images],
         })
       }
     } catch {
@@ -226,14 +225,14 @@ Page<{
   },
 
   async submitWorkOrder () {
-    const { address, date, img_src } = this.data
+    const { address, date, images } = this.data
     const { id: cid } = app.globalData
     const { pid, sid  } = this
     try {
-      const res = await postWorkOrder(address, date, cid, pid, [{
-        storage_path: img_src,
-        serial_number: 0,
-      }], sid - 1)
+      const res = await postWorkOrder(address, date, cid, pid, images.map((v, i) => ({
+        storage_path: v,
+        serial_number: i,
+      })), sid - 1)
       if (res.code === 0) {
         Toast.success('提交成功')
         setTimeout(() => {
