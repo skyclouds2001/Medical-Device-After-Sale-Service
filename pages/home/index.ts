@@ -89,7 +89,7 @@ Page<{
 
   async handleConnectKefu () {
     try {
-      const res = await getKfLink(-1, -1)
+      const res = await getKfLink(-1, -1, -1)
       if (res.code === 0) {
         wx.openCustomerServiceChat({
           extInfo: {

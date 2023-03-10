@@ -1,5 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
+import { getKfLink } from '@/apis/consult'
 import { getFileList } from '@/apis/file'
+import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 
 Page<{
   files: File[]
@@ -16,6 +18,12 @@ Page<{
    * @param type 文件的服务类型
    */
   loadFileList: (type: 0 | 1) => void
+  /**
+   * 点击联系客服回调方法
+   *
+   * @param e 点击事件
+   */
+  handleConnectKefu: () => Promise<void>
 }>({
 
   data: {
@@ -53,6 +61,27 @@ Page<{
       }
     } catch {
       Toast.fail('获取文件列表失败')
+    }
+  },
+
+  async handleConnectKefu () {
+    try {
+      const res = await getKfLink(-1, -1, -1)
+      if (res.code === 0) {
+        wx.openCustomerServiceChat({
+          extInfo: {
+            url: res.data.kf_link,
+          },
+          corpId: CUSTOMER_SERVICE_COMPANY_ID,
+          fail: (err) => {
+            Toast.fail(err.errMsg)
+          },
+        })
+      } else {
+        Toast.fail(res.data?.toString() ?? '获取客服链接失败')
+      }
+    } catch {
+      Toast.fail('获取客服链接失败')
     }
   },
 

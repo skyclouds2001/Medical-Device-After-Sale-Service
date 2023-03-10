@@ -35,4 +35,9 @@
   <van-image width="200" height="200" src="/images/empty-content.png" fit="contain" lazy-load />
 </view>
 
+<view class="connect-customer-servier" bind:tap="handleConnectKefu">
+  <van-icon class="icon" name="service-o" />
+  <view class="text">联系客服</view>
+</view>
+
 <van-toast id="van-toast" />
