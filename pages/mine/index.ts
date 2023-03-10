@@ -13,6 +13,10 @@ Page<{
    */
   avatar: string
   /**
+   * 用户所属公司
+   */
+  company: string
+  /**
    * 显示用户登录弹窗
    */
   show: boolean
@@ -37,7 +41,7 @@ Page<{
   /**
    * 修改绑定手机号方法
    */
-  editBindPhone: () => void
+  editPassword: () => void
   /**
    * 退出登录方法
    */
@@ -47,14 +51,16 @@ Page<{
   data: {
     nickname: DEFAULT_NICKNAME,
     avatar: DEFAULT_AVATAR,
+    company: '企业名称',
     show: false,
   },
 
   onLoad () {
-    const { userinfo } = app.globalData
+    const { userinfo, company } = app.globalData
     this.setData({
       nickname: userinfo.nickname,
       avatar: userinfo.avatar,
+      company,
     })
   },
 
@@ -100,8 +106,10 @@ Page<{
     })
   },
 
-  editBindPhone () {
-    Toast.fail('小程序端暂不支持修改手机，请联系客服人员')
+  editPassword () {
+    wx.navigateTo({
+      url: '/pages/reset-password/index',
+    })
   },
 
   exitLogin () {
