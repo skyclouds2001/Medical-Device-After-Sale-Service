@@ -1,0 +1,111 @@
+.search {
+  margin: 40rpx 0 0;
+  padding: 0;
+
+  width: 100vw;
+  height: auto;
+
+  .search-bar {
+    position: relative;
+
+    margin: 0;
+    padding: 0 50rpx;
+
+    .input {
+      font-size: 28rpx;
+      line-height: 3em;
+      color: #0E0E40;
+
+      width: 650rpx;
+      height: 3em;
+      padding: 0 2.5em;
+
+      background-color: white;
+      border-radius: 1em;
+      box-shadow: 0 10rpx 10rpx rgba(16, 14, 67, 0.25);
+    }
+
+    .placeholder {
+      color: #0E0E40;
+      font-size: 28rpx;
+      line-height: 1em;
+
+      position: absolute;
+      top: 1em;
+      left: calc(1em + 50rpx);
+    }
+  }
+
+  .filter-bar {
+    margin: 0;
+    padding: 20rpx 50rpx;
+
+    text-align: right;
+    color: #818085;
+    font-size: 28rpx;
+
+    .block {
+      display: inline-block;
+    }
+  }
+}
+
+.container {
+  .item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin: 0;
+    padding: 0 20rpx;
+
+    &:last-child {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .title {
+      font-weight: bold;
+      color: #0E0E40;
+    }
+
+    .selector {
+      width: 30%;
+      height: auto;
+      margin: 0;
+      padding: 20rpx;
+
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      color: #818085;
+
+      &.active {
+        color: #5C7CEB;
+      }
+    }
+
+    .button {
+      background-color: #5C7CEB;
+      color: white;
+      border: #5C7CEB 1px solid;
+      line-height: 2em;
+  
+      width: 8em;
+      height: 2em;
+      margin: 20rpx 0;
+      padding: 0;
+  
+      &.plain {
+        background-color: white;
+        color: #5C7CEB;
+      }
+  
+      &:active {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
