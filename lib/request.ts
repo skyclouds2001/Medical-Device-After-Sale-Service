@@ -15,7 +15,7 @@ export const request = <T>(params: WechatMiniprogram.RequestOption<Response<T>>)
   return new Promise<Response<T>>((resolve, reject) => {
     wx.request<Response<T>>({
       ...params,
-      url: SERVER_HOST + params.url,
+      url: /https?/.test(params.url) ? params.url : SERVER_HOST + params.url,
       header: {
         ...params.header,
         ...header,

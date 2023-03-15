@@ -15,7 +15,7 @@ export const uploadFile = (params: WechatMiniprogram.UploadFileOption): Promise<
   return new Promise((resolve, reject) => {
     wx.uploadFile({
       ...params,
-      url: SERVER_HOST + params.url,
+      url: /https?/.test(params.url) ? params.url : SERVER_HOST + params.url,
       header: {
         ...params.header,
         ...header,
@@ -39,7 +39,7 @@ export const downloadFile = (params: WechatMiniprogram.DownloadFileOption): Prom
   return new Promise((resolve, reject) => {
     wx.downloadFile({
       ...params,
-      url: SERVER_HOST + params.url,
+      url: /https?/.test(params.url) ? params.url : SERVER_HOST + params.url,
       header: {
         ...params.header,
         ...header,
