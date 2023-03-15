@@ -18,7 +18,7 @@ Page<{
   /**
    * 服务类型ID
    */
-  sid: null | 1 | 2 | 3 | 4
+  sid: -1 | 1 | 2 | 3 | 4
 
   /**
    * 加载产品大类列表方法
@@ -63,7 +63,7 @@ Page<{
     this.loadProductTypes()
   },
 
-  sid: null,
+  sid: -1,
 
   async loadProductTypes () {
     try {
@@ -114,11 +114,10 @@ Page<{
 
   async handleCreateWorkOrder (e) {
     const { id: pid } = e.mark!
-
-    if (typeof this.sid === 'object') return
+    const { sid } = this
 
     wx.navigateTo({
-      url: `/pages/workorder/index?sid=${this.sid}&pid=${pid}`,
+      url: `/pages/workorder/index?sid=${sid}&pid=${pid}`,
     })
   },
 

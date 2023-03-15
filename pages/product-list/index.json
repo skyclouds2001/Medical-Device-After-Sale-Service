@@ -6,5 +6,5 @@
     "search-bar": "/components/search-bar/index",
     "product-sidebar": "/components/product-sidebar/index"
   },
-  "navigationBarTitleText": "维修检查"
+  "navigationBarTitleText": "选择产品"
 }
