@@ -23,6 +23,7 @@ export const postWorkOrder = (address: string, time: string, cid: number, mid: n
       model_id: mid,
       order_attachment_list: accessories,
       order_type: type,
+      kefu_type: type + 1,
     },
     header: {
       'content-type': 'application/json',

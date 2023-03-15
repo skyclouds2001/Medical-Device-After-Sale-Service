@@ -185,7 +185,7 @@ Page<{
 
   confirmChooseDate (e) {
     this.setData({
-      date: transformDate(new Date(e.detail)),
+      date: transformDate(new Date(e.detail)).split(' ')[0],
     })
     this.closeDatePicker()
   },
@@ -231,7 +231,6 @@ Page<{
   handleDeleteImage (e) {
     const { file } = e.detail
     const { images } = this.data
-    console.log(images, file)
     this.setData({
       images: images.filter(v => v.url !== file.url),
     })
@@ -242,15 +241,16 @@ Page<{
     const { id: cid } = app.globalData
     const { pid, sid  } = this
     try {
-      const res = await postWorkOrder(address, date, cid, pid, images.map((v, i) => ({
+      const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,
         serial_number: i,
       })), sid - 1)
       if (res.code === 0) {
         Toast.success('提交成功')
+        const wid = res.data
         setTimeout(() => {
           wx.navigateTo({
-            url: `/pages/submited/index?sid=${sid}&pid=${pid}`,
+            url: `/pages/submited/index?sid=${sid}&pid=${pid}&wid=${wid}`,
           })
         }, 2000)
       } else {
