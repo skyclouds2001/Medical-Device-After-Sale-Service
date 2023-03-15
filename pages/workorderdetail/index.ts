@@ -1,12 +1,12 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getWorkOrderById } from '@/apis/work-order'
-import { services } from '@/data/index'
+import { basicServices } from '@/data/index'
 
 Page<{
   /**
    * 工单详情信息
    */
-  workOrder: WorkOrder & { service?: string }
+  workOrder: WorkOrder & { service?: string } | null
 }, {
   /**
    * 加载工单详情回调方法
@@ -15,16 +15,7 @@ Page<{
 }>({
 
   data: {
-    workOrder: {
-      address: '',
-      appointment_time: '',
-      customer_id: 0,
-      model_id: 0,
-      model_name: '',
-      order_attachment_list: [],
-      order_id: 0,
-      order_type: 0,
-    },
+    workOrder: null,
   },
 
   onLoad (options: { id: string }) {
@@ -39,7 +30,7 @@ Page<{
         this.setData({
           workOrder: {
             ...product,
-            service: services.find(v => v.id - 1 === product.order_type)?.text ?? '未知',
+            service: basicServices.find(v => v.id - 1 === product.order_type)?.text ?? '未知',
           },
         })
       } else {
