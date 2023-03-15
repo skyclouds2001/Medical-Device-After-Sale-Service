@@ -62,19 +62,41 @@ page {
     }
 
     .right {
-      font-size: 30rpx;
-      line-height: 1.5em;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       width: 20%;
       height: auto;
 
-      > button {
+      .status {
+        font-size: 30rpx;
+        line-height: 1.5em;
+        text-align: center;
+
+        &.default {
+          color: #818085;
+        }
+
+        &.undo {
+          color: #FF6714;
+        }
+
+        &.done {
+          color: #5C7CEB;
+        }
+      }
+
+      .check {
         color: white;
-        font-size: 28rpx;
+        font-size: 26rpx;
         line-height: 1.5em;
         text-align: center;
         letter-spacing: 1rpx;
+
+        width: 4em;
+        height: 1.5em;
 
         background-color: #2D3DAA;
         border-radius: 20rpx;
@@ -83,6 +105,14 @@ page {
 
         &:active {
           background-color: #4d6ee6;
+        }
+
+        &.undo {
+          background-color: #FF6714;
+        }
+
+        &.undo:active {
+          background-color: #f0844a;
         }
       }
     }
@@ -99,6 +129,6 @@ page {
   color: #818085;
   text-align: center;
 
-  margin: 50rpx 0;
-  padding: 0;
+  margin: 0;
+  padding: 25rpx 0 50rpx;
 }
