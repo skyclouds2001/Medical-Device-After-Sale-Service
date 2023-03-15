@@ -2,16 +2,8 @@ page {
   background-color: #F5F5F5;
 }
 
-.search {
-  margin: 40rpx 0;
-  padding: 0;
-
-  width: 100vw;
-  height: 60rpx;
-}
-
 .workorder-list {
-  margin: 25rpx 0;
+  margin: 0;
   padding: 0 20rpx;
 
   display: flex;
@@ -22,8 +14,8 @@ page {
   .work-order-item {
     width: 100%;
     height: auto;
-    margin: 10rpx 0;
-    padding: 10rpx 40rpx;
+    margin: 20rpx 0 10rpx; 
+    padding: 20rpx 40rpx; 
 
     background-color: white;
     border-radius: 20rpx;
@@ -32,6 +24,10 @@ page {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:first-child {
+      margin: 0;
+    }
 
     .left {
       display: flex;
@@ -42,8 +38,8 @@ page {
       width: 80%;
       height: auto;
 
-      .desc {
-        font-size: 28rpx;
+      .name {
+        font-size: 30rpx;
         line-height: 2em;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -130,5 +126,5 @@ page {
   text-align: center;
 
   margin: 0;
-  padding: 25rpx 0 50rpx;
+  padding: 50rpx;
 }

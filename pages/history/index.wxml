@@ -1,14 +1,10 @@
-<view class="search">
-  <search-bar move="0" />
-</view>
-
-<workorder-search show="{{ false }}" />
+<workorder-search bind:reset="handleResetFilter" bind:filter="handleUseFilter" />
 
 <view class="workorder-list">
   <block wx:if="{{ wos.length !== 0 }}">
     <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
       <view class="left">
-        <view class="desc">{{ item.model_name }}</view>
+        <view class="name">{{ item.model_name }}</view>
         <view class="date">{{ item.create_time }}</view>
       </view>
       <view class="right">
