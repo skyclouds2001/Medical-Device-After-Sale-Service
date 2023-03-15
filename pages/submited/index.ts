@@ -4,9 +4,13 @@ import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 
 Page<{}, {
   /**
+   * 工单ID
+   */
+  wid: number
+  /**
    * 工单对应服务ID
    */
-  sid: number
+  sid: -1 | 1 | 2 | 3 | 4
   /**
    * 工单对应产品ID
    */
@@ -24,17 +28,19 @@ Page<{}, {
 
   data: {},
 
-  onLoad (options: Record<'sid' | 'pid', string>) {
-    this.sid = parseInt(options.sid)
+  onLoad (options: Record<'sid' | 'pid' | 'wid', string>) {
+    this.sid = parseInt(options.sid) as 1 | 2 | 3 | 4
     this.pid = parseInt(options.pid)
+    this.wid = parseInt(options.wid)
   },
 
-  sid: 0,
-  pid: 0,
+  sid: -1,
+  pid: -1,
+  wid: -1,
 
   async openCustomerService () {
     try {
-      const res = await getKfLink(this.pid, this.sid as 1 | 2 | 3)
+      const res = await getKfLink(this.pid, this.sid, this.wid)
       if (res.code === 0) {
         wx.openCustomerServiceChat({
           extInfo: {
@@ -48,8 +54,8 @@ Page<{}, {
       } else {
         Toast.fail(res.data?.toString() ?? '获取客服链接失败')
       }
-    } catch (error) {
-      console.error(error)
+    } catch {
+      Toast.fail('获取客服链接失败')
     }
   },
 
