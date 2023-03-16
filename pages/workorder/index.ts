@@ -1,5 +1,5 @@
 import Toast from '@vant/weapp/toast/toast'
-import { getProductModelByModelId } from '@/apis/product'
+import { getAllProductModels } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
 import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
@@ -15,6 +15,12 @@ Page<{
    * 产品图片链接
    */
   img_src: string
+
+
+  /**
+   * 产品ID
+   */
+  pid: number
   /**
    * 联系人姓名
    */
@@ -44,9 +50,17 @@ Page<{
   }>
 
   /**
+   * 产品列表
+   */
+  products: Array<ProductModel & { name: string }>
+  /**
+   * 控制产品选择器显示与否
+   */
+  showProductPicker: boolean
+  /**
    * 控制日期选择器显示与否
    */
-  show: boolean
+  showDatePicker: boolean
   /**
    * 日期选择器开始时间
    */
@@ -57,6 +71,14 @@ Page<{
   endDate: number
 }, {
   /**
+   * 打开产品选择器回调方法
+   */
+  openProductPicker: () => void
+  /**
+   * 关闭产品选择器回调方法
+   */
+  closeProductPicker: () => void
+  /**
    * 打开日期选择器回调方法
    */
   openDatePicker: () => void
@@ -64,6 +86,10 @@ Page<{
    * 关闭日期选择器回调方法
    */
   closeDatePicker: () => void
+  /**
+   * 选择产品回调方法
+   */
+  handleSelectProduct: (e: WechatMiniprogram.CustomEvent<ProductModel & { name: string }>) => void
   /**
    * 确认选择日期回调方法
    *
@@ -112,20 +138,21 @@ Page<{
   submitWorkOrder: () => Promise<void>
 
   /**
-   * 工单所属产品ID
-   */
-  pid: number
-  /**
    * 工单所属服务ID
    */
   sid: number
   /**
+   * 产品列表
+   */
+  products: ProductModel[]
+  /**
    * 加载产品模型方法
    */
-  loadProductModel: (id: number) => Promise<void>
+  loadProductModels: () => Promise<void>
 }>({
 
   data: {
+    pid: 0,
     info: '',
     name: '',
     phone: '',
@@ -135,15 +162,16 @@ Page<{
     img_src: '',
     images: [],
 
-    show: false,
+    showProductPicker: false,
+    showDatePicker: false,
+    products: [],
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
   },
 
-  onLoad (options: { sid: string, pid: string }) {
-    this.pid = parseInt(options.pid)
+  onLoad (options: { sid: string }) {
+    this.loadProductModels()
     this.sid = parseInt(options.sid)
-    this.loadProductModel(parseInt(options.pid))
 
     const current = new Date().getTime()
     this.setData({
@@ -152,16 +180,16 @@ Page<{
     })
   },
 
-  pid: 0,
   sid: 0,
+  products: [],
 
-  async loadProductModel (id) {
+  async loadProductModels () {
     try {
-      const res = await getProductModelByModelId(id)
+      const res = await getAllProductModels()
       if (res.code === 0) {
+        this.products = res.data
         this.setData({
-          info: res.data.model_name,
-          img_src: res.data.pic_url ?? '',
+          products: res.data.map(v => ({ ...v, name: v.model_name })),
         })
       } else {
         Toast.fail(res.data?.toString() ?? '加载产品详情失败')
@@ -171,15 +199,36 @@ Page<{
     }
   },
 
+  openProductPicker () {
+    this.setData({
+      showProductPicker: true,
+    })
+  },
+
+  closeProductPicker () {
+    this.setData({
+      showProductPicker: false,
+    })
+  },
+
   openDatePicker () {
     this.setData({
-      show: true,
+      showDatePicker: true,
     })
   },
 
   closeDatePicker () {
     this.setData({
-      show: false,
+      showDatePicker: false,
+    })
+  },
+
+  handleSelectProduct (e) {
+    const { model_id: id, model_name: name, pic_url } = e.detail
+    this.setData({
+      pid: id,
+      info: name,
+      img_src: pic_url,
     })
   },
 
@@ -237,9 +286,9 @@ Page<{
   },
 
   async submitWorkOrder () {
-    const { address, date, images } = this.data
+    const { address, date, images, pid } = this.data
     const { id: cid } = app.globalData
-    const { pid, sid  } = this
+    const { sid  } = this
     try {
       const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,

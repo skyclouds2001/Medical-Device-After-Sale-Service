@@ -3,8 +3,8 @@
     <view class="product-img">
       <van-image width="50" height="50" fit="cover" lazy-load webp src="{{ img_src }}" alt="" />
     </view>
-    <view class="product-title">
-      {{ info }}
+    <view class="product-title" bind:tap="openProductPicker">
+      {{ pid === 0 ? '请选择产品' : info }}
     </view>
   </view>
   <view class="form">
@@ -39,8 +39,10 @@
   <button class="btn" bind:tap="submitWorkOrder">提交</button>
 </view>
 
-<van-popup show="{{ show }}" position="bottom">
+<van-popup show="{{ showDatePicker }}" position="bottom">
   <van-datetime-picker type="date" min-date="{{ startDate }}" max-date="{{ endDate }}" bind:confirm="confirmChooseDate" bind:cancel="cancelChooseDate" />
 </van-popup>
+
+<van-action-sheet description="请选择产品" show="{{ showProductPicker }}" actions="{{ products }}" bind:close="closeProductPicker" bind:select="handleSelectProduct" />
 
 <van-toast id="van-toast" />

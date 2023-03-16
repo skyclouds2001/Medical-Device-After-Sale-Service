@@ -5,7 +5,8 @@
     "van-image": "@vant/weapp/image/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-datetime-picker": "@vant/weapp/datetime-picker/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
   },
   "navigationBarTitleText": "创建工单"
 }

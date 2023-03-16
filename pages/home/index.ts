@@ -78,7 +78,7 @@ Page<{
     const { id } = e.mark!
     if ([1, 2, 3, 4].includes(id)) {
       wx.navigateTo({
-        url: `/pages/product-list/index?sid=${id}`,
+        url: `/pages/workorder/index?sid=${id}`,
       })
     } else if ([5, 6].includes(id)) {
       wx.navigateTo({
