@@ -29,18 +29,18 @@ type AuthResponse = {}
  * 用户注册方法
  *
  * @param id 企业ID
- * @param name 客户姓名
- * @param phone 客户手机号
+ * @param name 客户邮箱
+ * @param pwd 密码
  * @param openid 客户openid
  */
-export const auth = (id: number, name: string, phone: string, openid: string) => {
+export const auth = (id: number, name: string, pwd: string, openid: string) => {
   return request<AuthResponse>({
     url: '/wizz/aftersale/account/customer/authenticate',
     method: 'POST',
     data: {
       company_id: id,
       customer_name: name,
-      mobile: phone,
+      customer_password: pwd,
       open_id: openid,
     },
     header: {

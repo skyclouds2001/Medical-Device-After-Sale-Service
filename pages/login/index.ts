@@ -1,7 +1,6 @@
 import Toast from '@vant/weapp/toast/toast'
 import { login, auth } from '@/apis/admin'
 import { setStorage } from '@/lib/storage'
-import { validatePhone, validatePassword } from '@/utils/validate'
 
 const app = getApp<App>()
 
@@ -90,8 +89,8 @@ Page<{
           },
         )
       } else if (res.code === 1070) {
-        // todo
         Toast.clear()
+        Toast('请输入用户名密码登录')
         this.openid = res.data.toString()
       } else {
         Toast.fail(res.data.toString())
@@ -102,19 +101,10 @@ Page<{
   },
 
   async userLogin() {
-    const { pwd: phone, name } = this.data
-
-    if (!validatePhone(phone)) {
-      Toast.fail('电话格式不正确')
-      return
-    }
-    if (!validatePassword(name)) {
-      Toast.fail('姓名格式不正确')
-      return
-    }
+    const { pwd, name } = this.data
 
     try {
-      const res = await auth(34, name, phone, this.openid)
+      const res = await auth(34, name, pwd, this.openid)
       if (res.code === 0) {
         Toast.success('注册成功')
 
