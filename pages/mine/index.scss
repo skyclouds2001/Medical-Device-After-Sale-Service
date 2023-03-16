@@ -25,6 +25,17 @@ page {
   .avatar {
     width: 25%;
     height: 100%;
+
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    color: transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .info {

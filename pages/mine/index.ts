@@ -16,30 +16,13 @@ Page<{
    * 用户所属公司
    */
   company: string
-  /**
-   * 显示用户登录弹窗
-   */
-  show: boolean
 }, {
   /**
-   * 显示登录弹窗方法
+   * 选取头像方法
    */
-  showLoginDialog: () => void
+  handleChooseAvatar: (e: WechatMiniprogram.CustomEvent<{ avatarUrl: string }>) => void
   /**
-   * 确认登录回调方法
-   *
-   * @param e 确认登录方法
-   */
-  confirmLogin: (e: WechatMiniprogram.CustomEvent<{
-    avatar: string
-    nickname: string
-  }>) => void
-  /**
-   * 取消登录回调方法
-   */
-  cancelLogin: () => void
-  /**
-   * 修改绑定手机号方法
+   * 跳转至修改密码页方法
    */
   editPassword: () => void
   /**
@@ -52,13 +35,12 @@ Page<{
     nickname: DEFAULT_NICKNAME,
     avatar: DEFAULT_AVATAR,
     company: '企业名称',
-    show: false,
   },
 
   onLoad () {
-    const { userinfo, company } = app.globalData
+    const { userinfo, company, phone } = app.globalData
     this.setData({
-      nickname: userinfo.nickname,
+      nickname: phone,
       avatar: userinfo.avatar,
       company,
     })
@@ -70,40 +52,16 @@ Page<{
     })
   },
 
-  showLoginDialog () {
-    const { nickname, avatar } = this.data
-    if (nickname === DEFAULT_NICKNAME || avatar === DEFAULT_AVATAR) {
-      this.setData({
-        show: true,
-      })
-    }
-  },
-
-  confirmLogin (e) {
-    const { nickname, avatar } = e.detail
-    if (nickname === '') {
-      Toast.fail('昵称不能为空')
-      return
-    }
-    if (avatar === '') {
-      Toast.fail('头像不能为空')
-      return
-    }
+  handleChooseAvatar (e) {
+    const avatar = e.detail.avatarUrl
     this.setData({
-      nickname,
-      avatar,
-      show: false,
-    })
-    wx.setStorageSync<UserInfo>('userinfo', {
-      nickname,
       avatar,
     })
-  },
 
-  cancelLogin () {
-    this.setData({
-      show: false,
-    })
+    app.globalData.userinfo.avatar = avatar
+
+    const userinfo = wx.getStorageSync('userinfo')
+    wx.setStorageSync('userinfo', { ...userinfo, avatar })
   },
 
   editPassword () {

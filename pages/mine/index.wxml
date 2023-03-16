@@ -1,5 +1,8 @@
-<view class="userinfo" bind:tap="showLoginDialog">
-  <view class="avatar">
+<view class="userinfo">
+  <button wx:if="{{ avatar === '/icons/user.svg' }}" class="avatar" open-type="chooseAvatar" bind:chooseavatar="handleChooseAvatar">
+    <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="{{ avatar }}" />
+  </button>
+  <view wx:else class="avatar">
     <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="{{ avatar }}" />
   </view>
   <view class="info">
@@ -22,7 +25,5 @@
 <view class="exit-btn">
   <button bind:tap="exitLogin">退出登录</button>
 </view>
-
-<userinfo-dialog show="{{ show }}" bind:confirm="confirmLogin" bind:cancel="cancelLogin" />
 
 <van-toast id="van-toast" />
