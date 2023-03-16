@@ -1,4 +1,3 @@
-import Toast from '@vant/weapp/toast/toast'
 import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
 
 const app = getApp<App>()
@@ -34,7 +33,7 @@ Page<{
   data: {
     nickname: DEFAULT_NICKNAME,
     avatar: DEFAULT_AVATAR,
-    company: '企业名称',
+    company: '未知企业',
   },
 
   onLoad () {
@@ -71,11 +70,17 @@ Page<{
   },
 
   exitLogin () {
+    this.setData({
+      avatar: DEFAULT_AVATAR,
+      nickname: DEFAULT_NICKNAME,
+      company: '未知企业',
+    })
     wx.removeStorageSync('token')
     wx.removeStorageSync('userinfo')
     app.globalData.token = ''
     app.globalData.userinfo.nickname = DEFAULT_NICKNAME
     app.globalData.userinfo.avatar = DEFAULT_AVATAR
+    wx.exitMiniProgram()
   },
 
 })
