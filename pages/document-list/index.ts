@@ -141,6 +141,11 @@ Page<{
     }
 
     Toast.success('下载成功')
+
+    wx.shareFileMessage({
+      filePath: file_path,
+      fileName: file.file_name,
+    })
   },
 
   async handlePreviewDocument (e) {
