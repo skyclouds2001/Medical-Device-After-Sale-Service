@@ -30,11 +30,11 @@ Page<{
   /**
    * 下载文档方法
    */
-  handleDownloadDocument: (e: WechatMiniprogram.TouchEvent<{}, { url: string }>) => void
+  handleDownloadDocument: (e: WechatMiniprogram.TouchEvent<{}, { file: File }>) => void
   /**
    * 预览文档方法
    */
-  handlePreviewDocument: (e: WechatMiniprogram.TouchEvent<{}, { url: string }>) => void
+  handlePreviewDocument: (e: WechatMiniprogram.TouchEvent<{}, { file: File }>) => void
 }>({
 
   data: {
@@ -113,34 +113,66 @@ Page<{
   },
 
   async handleDownloadDocument (e) {
-    if (!e.mark?.url) return
+    if (!e.mark?.file) return
 
-    const res = await downloadFile({
-      url: e.mark.url,
-    })
+    const { file } = e.mark
+
+    const folder_path = `${wx.env.USER_DATA_PATH}/medical-device-service`
+    const file_path = `${wx.env.USER_DATA_PATH}/medical-device-service/${file.file_name}`
 
     try {
-      fs.accessSync(`${wx.env.USER_DATA_PATH}/medical-device-service`)
+      fs.accessSync(file_path)
     } catch {
       try {
-        fs.mkdirSync(`${wx.env.USER_DATA_PATH}/medical-device-service`, true)
+        const res = await downloadFile({
+          url: file.file_url,
+        })
+  
+        try {
+          fs.accessSync(folder_path)
+        } catch {
+          try {
+            fs.mkdirSync(folder_path, true)
+          } catch {}
+        }
+  
+        fs.saveFileSync(res.tempFilePath, file_path)
       } catch {}
     }
 
-    const name = res.tempFilePath.slice(res.tempFilePath.indexOf('tmp/') + 4)
-
-    fs.saveFileSync(res.tempFilePath, `${wx.env.USER_DATA_PATH}/medical-device-service/${name}`)
+    Toast.success('下载成功')
   },
 
   async handlePreviewDocument (e) {
-    if (!e.mark?.url) return
+    if (!e.mark?.file) return
 
-    const res = await downloadFile({
-      url: e.mark.url,
-    })
+    const { file } = e.mark
+
+    const folder_path = `${wx.env.USER_DATA_PATH}/medical-device-service`
+    const file_path = `${wx.env.USER_DATA_PATH}/medical-device-service/${file.file_name}`
+
+    try {
+      fs.accessSync(file_path)
+    } catch {
+      try {
+        const res = await downloadFile({
+          url: file.file_url,
+        })
+  
+        try {
+          fs.accessSync(folder_path)
+        } catch {
+          try {
+            fs.mkdirSync(folder_path, true)
+          } catch {}
+        }
+  
+        fs.saveFileSync(res.tempFilePath, file_path)
+      } catch {}
+    }
 
     wx.openDocument({
-      filePath: res.tempFilePath,
+      filePath: file_path,
       showMenu: true,
     })
   },

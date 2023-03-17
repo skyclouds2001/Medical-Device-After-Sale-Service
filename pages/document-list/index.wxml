@@ -7,11 +7,11 @@
         <text>{{ item.file_size }}</text>
       </view>
       <view class="operate">
-        <view class="download" mark:url="{{ item.file_url }}" bind:tap="handleDownloadDocument">
+        <view class="download" mark:file="{{ item }}" bind:tap="handleDownloadDocument">
           <image src="/icons/download.svg" mode="aspectFit" lazy-load />
           <text>下载</text>
         </view>
-        <view class="check" mark:url="{{ item.file_url }}" bind:tap="handlePreviewDocument">
+        <view wx:if="{{ item.file_type !== 'ZIP' && item.file_type !== 'unknown' }}" class="check" mark:file="{{ item }}" bind:tap="handlePreviewDocument">
           <image src="/icons/check.svg" mode="aspectFit" lazy-load />
           <text>查看</text>
         </view>
