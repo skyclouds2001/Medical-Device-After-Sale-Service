@@ -1,0 +1,76 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.context {
+  transform: translateY(-200rpx);
+
+  .wo-info {
+    margin: 20rpx;
+    padding: 10rpx 30rpx;
+
+    background-color: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, 0.25);
+
+    .header {
+      font-size: 32rpx;
+      line-height: 2em;
+
+      border-bottom: 1rpx solid #818085;
+
+      > view {
+        display: inline-block;
+      }
+
+      .title {
+        width: 60%;
+
+        text-align: left;
+        color: #0E0E40;
+        font-size: 36rpx;
+        font-weight: bold;
+      }
+      .status {
+        width: 40%;
+
+        font-size: 32rpx;
+        color: #818085;
+        line-height: 1.5em;
+        text-align: right;
+
+        &.undo {
+          color: #FF6714;
+        }
+
+        &.done {
+          color: #5C7CEB;
+        }
+      }
+    }
+
+    .content {
+      margin: 0;
+      padding: 20rpx 0;
+
+      .section {
+        color: #0E0E40;
+        font-size: 30rpx;
+        line-height: 2em;
+      }
+    }
+
+    .footer {
+      font-size: 30rpx;
+      line-height: 2em;
+
+      border-top: 1rpx solid #818085;
+
+      .date {
+        color: #818085;
+        text-align: left;
+        font-size: 26rpx;
+      }
+    }
+  }
+}

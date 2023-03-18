@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index",
+    "welcome-bg": "/components/welcome-bg/index",
+    "tab-bar": "/custom-tab-bar/index"
+  },
+  "navigationBarTitleText": "服务大厅"
+}

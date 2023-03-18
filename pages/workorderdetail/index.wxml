@@ -1,0 +1,22 @@
+<welcome-bg />
+
+<view class="context">
+  <view class="wo-info">
+    <view class="header">
+      <view class="title">{{ workOrder.model_name }}</view>
+      <view wx:if="{{ workOrder.order_status === 0 }}" class="status undo">未处理</view>
+      <view wx:elif="{{ workOrder.order_status === 1 }}" class="status done">已处理</view>
+    </view>
+    <view class="content">
+      <view class="section type">工单类型：{{ workOrder.service }}</view>
+      <view class="section address">预约地址：{{ workOrder.address }}</view>
+      <view class="section date">预约时间：{{ workOrder.appointment_time }}</view>
+      <view class="section desc">工单描述：暂无更多描述~</view>
+    </view>
+    <view class="footer">
+      <view class="date">创建时间：{{ workOrder.create_time }}</view>
+    </view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

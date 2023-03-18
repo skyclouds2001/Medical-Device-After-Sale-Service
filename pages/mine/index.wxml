@@ -1,0 +1,29 @@
+<view class="userinfo">
+  <button wx:if="{{ avatar === '/icons/user.svg' }}" class="avatar" open-type="chooseAvatar" bind:chooseavatar="handleChooseAvatar">
+    <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="{{ avatar }}" />
+  </button>
+  <view wx:else class="avatar">
+    <van-image fit="cover" lazy-load show-error show-loading round width="100rpx" height="100rpx" src="{{ avatar }}" />
+  </view>
+  <view class="info">
+    <view class="nickname">{{ nickname }}</view>
+    <view class="company">{{ company }}</view>
+  </view>
+  <view class="jump">
+    <van-icon name="arrow" />
+  </view>
+</view>
+
+<view class="edit-list">
+  <view class="edit-item" bind:tap="editPassword">
+    <van-icon name="edit" />
+    <view>修改密码</view>
+    <van-icon name="arrow" />
+  </view>
+</view>
+
+<view class="exit-btn">
+  <button bind:tap="exitLogin">退出登录</button>
+</view>
+
+<van-toast id="van-toast" />

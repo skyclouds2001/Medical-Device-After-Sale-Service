@@ -1,0 +1,43 @@
+<view wx:if="{{ files.length !== 0 }}" class="file-list">
+  <view wx:for="{{ files }}" wx:key="id" class="file-item">
+    <view class="left">
+      <view class="title">{{ item.file_name }}</view>
+      <view class="info">
+        <text>{{ item.file_type }}</text>
+        <text>{{ item.file_size }}</text>
+      </view>
+      <view class="operate">
+        <view class="download" mark:file="{{ item }}" bind:tap="handleDownloadDocument">
+          <image src="/icons/download.svg" mode="aspectFit" lazy-load />
+          <text>下载</text>
+        </view>
+        <view wx:if="{{ item.file_type !== 'ZIP' && item.file_type !== 'unknown' }}" class="check" mark:file="{{ item }}" bind:tap="handlePreviewDocument">
+          <image src="/icons/check.svg" mode="aspectFit" lazy-load />
+          <text>查看</text>
+        </view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="icon">
+        <image wx:if="{{ item.file_type === 'DOCX' }}" src="/icons/files/word.svg" mode="aspectFit" lazy-load />
+        <image wx:elif="{{ item.file_type === 'XLSX' }}" src="/icons/files/xlsx.svg" mode="aspectFit" lazy-load />
+        <image wx:elif="{{ item.file_type === 'PPT' }}" src="/icons/files/ppt.svg" mode="aspectFit" lazy-load />
+        <image wx:elif="{{ item.file_type === 'PDF' }}" src="/icons/files/pdf.svg" mode="aspectFit" lazy-load />
+        <image wx:elif="{{ item.file_type === 'ZIP' }}" src="/icons/files/zip.svg" mode="aspectFit" lazy-load />
+        <image wx:else src="/icons/files/unknown.svg" mode="aspectFit" lazy-load />
+      </view>
+      <view class="date">{{ item.file_date }}</view>
+    </view>
+  </view>
+</view>
+
+<view wx:else class="empty-statement">
+  <van-image width="200" height="200" src="/images/empty-content.png" fit="contain" lazy-load />
+</view>
+
+<view class="connect-customer-servier" bind:tap="handleConnectKefu">
+  <van-icon class="icon" name="service-o" />
+  <view class="text">联系客服</view>
+</view>
+
+<van-toast id="van-toast" />

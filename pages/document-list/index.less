@@ -1,0 +1,150 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.file-list {
+  margin: 0;
+  padding: 25rpx 15rpx;
+
+  .file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 10rpx;
+    padding: 10rpx 25rpx;
+
+    background-color: white;
+    border-radius: 10rpx;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      flex: 4;
+
+      view {
+        margin: 0;
+        padding: 2.5px 0;
+      }
+
+      .title {
+        font-size: 30rpx;
+        color: #302F3C;
+        line-height: 1.5em;
+
+        margin: 0;
+        padding: 0 10rpx;
+      }
+
+      .info {
+        font-size: 26rpx;
+        color: #7A7982;
+        line-height: 1.5em;
+
+        text {
+          margin: 0;
+          padding: 0 10rpx;
+        }
+      }
+
+      .operate {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        font-size: 24rpx;
+        line-height: 1.5em;
+
+        view {
+          margin: 0;
+          padding: 0 10rpx;
+
+          flex: 1;
+
+          image {
+            width: 16px;
+            height: 12px;
+            margin: 0;
+            padding: 0 5rpx;
+          }
+        }
+
+        .download {
+          color: #5C7CEB;
+        }
+
+        .check {
+          color: #62CE46;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      flex: 1;
+
+      view {
+        margin: 0;
+        padding: 2.5px 0;
+      }
+
+      .icon {
+        image {
+          width: 38px;
+          height: 48px;
+        }
+      }
+
+      .date {
+        color: #7A7982;
+        font-size: 26rpx;
+        line-height: 1.5em;
+      }
+    }
+  }
+}
+
+.empty-statement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 50vh;
+}
+
+.connect-customer-servier {
+  background-color: #5C7CEB;
+  border-radius: 50%;
+  box-shadow: 0 5rpx 10rpx rgba(100, 100, 100, 0.5);
+
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0;
+  padding: 20rpx 0;
+
+  text-align: center;
+  line-height: 40rpx;
+  color: white;
+
+  position: fixed;
+  right: 50rpx;
+  bottom: calc(50px + 50rpx);
+
+  .icon {
+    font-size: 40rpx;
+    font-weight: bold;
+  }
+
+  .text {
+    font-size: 20rpx;
+    letter-spacing: 1rpx;
+  }
+}

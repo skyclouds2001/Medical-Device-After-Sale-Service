@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "welcome-bg": "/components/welcome-bg/index",
+    "search-bar": "/components/search-bar/index",
+    "product-sidebar": "/components/product-sidebar/index"
+  },
+  "navigationBarTitleText": "选择产品"
+}

@@ -9,44 +9,56 @@ export interface Service {
 }
 
 /**
- * 首页展示的服务类型
+ * 首页展示的基础服务类型
  */
-export const services: Service[] = [
+export const basicServices: Service[] = [
   {
     id: 1,
-    img: '/icons/install.svg',
+    img: '/icons/service/install.svg',
     text: '安调',
     bg: '#62CE46',
   },
   {
     id: 2,
-    img: '/icons/fix.svg',
+    img: '/icons/service/fix.svg',
     text: '维修',
     bg: '#40D39E',
   },
   {
     id: 3,
-    img: '/icons/screen.svg',
+    img: '/icons/service/screen.svg',
     text: '询检',
     bg: '#5C7CEB',
   },
   {
     id: 4,
-    img: '/icons/auth.svg',
+    img: '/icons/service/auth.svg',
     text: '认证',
     bg: '#62CE46',
   },
   {
     id: 5,
-    img: '/icons/train.svg',
+    img: '/icons/service/train.svg',
     text: '培训',
     bg: '#40D39E',
   },
   {
     id: 6,
-    img: '/icons/update.svg',
+    img: '/icons/service/update.svg',
     text: '软件升级',
     bg: '#5C7CEB',
+  },
+]
+
+/**
+ * 首页展示的其他服务类型
+ */
+export const otherServices: Service[] = [
+  {
+    id: 1,
+    img: '/icons/service/setting.svg',
+    text: '配件采购',
+    bg: '#40D39E',
   },
 ]
 
@@ -68,14 +80,14 @@ export const tabs: Tab[] = [
   {
     id: 1,
     name: '首页',
-    path: '/pages/index/index',
+    path: '/pages/home/index',
     icon: '/icons/home_fill.png',
     icon_active: '/icons/home_fill_selected.png',
   },
   {
     id: 2,
     name: '个人中心',
-    path: '/pages/mine/mine',
+    path: '/pages/mine/index',
     icon: '/icons/wode_fill.png',
     icon_active: '/icons/wode_fill_selected.png',
   },

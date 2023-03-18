@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "workorder-search": "/components/workorder-search/workorder-search"
+  },
+  "navigationBarTitleText": "历史工单"
+}

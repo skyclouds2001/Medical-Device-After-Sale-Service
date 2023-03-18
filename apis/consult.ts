@@ -30,10 +30,12 @@ interface GetKfLinkResponse {
  * 获取客服链接方法
  *
  * @param productModelId 产品模型ID
+ * @param kefuTypeCode 客服类型
+ * @param workOrderId 工单ID
  */
-export const getKfLink = (productModelId: number, kefuTypeCode: -1 | 1 | 2 | 3) => {
+export const getKfLink = (productModelId: number, kefuTypeCode: -1 | 1 | 2 | 3 | 4 | 5 | 6, workOrderId: number) => {
   return request<GetKfLinkResponse>({
-    url: `/wizz/aftersale/consult/getKfLink/${productModelId}/${kefuTypeCode}`,
+    url: `/wizz/aftersale/consult/getKfLink/${productModelId}/${kefuTypeCode}/${workOrderId}`,
     method: 'GET',
   })
 }

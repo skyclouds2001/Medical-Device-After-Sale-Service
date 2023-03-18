@@ -1,0 +1,20 @@
+<view class="form">
+  <view class="form-item">
+    <van-field model:value="{{ phone }}" name="phone" label="手机号" placeholder="请输入手机号" clearable border="{{ false }}" left-icon="phone" always-embed extra-event-params />
+  </view>
+  <view class="form-item">
+    <van-field model:value="{{ oldPwd }}" name="oldPwd" label="旧密码" placeholder="请输入旧密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="password" />
+  </view>
+  <view class="form-item">
+    <van-field model:value="{{ newPwd }}" name="newPwd" label="新密码" placeholder="请输入新密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="password" />
+  </view>
+  <view class="form-item">
+    <van-field model:value="{{ confirmPwd }}" name="confirmPwd" label="确认密码" placeholder="请输入确认密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="password" />
+  </view>
+</view>
+
+<view class="submit">
+  <button class="btn" bind:tap="handleSubmit">确定修改</button>
+</view>
+
+<van-toast id="van-toast" />

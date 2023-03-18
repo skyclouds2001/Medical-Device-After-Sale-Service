@@ -1,0 +1,25 @@
+<workorder-search bind:reset="handleResetFilter" bind:filter="handleUseFilter" />
+
+<view class="workorder-list">
+  <block wx:if="{{ wos.length !== 0 }}">
+    <view wx:for="{{ wos }}" wx:key="order_id" class="work-order-item">
+      <view class="left">
+        <view class="name">{{ item.model_name }}</view>
+        <view class="date">{{ item.create_time }}</view>
+      </view>
+      <view class="right">
+        <view wx:if="{{ item.order_status === 0 }}" class="status undo">未处理</view>
+        <view wx:elif="{{ item.order_status === 1 }}" class="status done">已处理</view>
+        <view wx:else class="status default">未知</view>
+        <button class="check {{ item.order_status === 0 ? 'undo' : '' }} {{ item.order_status === 1 ? 'done' : '' }}" bind:tap="handleWorkOrderDetail" mark:id="{{ item.order_id }}">查看</button>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <image class="img" src="/images/empty-workorder.png" mode="aspectFit" />
+  </block>
+</view>
+
+<view class="no-more">-没有更多了-</view>
+
+<van-toast id="van-toast" />

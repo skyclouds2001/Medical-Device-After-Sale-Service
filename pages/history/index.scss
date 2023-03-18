@@ -1,0 +1,130 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.workorder-list {
+  margin: 0;
+  padding: 0 20rpx;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .work-order-item {
+    width: 100%;
+    height: auto;
+    margin: 20rpx 0 10rpx; 
+    padding: 20rpx 40rpx; 
+
+    background-color: white;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 2rpx rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      width: 80%;
+      height: auto;
+
+      .name {
+        font-size: 30rpx;
+        line-height: 2em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bold;
+
+        overflow: hidden;
+
+        width: 100%;
+        height: 2em;
+      }
+
+      .date {
+        font-size: 26rpx;
+        line-height: 1.5em;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 20%;
+      height: auto;
+
+      .status {
+        font-size: 30rpx;
+        line-height: 1.5em;
+        text-align: center;
+
+        &.default {
+          color: #818085;
+        }
+
+        &.undo {
+          color: #FF6714;
+        }
+
+        &.done {
+          color: #5C7CEB;
+        }
+      }
+
+      .check {
+        color: white;
+        font-size: 26rpx;
+        line-height: 1.5em;
+        text-align: center;
+        letter-spacing: 1rpx;
+
+        width: 4em;
+        height: 1.5em;
+
+        background-color: #2D3DAA;
+        border-radius: 20rpx;
+
+        transition: all 500ms ease-in-out 0;
+
+        &:active {
+          background-color: #4d6ee6;
+        }
+
+        &.undo {
+          background-color: #FF6714;
+        }
+
+        &.undo:active {
+          background-color: #f0844a;
+        }
+      }
+    }
+  }
+
+  .img {
+    padding: 10px 0;
+    width: 400rpx;
+  }
+}
+
+.no-more {
+  font-size: 26rpx;
+  color: #818085;
+  text-align: center;
+
+  margin: 0;
+  padding: 50rpx;
+}

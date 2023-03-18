@@ -6,6 +6,8 @@ App<App>({
   globalData: {
     token: '',
     id: 0,
+    company: '',
+    phone: '',
     userinfo: {
       nickname: '',
       avatar: '',
@@ -13,9 +15,11 @@ App<App>({
   },
 
   onLaunch () {
-    const [token, id, userinfo] = getStorage('token', 'id', 'userinfo') as [string, number, UserInfo]
+    const [token, id, company, phone, userinfo] = getStorage('token', 'id', 'company', 'phone', 'userinfo') as [string, number, string, string, UserInfo]
     this.globalData.token = token ?? ''
     this.globalData.id = id ?? ''
+    this.globalData.company = company ?? ''
+    this.globalData.phone = phone ?? ''
     this.globalData.userinfo.nickname = userinfo?.nickname ?? DEFAULT_NICKNAME
     this.globalData.userinfo.avatar = userinfo?.avatar ?? DEFAULT_AVATAR
   },

@@ -12,6 +12,18 @@ export const getAllProductTypes = () => {
   })
 }
 
+type GetAllProductModelsResponse = ProductModel[]
+
+/**
+ * 获取全部产品大类方法
+ */
+export const getAllProductModels = () => {
+  return request<GetAllProductModelsResponse>({
+    url: '/wizz/aftersale/product-model/all',
+    method: 'GET',
+  })
+}
+
 type GetProductModelByTypeIdResponse = ProductModel[]
 
 /**
