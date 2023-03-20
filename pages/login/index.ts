@@ -113,9 +113,12 @@ Page<{
 
         if (res.code === 0) {
           const { token, customer_id, company_name, email: phone } = res.data
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
+
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/home/index',
+            })
+          }, 0)
 
           app.globalData.token = token
           app.globalData.id = customer_id
