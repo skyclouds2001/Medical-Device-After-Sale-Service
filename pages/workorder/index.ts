@@ -274,6 +274,9 @@ Page<{
       }
     } catch {
       Toast.fail('上传图片失败')
+      this.setData({
+        images: [...images],
+      })
     }
   },
 
