@@ -15,7 +15,7 @@
   <view class="form-item">
     <van-field name="pwd" model:value="{{ pwd }}" placeholder="请输入密码" placeholder-style="color: #818085;" border="{{ false }}" clearable />
   </view>
-  <view class="btn" bind:tap="userRegister">登录</view>
+  <view class="btn" bind:tap="userLogin">登录</view>
 </view>
 
 <view class="brand">
