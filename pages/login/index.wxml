@@ -10,10 +10,10 @@
 
 <view class="form">
   <view class="form-item">
-    <van-field name="name" model:value="{{ name }}" placeholder="请输入用户名" placeholder-style="color: #818085;" border="{{ false }}" clearable />
+    <van-field name="name" model:value="{{ name }}" placeholder="请输入用户名" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params />
   </view>
   <view class="form-item">
-    <van-field name="pwd" model:value="{{ pwd }}" placeholder="请输入密码" placeholder-style="color: #818085;" border="{{ false }}" clearable />
+    <van-field name="pwd" model:value="{{ pwd }}" placeholder="请输入密码" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params password />
   </view>
   <view class="btn" bind:tap="userLogin">登录</view>
 </view>
