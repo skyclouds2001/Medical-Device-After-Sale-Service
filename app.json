@@ -3,13 +3,13 @@
     "pages/login/index",
     "pages/home/index",
     "pages/product-list/index",
-    "pages/workorder/index",
-    "pages/submited/index",
+    "pages/create-workorder/index",
+    "pages/submited-workorder/index",
     "pages/document-list/index",
     "pages/mine/index",
     "pages/reset-password/index",
-    "pages/history/index",
-    "pages/workorderdetail/index"
+    "pages/workorder-history/index",
+    "pages/workorder-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

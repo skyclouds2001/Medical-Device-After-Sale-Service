@@ -96,7 +96,7 @@ Page<{
   handleWorkOrderDetail (e) {
     const { id } = e.mark!
     wx.navigateTo({
-      url: `/pages/workorderdetail/index?id=${id}`,
+      url: `/pages/workorder-detail/index?id=${id}`,
     })
   },
 

@@ -302,7 +302,7 @@ Page<{
         const wid = res.data
         setTimeout(() => {
           wx.navigateTo({
-            url: `/pages/submited/index?sid=${sid}&pid=${pid}&wid=${wid}`,
+            url: `/pages/submited-workorder/index?sid=${sid}&pid=${pid}&wid=${wid}`,
           })
         }, 2000)
       } else {
