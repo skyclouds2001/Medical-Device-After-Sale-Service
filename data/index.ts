@@ -5,7 +5,6 @@ export interface Service {
   id: number
   img: string
   text: string
-  bg: string
 }
 
 /**
@@ -16,37 +15,31 @@ export const basicServices: Service[] = [
     id: 1,
     img: '/icons/service/install.svg',
     text: '安调',
-    bg: '#62CE46',
   },
   {
     id: 2,
     img: '/icons/service/fix.svg',
     text: '维修',
-    bg: '#40D39E',
   },
   {
     id: 3,
     img: '/icons/service/screen.svg',
     text: '询检',
-    bg: '#5C7CEB',
   },
   {
     id: 4,
     img: '/icons/service/auth.svg',
     text: '认证',
-    bg: '#62CE46',
   },
   {
     id: 5,
     img: '/icons/service/train.svg',
     text: '培训',
-    bg: '#40D39E',
   },
   {
     id: 6,
     img: '/icons/service/update.svg',
     text: '软件升级',
-    bg: '#5C7CEB',
   },
 ]
 
@@ -58,7 +51,6 @@ export const otherServices: Service[] = [
     id: 1,
     img: '/icons/service/setting.svg',
     text: '配件采购',
-    bg: '#40D39E',
   },
 ]
 
