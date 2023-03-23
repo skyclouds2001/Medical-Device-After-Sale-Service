@@ -9,9 +9,6 @@
     <view class="nickname">{{ nickname }}</view>
     <view class="company">{{ company }}</view>
   </view>
-  <view class="jump">
-    <van-icon name="arrow" />
-  </view>
 </view>
 
 <view class="edit-list">
