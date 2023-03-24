@@ -246,19 +246,23 @@ Page<{
   async handleUploadImage (e) {
     const { file } = e.detail
     const { images } = this.data
+
     this.setData({
       images: [...images, {
         url: file.url,
         name: '',
       }],
     })
+
     try {
       const res = await uploadFile({
         url: '/wizz/aftersale/media/upload',
         filePath: file.url,
         name: 'file',
       })
+
       const result: Response<string> = JSON.parse(res.data)
+
       if (result.code === 0) {
         this.setData({
           images: [...images, {
@@ -283,6 +287,7 @@ Page<{
   handleDeleteImage (e) {
     const { file } = e.detail
     const { images } = this.data
+
     this.setData({
       images: images.filter(v => v.url !== file.url),
     })
@@ -292,6 +297,20 @@ Page<{
     const { address, date, images, pid } = this.data
     const { id: cid } = app.globalData
     const { sid  } = this
+
+    if (!pid) {
+      Toast.fail('请选择产品')
+      return
+    }
+    if (!address) {
+      Toast.fail('请填写地址')
+      return
+    }
+    if (!date) {
+      Toast.fail('请选择预约服务时间')
+      return
+    }
+
     try {
       const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,
