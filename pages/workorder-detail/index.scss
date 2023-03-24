@@ -58,6 +58,23 @@ page {
         font-size: 30rpx;
         line-height: 2em;
       }
+
+      .image {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        > view {
+          margin: 0 10rpx;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
     }
 
     .footer {
