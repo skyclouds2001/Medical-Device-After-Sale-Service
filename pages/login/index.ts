@@ -103,6 +103,15 @@ Page<{
   async userLogin() {
     const { pwd, name } = this.data
 
+    if (!name) {
+      Toast.fail('用户名不能为空')
+      return
+    }
+    if (!pwd) {
+      Toast.fail('密码不能为空')
+      return
+    }
+
     try {
       const res = await auth(34, name, pwd, this.openid)
       if (res.code === 0) {
