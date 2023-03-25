@@ -303,7 +303,7 @@ Page<{
   },
 
   async submitWorkOrder () {
-    const { address, date, images, pid } = this.data
+    const { address, date, images, pid, addition } = this.data
     const { id: cid } = app.globalData
     const { sid  } = this
 
@@ -324,7 +324,7 @@ Page<{
       const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,
         serial_number: i,
-      })), sid - 1)
+      })), sid - 1, addition)
       if (res.code === 0) {
         Toast.success('提交成功')
         const wid = res.data
