@@ -1,6 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getAllProductModels } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
+import { basicServices as services } from '@/data/index'
 import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
 
@@ -49,6 +50,10 @@ Page<{
     name: string
   }>
 
+  /**
+   * 服务名称
+   */
+  service: string
   /**
    * 产品列表
    */
@@ -165,6 +170,7 @@ Page<{
     showProductPicker: false,
     showDatePicker: false,
     products: [],
+    service: '',
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
   },
@@ -173,10 +179,13 @@ Page<{
     this.loadProductModels()
     this.sid = parseInt(options.sid)
 
+    const service = services.find(v => v.id === this.sid)
+
     const current = new Date().getTime()
     this.setData({
       startDate: current - current % (1000 * 60) + 1000 * 60 * 60,
       endDate: current - current % (1000 * 60) + 60 * 1000 + 1000 * 60 * 60 * 24 * 365,
+      service: service?.text ?? '维修',
     })
   },
 

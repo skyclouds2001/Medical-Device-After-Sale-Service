@@ -30,7 +30,7 @@
     </view>
   </view>
   <view class="detail">
-    <van-field model:value="{{ addition }}" name="addition" type="textarea" placeholder="可以描述您需要维修的机器问题和状况，以便工程师更好为您提供服务。" border="{{ false }}" placeholder-style="color: #7A7982; font-size: 26rpx;" :autosize="{{ { maxHeight: 200, minHeight: 100 } }}" />
+    <van-field model:value="{{ addition }}" name="addition" type="textarea" placeholder="{{ '可以描述您需要' + service + '的机器问题和状况，以便工程师更好为您提供服务。' }}" border="{{ false }}" placeholder-style="color: #7A7982; font-size: 26rpx;" :autosize="{{ { maxHeight: 200, minHeight: 100 } }}" />
   </view>
   <view class="media">
     <van-field name="media" label="上传图片（选填）" placeholder="" clearable readonly border="{{ false }}" title-width="8em" />
