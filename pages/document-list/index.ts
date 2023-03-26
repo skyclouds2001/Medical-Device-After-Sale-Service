@@ -28,6 +28,10 @@ Page<{
    */
   handleConnectKefu: () => void
   /**
+   * 分享文档方法
+   */
+  handleShareDocument: (e: WechatMiniprogram.TouchEvent<{}, { file: File }>) => void
+  /**
    * 下载文档方法
    */
   handleDownloadDocument: (e: WechatMiniprogram.TouchEvent<{}, { file: File }>) => void
@@ -112,7 +116,7 @@ Page<{
     }
   },
 
-  async handleDownloadDocument (e) {
+  async handleShareDocument (e) {
     if (!e.mark?.file) return
 
     const { file } = e.mark
@@ -123,11 +127,16 @@ Page<{
     try {
       fs.accessSync(file_path)
     } catch {
+      Toast.loading({
+        message: '下载文件中',
+        duration: 0,
+      })
+
       try {
         const res = await downloadFile({
           url: file.file_url,
         })
-  
+
         try {
           fs.accessSync(folder_path)
         } catch {
@@ -135,16 +144,26 @@ Page<{
             fs.mkdirSync(folder_path, true)
           } catch {}
         }
-  
+
         fs.saveFileSync(res.tempFilePath, file_path)
       } catch {}
-    }
 
-    Toast.success('下载成功')
+      Toast.clear()
+    }
 
     wx.shareFileMessage({
       filePath: file_path,
       fileName: file.file_name,
+    })
+  },
+
+  async handleDownloadDocument (e) {
+    if (!e.mark?.file) return
+
+    const { file } = e.mark
+
+    wx.setClipboardData({
+      data: file.file_url,
     })
   },
 
@@ -163,7 +182,7 @@ Page<{
         const res = await downloadFile({
           url: file.file_url,
         })
-  
+
         try {
           fs.accessSync(folder_path)
         } catch {
@@ -171,7 +190,7 @@ Page<{
             fs.mkdirSync(folder_path, true)
           } catch {}
         }
-  
+
         fs.saveFileSync(res.tempFilePath, file_path)
       } catch {}
     }
