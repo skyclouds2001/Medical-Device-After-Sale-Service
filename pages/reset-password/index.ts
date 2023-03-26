@@ -19,7 +19,29 @@ Page<{
    * 确认密码
    */
   confirmPwd: string
+
+  /**
+   * 旧密码输入框是否使用密码
+   */
+  oldVisiable: boolean
+  /**
+   * 新密码输入框是否使用密码
+   */
+  newVisiable: boolean
+  /**
+   * 确认密码输入框是否使用密码
+   */
+  confirmVisiable: boolean
 }, {
+  /**
+   * 切换密码输入框可见性方法
+   *
+   * @param e 触摸事件
+   */
+  handleTogglePasswordFieldVisibility: (e: WechatMiniprogram.CustomEvent<{}, { type: 'old' | 'new' | 'confirm' }>) => void
+  /**
+   * 提交表单方法
+   */
   handleSubmit: () => void
 }>({
 
@@ -28,9 +50,34 @@ Page<{
     oldPwd: '',
     newPwd: '',
     confirmPwd: '',
+    oldVisiable: false,
+    newVisiable: false,
+    confirmVisiable: false,
   },
 
-  onLoad() {},
+  onLoad () {},
+
+  handleTogglePasswordFieldVisibility (e) {
+    const { type } = e.mark!
+    const { oldVisiable, newVisiable, confirmVisiable } = this.data
+    switch (type) {
+      case 'old':
+        this.setData({
+          oldVisiable: !oldVisiable,
+        })
+        break
+      case 'new':
+        this.setData({
+          newVisiable: !newVisiable,
+        })
+        break
+      case 'confirm':
+        this.setData({
+          confirmVisiable: !confirmVisiable,
+        })
+        break
+    }
+  },
 
   async handleSubmit () {
     const { phone, oldPwd, newPwd, confirmPwd } = this.data
