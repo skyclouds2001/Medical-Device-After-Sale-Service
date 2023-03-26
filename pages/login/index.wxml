@@ -3,11 +3,6 @@
   <view class="title">登录</view>
 </view>
 
-<view class="recommend">
-  <image src="/icons/recommend.svg" mode="aspectFit" lazy-load />
-  <text>登录遇到问题请联系： 15633420237</text>
-</view>
-
 <view class="form">
   <view class="form-item">
     <van-field name="name" model:value="{{ name }}" placeholder="请输入用户名" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params />
@@ -15,7 +10,13 @@
   <view class="form-item">
     <van-field name="pwd" model:value="{{ pwd }}" placeholder="请输入密码" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params password />
   </view>
+  <view class="forget" bind:tap="toggleForgetPasswordRecommend">忘记密码</view>
   <view class="btn" bind:tap="userLogin">登录</view>
+
+  <view wx:if="{{ forget }}" class="recommend">
+    <image src="/icons/recommend.svg" mode="aspectFit" lazy-load />
+    <text>登录遇到问题请联系： 15633420237</text>
+  </view>
 </view>
 
 <view class="brand">

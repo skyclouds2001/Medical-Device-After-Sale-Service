@@ -13,11 +13,19 @@ Page<{
    * 用户姓名
    */
   name: string
+  /**
+   * 控制是否展示忘记密码提示
+   */
+  forget: boolean
 }, {
   /**
    * 用户openid
    */
   openid: string
+  /**
+   * 切换忘记密码提示框方法
+   */
+  toggleForgetPasswordRecommend: () => void
 
   /**
    * 用户自动登录方法
@@ -32,6 +40,7 @@ Page<{
   data: {
     name: '',
     pwd: '',
+    forget: false,
   },
 
   onLoad() {
@@ -39,6 +48,13 @@ Page<{
   },
 
   openid: '',
+
+  toggleForgetPasswordRecommend () {
+    const { forget } = this.data
+    this.setData({
+      forget: !forget,
+    })
+  },
 
   async autoLogin() {
     try {
