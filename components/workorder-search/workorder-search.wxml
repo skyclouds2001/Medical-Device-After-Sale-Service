@@ -1,10 +1,6 @@
 <view class="search">
   <view class="search-bar">
-    <input class="input" model:value="{{ keywords }}" always-embed />
-    <view class="placeholder">
-      <van-icon name="search" size="32rpx" custom-style="font-weight: bold;" />
-      <text hidden="{{ keywords.length !== 0 }}" decode>&nbsp;搜索产品名称</text>
-    </view>
+    <van-field model:value="{{ keywords }}" border="{{ false }}" left-icon="search" placeholder="搜索产品名称" clearable always-embed extra-event-params bind:confirm="handleFilter" />
   </view>
   <view class="filter-bar">
     <view class="block" bind:tap="handleOpen">

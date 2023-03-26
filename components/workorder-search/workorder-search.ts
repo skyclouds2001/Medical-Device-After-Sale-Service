@@ -70,10 +70,11 @@ Component<{
     },
 
     handleFilter () {
-      const { order, status } = this.data
-      let data = {} as { order?: 0 | 1, status?: 0 | 1 }
+      const { order, status, keywords } = this.data
+      let data = {} as { order?: 0 | 1, status?: 0 | 1, keywords?: string }
       if (order !== -1) data.order = order
       if (status !== -1) data.status = status
+      data.keywords = keywords
 
       this.setData({
         show: false,

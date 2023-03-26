@@ -11,7 +11,7 @@ Page<{
   /**
    * 筛选参数
    */
-  filter: { order?: 0 | 1, status?: 0 | 1 }
+  filter: { order?: 0 | 1, status?: 0 | 1, keywords?: string }
 }, {
   /**
    * 加载工单列表方法
@@ -64,7 +64,7 @@ Page<{
 
   handleFilterWorkOrderList (wos) {
     const { filter } = this.data
-    let data = [...wos]
+    let data = wos.filter(v => v.model_name?.includes(filter.keywords ?? '') ?? (filter.keywords ?? '') === '')
 
     if (filter.status !== undefined) {
       data = data.filter(v => filter.status === v.order_status)
