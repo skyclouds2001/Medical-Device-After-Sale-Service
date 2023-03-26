@@ -17,6 +17,10 @@ Page<{
    * 控制是否展示忘记密码提示
    */
   forget: boolean
+  /**
+   * 密码输入框是否使用密码
+   */
+  pwdVisiable: boolean
 }, {
   /**
    * 用户openid
@@ -26,6 +30,10 @@ Page<{
    * 切换忘记密码提示框方法
    */
   toggleForgetPasswordRecommend: () => void
+  /**
+   * 切换密码输入框可见性方法
+   */
+  handleTogglePasswordFieldVisibility: () => void
 
   /**
    * 用户自动登录方法
@@ -41,6 +49,7 @@ Page<{
     name: '',
     pwd: '',
     forget: false,
+    pwdVisiable: false,
   },
 
   onLoad() {
@@ -53,6 +62,13 @@ Page<{
     const { forget } = this.data
     this.setData({
       forget: !forget,
+    })
+  },
+
+  handleTogglePasswordFieldVisibility () {
+    const { pwdVisiable } = this.data
+    this.setData({
+      pwdVisiable: !pwdVisiable,
     })
   },
 
