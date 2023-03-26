@@ -41,7 +41,10 @@
 </view>
 
 <view class="submit">
-  <button class="btn" bind:tap="submitWorkOrder">提交</button>
+  <button class="btn" disabled="{{ submitting }}" bind:tap="submitWorkOrder">
+    <van-loading wx:if="{{ submitting }}" color="#1989fa" />
+    提交
+  </button>
 </view>
 
 <van-popup show="{{ showDatePicker }}" position="bottom">

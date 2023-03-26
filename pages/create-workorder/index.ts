@@ -74,6 +74,10 @@ Page<{
    * 日期选择器结束时间
    */
   endDate: number
+  /**
+   * 是否提交中
+   */
+  submitting: boolean
 }, {
   /**
    * 打开产品选择器回调方法
@@ -173,6 +177,7 @@ Page<{
     service: '',
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
+    submitting: false,
   },
 
   onLoad (options: { sid: string }) {
@@ -321,6 +326,9 @@ Page<{
     }
 
     try {
+      this.setData({
+        submitting: true,
+      })
       const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,
         serial_number: i,
@@ -338,6 +346,10 @@ Page<{
       }
     } catch {
       Toast.fail('提交失败')
+    } finally {
+      this.setData({
+        submitting: false,
+      })
     }
   },
 
