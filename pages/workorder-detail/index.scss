@@ -3,7 +3,7 @@ page {
 }
 
 .context {
-  transform: translateY(-200rpx);
+  transform: translateY(-50rpx);
 
   .wo-info {
     margin: 20rpx;
@@ -57,6 +57,23 @@ page {
         color: #0E0E40;
         font-size: 30rpx;
         line-height: 2em;
+      }
+
+      .image {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        > view {
+          margin: 0 10rpx;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
       }
     }
 

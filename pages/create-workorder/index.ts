@@ -1,6 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getAllProductModels } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
+import { basicServices as services } from '@/data/index'
 import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
 
@@ -50,6 +51,10 @@ Page<{
   }>
 
   /**
+   * 服务名称
+   */
+  service: string
+  /**
    * 产品列表
    */
   products: Array<ProductModel & { name: string }>
@@ -69,6 +74,10 @@ Page<{
    * 日期选择器结束时间
    */
   endDate: number
+  /**
+   * 是否提交中
+   */
+  submitting: boolean
 }, {
   /**
    * 打开产品选择器回调方法
@@ -165,18 +174,23 @@ Page<{
     showProductPicker: false,
     showDatePicker: false,
     products: [],
+    service: '',
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
+    submitting: false,
   },
 
   onLoad (options: { sid: string }) {
     this.loadProductModels()
     this.sid = parseInt(options.sid)
 
+    const service = services.find(v => v.id === this.sid)
+
     const current = new Date().getTime()
     this.setData({
       startDate: current - current % (1000 * 60) + 1000 * 60 * 60,
       endDate: current - current % (1000 * 60) + 60 * 1000 + 1000 * 60 * 60 * 24 * 365,
+      service: service?.text ?? '维修',
     })
   },
 
@@ -246,19 +260,23 @@ Page<{
   async handleUploadImage (e) {
     const { file } = e.detail
     const { images } = this.data
+
     this.setData({
       images: [...images, {
         url: file.url,
         name: '',
       }],
     })
+
     try {
       const res = await uploadFile({
         url: '/wizz/aftersale/media/upload',
         filePath: file.url,
         name: 'file',
       })
+
       const result: Response<string> = JSON.parse(res.data)
+
       if (result.code === 0) {
         this.setData({
           images: [...images, {
@@ -274,32 +292,53 @@ Page<{
       }
     } catch {
       Toast.fail('上传图片失败')
+      this.setData({
+        images: [...images],
+      })
     }
   },
 
   handleDeleteImage (e) {
     const { file } = e.detail
     const { images } = this.data
+
     this.setData({
       images: images.filter(v => v.url !== file.url),
     })
   },
 
   async submitWorkOrder () {
-    const { address, date, images, pid } = this.data
+    const { address, date, images, pid, addition } = this.data
     const { id: cid } = app.globalData
     const { sid  } = this
+
+    if (!pid) {
+      Toast.fail('请选择产品')
+      return
+    }
+    if (!address) {
+      Toast.fail('请填写地址')
+      return
+    }
+    if (!date) {
+      Toast.fail('请选择预约服务时间')
+      return
+    }
+
     try {
+      this.setData({
+        submitting: true,
+      })
       const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,
         serial_number: i,
-      })), sid - 1)
+      })), sid - 1, addition)
       if (res.code === 0) {
         Toast.success('提交成功')
         const wid = res.data
         setTimeout(() => {
           wx.navigateTo({
-            url: `/pages/submited/index?sid=${sid}&pid=${pid}&wid=${wid}`,
+            url: `/pages/submited-workorder/index?sid=${sid}&pid=${pid}&wid=${wid}`,
           })
         }, 2000)
       } else {
@@ -307,6 +346,10 @@ Page<{
       }
     } catch {
       Toast.fail('提交失败')
+    } finally {
+      this.setData({
+        submitting: false,
+      })
     }
   },
 

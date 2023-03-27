@@ -1,5 +1,8 @@
 <view class="welcome">
-  <text class="content">专注医药食品行业 GMP/cGMP 实施助力客户轻松实现数字化转型</text>
+  <view class="content">
+    <view>专注医药食品行业 GMP/cGMP</view>
+    <view>轻松实现数字化转型</view>
+  </view>
   <image class="bg" src="/images/home-bg.png" mode="aspectFit" lazy-load />
   <image class="brand" src="/images/brand.png" mode="aspectFit" lazy-load />
 </view>

@@ -117,7 +117,7 @@ Page<{
     const { sid } = this
 
     wx.navigateTo({
-      url: `/pages/workorder/index?sid=${sid}&pid=${pid}`,
+      url: `/pages/create-workorder/index?sid=${sid}&pid=${pid}`,
     })
   },
 

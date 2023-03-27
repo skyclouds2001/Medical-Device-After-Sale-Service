@@ -11,8 +11,9 @@ type PostWorkOrderResponse = {}
  * @param mid 产品模型ID
  * @param accessories 工单附件
  * @param type 工单类型
+ * @param addition 工单补充信息
  */
-export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: Array<Omit<Accessory, 'order_id' | 'order_attachment_id'>>, type: number) => {
+export const postWorkOrder = (address: string, time: string, cid: number, mid: number, accessories: Array<Omit<Accessory, 'order_id' | 'order_attachment_id'>>, type: number, addition: string) => {
   return request<PostWorkOrderResponse>({
     url: '/wizz/aftersale/work-order/add',
     method: 'POST',
@@ -24,6 +25,7 @@ export const postWorkOrder = (address: string, time: string, cid: number, mid: n
       order_attachment_list: accessories,
       order_type: type,
       kefu_type: type + 1,
+      order_description: addition,
     },
     header: {
       'content-type': 'application/json',

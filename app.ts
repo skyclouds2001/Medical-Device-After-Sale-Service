@@ -24,4 +24,10 @@ App<App>({
     this.globalData.userinfo.avatar = userinfo?.avatar ?? DEFAULT_AVATAR
   },
 
+  onPageNotFound () {
+    wx.switchTab({
+      url: '/pages/home/index',
+    })
+  },
+
 })

@@ -78,7 +78,7 @@ Page<{
     const { id } = e.mark!
     if ([1, 2, 3, 4].includes(id)) {
       wx.navigateTo({
-        url: `/pages/workorder/index?sid=${id}`,
+        url: `/pages/create-workorder/index?sid=${id}`,
       })
     } else if ([5, 6].includes(id)) {
       wx.navigateTo({
@@ -110,7 +110,7 @@ Page<{
 
   handleHistoryWorkOrder () {
     wx.navigateTo({
-      url: '/pages/history/index',
+      url: '/pages/workorder-history/index',
     })
   },
 

@@ -3,13 +3,13 @@
     "pages/login/index",
     "pages/home/index",
     "pages/product-list/index",
-    "pages/workorder/index",
-    "pages/submited/index",
+    "pages/create-workorder/index",
+    "pages/submited-workorder/index",
     "pages/document-list/index",
     "pages/mine/index",
     "pages/reset-password/index",
-    "pages/history/index",
-    "pages/workorderdetail/index"
+    "pages/workorder-history/index",
+    "pages/workorder-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,10 +41,10 @@
   },
   "sitemapLocation": "sitemap.json",
   "networkTimeout": {
-    "request": 10000,
-    "connectSocket": 10000,
-    "uploadFile": 10000,
-    "downloadFile": 10000
+    "request": 15000,
+    "connectSocket": 15000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
   },
   "lazyCodeLoading": "requiredComponents",
   "enablePassiveEvent": true,

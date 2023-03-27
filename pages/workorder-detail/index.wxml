@@ -3,7 +3,7 @@
 <view class="context">
   <view class="wo-info">
     <view class="header">
-      <view class="title">{{ workOrder.model_name }}</view>
+      <view class="title">{{ workOrder.model_name ? workOrder.model_name : '未知产品' }}</view>
       <view wx:if="{{ workOrder.order_status === 0 }}" class="status undo">未处理</view>
       <view wx:elif="{{ workOrder.order_status === 1 }}" class="status done">已处理</view>
     </view>
@@ -11,7 +11,12 @@
       <view class="section type">工单类型：{{ workOrder.service }}</view>
       <view class="section address">预约地址：{{ workOrder.address }}</view>
       <view class="section date">预约时间：{{ workOrder.appointment_time }}</view>
-      <view class="section desc">工单描述：暂无更多描述~</view>
+      <view class="section desc">工单描述：{{ workOrder.order_description ? workOrder.order_description : '暂无更多描述~' }}</view>
+      <view class="section image">
+        <view wx:for="{{ workOrder.order_attachment_list }}" wx:key="order_attachment_id">
+          <van-image width="100" height="100" webp fit="contain" lazy-load src="{{ item.storage_path }}" alt="" />
+        </view>
+      </view>
     </view>
     <view class="footer">
       <view class="date">创建时间：{{ workOrder.create_time }}</view>
