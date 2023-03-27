@@ -1,6 +1,5 @@
 import Toast from '@vant/weapp/toast/toast'
-import { login, auth } from '@/apis/admin'
-import { setStorage } from '@/lib/storage'
+import { login } from '@/apis/admin'
 
 const app = getApp<App>()
 
@@ -73,62 +72,19 @@ Page<{
   },
 
   async autoLogin() {
-    try {
-      Toast.loading({
-        message: '登录中',
-        duration: 0,
-        mask: true,
-      })
+    const token = wx.getStorageSync('token')
+    const expire = wx.getStorageSync('expire')
+    const current = new Date().getTime()
 
-      const { code } = await wx.login()
-      const res = await login(code)
-
-      if (res.code === 0) {
-        const { token, customer_id, company_name, email: phone } = res.data
-
-        setTimeout(() => {
-          Toast.clear()
-          Toast.success('登录成功')
-        }, 500)
-
-        setTimeout(() => {
-          wx.switchTab({
-            url: '/pages/home/index',
-          })
-        }, 2500)
-
-        app.globalData.token = token
-        app.globalData.id = customer_id
-        app.globalData.company = company_name
-        app.globalData.phone = phone
-
-        setStorage(
-          {
-            key: 'token',
-            value: token,
-          },
-          {
-            key: 'id',
-            value: customer_id,
-          },
-          {
-            key: 'company',
-            value: company_name,
-          },
-          {
-            key: 'phone',
-            value: phone,
-          },
-        )
-      } else if (res.code === 1070) {
-        Toast.clear()
-        Toast('请输入用户名密码登录')
-        this.openid = res.data.toString()
-      } else {
-        Toast.fail(res.data.toString())
-      }
-    } catch {
-      Toast.fail('登录失败')
+    if (token && expire && expire - current > 1000 * 60 * 60 * 24 * 3) {
+      wx.removeStorageSync('token')
+      wx.removeStorageSync('expire')
+    } else {
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/home/index',
+        })
+      }, 0)
     }
   },
 
@@ -145,53 +101,32 @@ Page<{
     }
 
     try {
-      const res = await auth(34, name, pwd, this.openid)
+      const res = await login(name, pwd)
       if (res.code === 0) {
-        Toast.success('注册成功')
+        Toast.success('登录成功')
 
-        const { code } = await wx.login()
-        const res = await login(code)
+        const { token, customer_id, company_name, email: phone } = res.data
 
-        if (res.code === 0) {
-          const { token, customer_id, company_name, email: phone } = res.data
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/home/index',
+          })
+        }, 0)
 
-          setTimeout(() => {
-            wx.switchTab({
-              url: '/pages/home/index',
-            })
-          }, 0)
+        app.globalData.token = token
+        app.globalData.id = customer_id
+        app.globalData.company = company_name
+        app.globalData.phone = phone
 
-          app.globalData.token = token
-          app.globalData.id = customer_id
-          app.globalData.company = company_name
-          app.globalData.phone = phone
-
-          setStorage(
-            {
-              key: 'token',
-              value: token,
-            },
-            {
-              key: 'id',
-              value: customer_id,
-            },
-            {
-              key: 'company',
-              value: company_name,
-            },
-            {
-              key: 'phone',
-              value: phone,
-            },
-          )
-        } else {
-          Toast.fail(res.data?.toString() ?? '登录失败')
-        }
+        wx.setStorageSync('token', token)
+        wx.setStorageSync('id', customer_id)
+        wx.setStorageSync('company', company_name)
+        wx.setStorageSync('phone', phone)
       } else {
-        Toast.fail(res.data?.toString() ?? '注册失败')
+        Toast.fail(res.data?.toString() ?? '登录失败')
       }
     } catch {
-      Toast.fail('注册失败')
+      Toast.fail('登录失败')
     }
   },
 
