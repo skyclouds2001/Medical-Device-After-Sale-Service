@@ -34,7 +34,7 @@ export const basicServices: Service[] = [
   {
     id: 5,
     img: '/icons/service/train.svg',
-    text: '培训',
+    text: '培训资料',
   },
   {
     id: 6,
