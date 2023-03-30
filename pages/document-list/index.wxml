@@ -4,7 +4,6 @@
       <view class="title">{{ item.file_name }}</view>
       <view class="info">
         <text>{{ item.file_type }}</text>
-        <text>{{ item.file_size }}</text>
       </view>
       <view class="operate">
         <view class="share" mark:file="{{ item }}" bind:tap="handleShareDocument">
