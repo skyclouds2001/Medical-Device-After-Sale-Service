@@ -14,7 +14,7 @@
 </view>
 
 <view class="submit">
-  <button class="btn" bind:tap="handleSubmit">确定修改</button>
+  <button class="btn" bind:tap="handleSubmit">确定</button>
 </view>
 
 <van-toast id="van-toast" />
