@@ -1,17 +1,17 @@
+import { getAllProductModels } from '@/apis/product'
+
 Component<{
-  /** 搜索关键字 */
-  keywords: string
+  /** 产品列表 */
+  products: ProductModel[]
+  /** 产品筛选 */
+  product: number
   /** 排序方式 */
   order: -1 | 0 | 1
   /** 工单状态 */
   status: -1 | 0 | 1
-  /** 标记弹窗是否展示 */
-  show: boolean
 }, {}, {
-  /** 弹窗展示回调方法 */
-  handleOpen: () => void
-  /** 弹窗隐藏回调方法 */
-  handleClose: () => void
+  /** 选取产品回调方法 */
+  handleProductSelect: (e: WechatMiniprogram.TouchEvent<{}, { id: number }>) => void
   /** 选取时间排序回调方法 */
   handleTimeSort: (e: WechatMiniprogram.TouchEvent<{}, { id: 0 | 1 }>) => void
   /** 选取工单状态回调方法 */
@@ -25,22 +25,18 @@ Component<{
   properties: {},
 
   data: {
-    keywords: '',
+    products: [],
+    product: -1,
     order: -1,
     status: -1,
-    show: false,
   },
 
   methods: {
-    handleOpen () {
+    handleProductSelect (e) {
+      const { id } = e.mark!
+      const { product } = this.data
       this.setData({
-        show: true,
-      })
-    },
-
-    handleClose () {
-      this.setData({
-        show: false,
+        product: id === product ? -1 : id,
       })
     },
 
@@ -70,16 +66,28 @@ Component<{
     },
 
     handleFilter () {
-      const { order, status, keywords } = this.data
-      let data = {} as { order?: 0 | 1, status?: 0 | 1, keywords?: string }
+      const { order, status, product } = this.data
+      let data = {} as { order?: 0 | 1, status?: 0 | 1, product?: number }
       if (order !== -1) data.order = order
       if (status !== -1) data.status = status
-      data.keywords = keywords
+      if (product !== -1) data.product = product
 
       this.setData({
         show: false,
       })
+
       this.triggerEvent('filter', data)
+    },
+  },
+
+  lifetimes: {
+    attached () {
+      getAllProductModels().then(res => {
+        if (res.code !== 0) throw ''
+        this.setData({
+          products: res.data ?? [],
+        })
+      }).catch(() => {})
     },
   },
 
