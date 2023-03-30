@@ -40,7 +40,7 @@ $transition-direction: -50rpx;
 
   .forget {
     margin: 20rpx 0;
-    padding: 0;
+    padding: 0 32rpx;
 
     font-size: 24rpx;
     color: rgb(36, 36, 136);
@@ -69,12 +69,12 @@ $transition-direction: -50rpx;
     top: -75rpx;
     right: -100rpx;
 
-    image {
+    > image {
       width: 260rpx;
       height: 120rpx;
     }
 
-    text {
+    > text {
       position: absolute;
       right: 0;
       top: 35%;
@@ -86,9 +86,13 @@ $transition-direction: -50rpx;
       font-size: 20rpx;
       line-height: 1.25em;
       color: white;
-      text-align: center;
+      text-align: left;
 
       transform: translateY(-50%);
+
+      .phone {
+        font-size: 26rpx;
+      }
     }
   }
 }
