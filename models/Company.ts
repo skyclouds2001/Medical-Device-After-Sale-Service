@@ -7,3 +7,5 @@ interface Company {
   /** 企业名称 */
   company_name: string
 }
+
+export default Company

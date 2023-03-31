@@ -13,3 +13,5 @@ interface ConsultHistory {
   /** 咨询主体（产品大类-产品型号） */
   topic: string
 }
+
+export default ConsultHistory

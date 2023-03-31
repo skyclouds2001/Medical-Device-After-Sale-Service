@@ -7,3 +7,5 @@ interface UserInfo {
   /** 用户头像链接 */
   avatar: string
 }
+
+export default UserInfo

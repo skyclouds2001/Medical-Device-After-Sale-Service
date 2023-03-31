@@ -1,8 +1,10 @@
 import Toast from '@vant/weapp/toast/toast'
+import Dialog from '@vant/weapp/dialog/dialog'
 import { getKfLink } from '@/apis/consult'
 import { getFileList } from '@/apis/file'
 import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 import { downloadFile } from '@/lib/file'
+import type File from '@/models/File'
 
 const fs = wx.getFileSystemManager()
 
@@ -162,8 +164,14 @@ Page<{
 
     const { file } = e.mark
 
-    wx.setClipboardData({
-      data: file.file_url,
+    Dialog.alert({
+      message: `请复制文件链接后在浏览器中打开\n${file.file_url}`,
+      confirmButtonText: '点击复制链接',
+      closeOnClickOverlay: true,
+    }).then(() => {
+      wx.setClipboardData({
+        data: file.file_url,
+      })
     })
   },
 

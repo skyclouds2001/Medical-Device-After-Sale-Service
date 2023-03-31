@@ -9,3 +9,5 @@ interface File {
   /** 文件ID */
   id: number
 }
+
+export default File

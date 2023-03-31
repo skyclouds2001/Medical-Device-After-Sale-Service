@@ -1,5 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getUserWorkOrder } from '@/apis/work-order'
+import type App from '@/models/App'
+import type WorkOrder from '@/models/WorkOrder'
 
 const app = getApp<App>()
 
@@ -11,7 +13,7 @@ Page<{
   /**
    * 筛选参数
    */
-  filter: { order?: 0 | 1, status?: 0 | 1, keywords?: string }
+  filter: { order?: 0 | 1, status?: 0 | 1, product?: number }
 }, {
   /**
    * 加载工单列表方法
@@ -64,7 +66,11 @@ Page<{
 
   handleFilterWorkOrderList (wos) {
     const { filter } = this.data
-    let data = wos.filter(v => v.model_name?.includes(filter.keywords ?? '') ?? (filter.keywords ?? '') === '')
+    let data = wos
+
+    if (filter.product !== undefined) {
+      data = data.filter(v => filter.product === v.model_id)
+    }
 
     if (filter.status !== undefined) {
       data = data.filter(v => filter.status === v.order_status)

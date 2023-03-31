@@ -11,3 +11,5 @@ interface Accessory {
   /** 工单附件id */
   order_attachment_id: number
 }
+
+export default Accessory

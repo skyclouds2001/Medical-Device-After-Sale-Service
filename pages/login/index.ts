@@ -1,5 +1,6 @@
 import Toast from '@vant/weapp/toast/toast'
 import { login } from '@/apis/admin'
+import type App from '@/models/App'
 
 const app = getApp<App>()
 
@@ -76,7 +77,7 @@ Page<{
     const expire = wx.getStorageSync('expire')
     const current = new Date().getTime()
 
-    if (token && expire && expire - current > 1000 * 60 * 60 * 24 * 3) {
+    if (token === '' || expire === '' || expire - current > 1000 * 60 * 60 * 24 * 3) {
       wx.removeStorageSync('token')
       wx.removeStorageSync('expire')
     } else {
@@ -119,6 +120,7 @@ Page<{
         app.globalData.phone = phone
 
         wx.setStorageSync('token', token)
+        wx.setStorageSync('expire', new Date().getTime())
         wx.setStorageSync('id', customer_id)
         wx.setStorageSync('company', company_name)
         wx.setStorageSync('phone', phone)

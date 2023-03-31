@@ -1,7 +1,0 @@
-<view class="search-bar" style="transform: translateY({{ move }});">
-  <input class="input" model:value="{{ keywords }}" />
-  <view class="placeholder">
-    <van-icon name="search" size="32rpx" custom-style="font-weight: bold;" />
-    <text hidden="{{ keywords.length !== 0 }}" decode>&nbsp;搜索产品名称</text>
-  </view>
-</view>

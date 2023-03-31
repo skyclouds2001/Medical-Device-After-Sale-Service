@@ -1,4 +1,5 @@
 import { request } from '@/lib/request'
+import type File from '@/models/File'
 
 interface GetFileListResponse {
   file_info_list: File[]

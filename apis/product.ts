@@ -1,18 +1,7 @@
 import { request } from '@/lib/request'
+import type Product from '@/models/Product'
 
-type GetAllProductTypesResponse = ProductType[]
-
-/**
- * 获取全部产品大类方法
- */
-export const getAllProductTypes = () => {
-  return request<GetAllProductTypesResponse>({
-    url: '/wizz/aftersale/product-type/all',
-    method: 'GET',
-  })
-}
-
-type GetAllProductModelsResponse = ProductModel[]
+type GetAllProductModelsResponse = Product[]
 
 /**
  * 获取全部产品大类方法
@@ -24,7 +13,7 @@ export const getAllProductModels = () => {
   })
 }
 
-type GetProductModelByTypeIdResponse = ProductModel[]
+type GetProductModelByTypeIdResponse = Product[]
 
 /**
  * 根据产品大类获取产品模型方法
@@ -41,7 +30,7 @@ export const getProductModelByTypeId = (id: number) => {
   })
 }
 
-type GetProductModelByModelIdResponse = ProductModel
+type GetProductModelByModelIdResponse = Product
 
 /**
  * 根据产品模型ID获取产品模型方法

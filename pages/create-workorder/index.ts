@@ -4,6 +4,9 @@ import { postWorkOrder } from '@/apis/work-order'
 import { basicServices as services } from '@/data/index'
 import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
+import type App from '@/models/App'
+import type Product from '@/models/Product'
+import type Response from '@/models/Response'
 
 const app = getApp<App>()
 
@@ -57,7 +60,7 @@ Page<{
   /**
    * 产品列表
    */
-  products: Array<ProductModel & { name: string }>
+  products: Array<Product & { name: string }>
   /**
    * 控制产品选择器显示与否
    */
@@ -98,7 +101,7 @@ Page<{
   /**
    * 选择产品回调方法
    */
-  handleSelectProduct: (e: WechatMiniprogram.CustomEvent<ProductModel & { name: string }>) => void
+  handleSelectProduct: (e: WechatMiniprogram.CustomEvent<Product & { name: string }>) => void
   /**
    * 确认选择日期回调方法
    *
@@ -153,7 +156,7 @@ Page<{
   /**
    * 产品列表
    */
-  products: ProductModel[]
+  products: Product[]
   /**
    * 加载产品模型方法
    */

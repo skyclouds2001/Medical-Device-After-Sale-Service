@@ -1,6 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getWorkOrderById } from '@/apis/work-order'
 import { basicServices } from '@/data/index'
+import type WorkOrder from '@/models/WorkOrder'
 
 Page<{
   /**

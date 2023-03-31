@@ -1,4 +1,5 @@
 import { SERVER_HOST, WHITE_LIST } from '@/config/index'
+import type App from '@/models/App'
 
 const app = getApp<App>()
 

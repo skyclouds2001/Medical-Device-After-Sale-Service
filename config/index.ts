@@ -26,4 +26,4 @@ export const DEFAULT_PRODUCT_IMG_SRC: string = '/icons/product.svg'
 export const DEFAULT_NICKNAME: string = '点击登录'
 
 /** 默认用户头像 */
-export const DEFAULT_AVATAR: string = '/icons/user.svg'
+export const DEFAULT_AVATAR: string = '/icons/default-user.png'

@@ -1,3 +1,5 @@
+import type UserInfo from '@/models/UserInfo'
+
 /**
  * App对象数据模型
  */
@@ -16,3 +18,5 @@ interface App {
     userinfo: UserInfo
   }
 }
+
+export default App

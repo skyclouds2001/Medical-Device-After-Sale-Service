@@ -15,7 +15,10 @@
 
   <view wx:if="{{ forget }}" class="recommend">
     <image src="/icons/recommend.svg" mode="aspectFit" lazy-load />
-    <text>登录遇到问题请联系： 15633420237</text>
+    <text>
+      <text>登录遇到问题请联系：</text>
+      <text class="phone">15633420237</text>
+    </text>
   </view>
 </view>
 

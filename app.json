@@ -2,7 +2,6 @@
   "pages": [
     "pages/login/index",
     "pages/home/index",
-    "pages/product-list/index",
     "pages/create-workorder/index",
     "pages/submited-workorder/index",
     "pages/document-list/index",

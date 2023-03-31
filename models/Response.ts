@@ -9,3 +9,5 @@ interface Response<T = unknown> {
   /** 请求成功返回的数据 or 请求失败返回的可以呈现给用户的报错字符串 */
   data: T
 }
+
+export default Response

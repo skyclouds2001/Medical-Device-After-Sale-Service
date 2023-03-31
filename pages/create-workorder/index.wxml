@@ -17,7 +17,7 @@
       <van-field model:value="{{ name }}" name="name" required label="联系人信息" placeholder="请输入联系人信息" clearable border="{{ false }}" />
     </view>
     <view class="form-item">
-      <van-field model:value="{{ phone }}" name="phone" required label="联系人电话" placeholder="请输入联系人电话" clearable border="{{ false }}" />
+      <van-field model:value="{{ phone }}" name="phone" required label="联系人电话" placeholder="请输入联系人电话" clearable border="{{ false }}" type="number" />
     </view>
     <view class="form-item">
       <van-field model:value="{{ address }}" name="address" required label="联系人地址" placeholder="请输入联系人地址" clearable border="{{ false }}" />

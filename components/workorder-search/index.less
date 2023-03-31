@@ -1,32 +1,10 @@
-.search {
-  margin: 40rpx 0 0;
+.container {
+  margin: 25rpx;
   padding: 0;
 
-  width: 100vw;
-  height: auto;
+  background-color: white;
+  border-radius: 10rpx;
 
-  .search-bar {
-    position: relative;
-
-    margin: 0;
-    padding: 0 50rpx;
-  }
-
-  .filter-bar {
-    margin: 0;
-    padding: 20rpx 50rpx;
-
-    text-align: right;
-    color: #818085;
-    font-size: 28rpx;
-
-    .block {
-      display: inline-block;
-    }
-  }
-}
-
-.container {
   .item {
     display: flex;
     justify-content: start;
@@ -68,17 +46,17 @@
       color: white;
       border: #5C7CEB 1px solid;
       line-height: 2em;
-  
+
       width: 8em;
       height: 2em;
       margin: 20rpx 0;
       padding: 0;
-  
+
       &.plain {
         background-color: white;
         color: #5C7CEB;
       }
-  
+
       &:active {
         filter: brightness(0.9);
       }
