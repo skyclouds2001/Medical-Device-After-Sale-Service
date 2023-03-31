@@ -1,5 +1,6 @@
 import Toast from '@vant/weapp/toast/toast'
 import { login } from '@/apis/admin'
+import type App from '@/models/App'
 
 const app = getApp<App>()
 

@@ -1,4 +1,6 @@
 import { request } from '@/lib/request'
+import type Accessory from '@/models/Accessory'
+import type WorkOrder from '@/models/WorkOrder'
 
 type PostWorkOrderResponse = {}
 

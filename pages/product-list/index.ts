@@ -1,5 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getAllProductTypes, getProductModelByTypeId } from '@/apis/product'
+import type ProductType from '@/models/ProductType'
+import type ProductModel from '@/models/ProductModel'
 
 Page<{
   /**

@@ -1,3 +1,5 @@
+import type ProductType from '@/models/ProductType'
+
 Component<{
   /**
    * 当前活跃产品大类

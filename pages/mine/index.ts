@@ -1,4 +1,5 @@
 import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
+import type App from '@/models/App'
 
 const app = getApp<App>()
 

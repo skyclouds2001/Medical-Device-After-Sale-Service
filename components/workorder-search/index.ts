@@ -1,4 +1,5 @@
 import { getAllProductModels } from '@/apis/product'
+import type ProductModel from '@/models/ProductModel'
 
 Component<{
   /** 产品列表 */

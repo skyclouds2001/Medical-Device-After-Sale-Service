@@ -13,3 +13,5 @@ interface ProductModel {
   /** 产品图片URL */
   pic_url: string
 }
+
+export default ProductModel

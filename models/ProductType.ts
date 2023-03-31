@@ -7,3 +7,5 @@ interface ProductType {
   /** 产品大类名称 */
   type_name: string
 }
+
+export default ProductType

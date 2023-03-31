@@ -1,4 +1,6 @@
 import { request } from '@/lib/request'
+import type ProductType from '@/models/ProductType'
+import type ProductModel from '@/models/ProductModel'
 
 type GetAllProductTypesResponse = ProductType[]
 

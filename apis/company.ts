@@ -1,4 +1,5 @@
 import { request } from '@/lib/request'
+import type Company from '@/models/Company'
 
 interface GetCompanyListResponse {
   company_list: Company[]

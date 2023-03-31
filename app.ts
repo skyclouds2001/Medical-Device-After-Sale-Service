@@ -1,5 +1,7 @@
 import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
 import { getStorage } from '@/lib/storage'
+import type App from '@/models/App'
+import type UserInfo from '@/models/UserInfo'
 
 App<App>({
 

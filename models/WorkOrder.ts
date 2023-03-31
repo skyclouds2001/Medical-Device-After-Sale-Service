@@ -1,3 +1,5 @@
+import type Accessory from '@/models/Accessory'
+
 /**
  * 工单数据模型
  */
@@ -23,3 +25,5 @@ interface WorkOrder {
   /** 创建时间 */
   create_time: string
 }
+
+export default WorkOrder

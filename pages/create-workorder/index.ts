@@ -4,6 +4,9 @@ import { postWorkOrder } from '@/apis/work-order'
 import { basicServices as services } from '@/data/index'
 import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
+import type App from '@/models/App'
+import type ProductModel from '@/models/ProductModel'
+import type Response from '@/models/Response'
 
 const app = getApp<App>()
 

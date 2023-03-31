@@ -1,4 +1,5 @@
 import { request } from '@/lib/request'
+import type ConsultHistory from '@/models/ConsultHistory'
 
 /**
  * @deprecated

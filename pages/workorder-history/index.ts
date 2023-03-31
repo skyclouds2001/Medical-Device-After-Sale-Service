@@ -1,5 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { getUserWorkOrder } from '@/apis/work-order'
+import type App from '@/models/App'
+import type WorkOrder from '@/models/WorkOrder'
 
 const app = getApp<App>()
 

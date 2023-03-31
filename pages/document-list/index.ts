@@ -4,6 +4,7 @@ import { getKfLink } from '@/apis/consult'
 import { getFileList } from '@/apis/file'
 import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 import { downloadFile } from '@/lib/file'
+import type File from '@/models/File'
 
 const fs = wx.getFileSystemManager()
 

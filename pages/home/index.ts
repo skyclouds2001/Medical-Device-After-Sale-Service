@@ -4,6 +4,8 @@ import { getUserWorkOrder } from '@/apis/work-order'
 import { CUSTOMER_SERVICE_COMPANY_ID } from '@/config/index'
 import { basicServices, otherServices } from '@/data/index'
 import type { Service } from '@/data/index'
+import type App from '@/models/App'
+import type WorkOrder from '@/models/WorkOrder'
 
 const app = getApp<App>()
 
