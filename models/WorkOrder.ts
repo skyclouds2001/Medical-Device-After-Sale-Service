@@ -16,14 +16,22 @@ interface WorkOrder {
   appointment_time: string
   /** 客户id */
   customer_id: number
+  /** 企业名称 */
+  customer_company: string
+  /** 客户名称 */
+  customer_name: string
   /** 产品型号id */
   model_id: number
   /** 产品型号名称 */
   model_name: string
+  /** 问题描述 */
+  order_description: string
   /** 附件列表 */
   order_attachment_list: Accessory[]
   /** 创建时间 */
   create_time: string
+  /** 接待人员名称 */
+  servicer_name: string
 }
 
 export default WorkOrder
