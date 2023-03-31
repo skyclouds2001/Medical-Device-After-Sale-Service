@@ -1,9 +1,9 @@
 import { getAllProductModels } from '@/apis/product'
-import type ProductModel from '@/models/ProductModel'
+import type Product from '@/models/Product'
 
 Component<{
   /** 产品列表 */
-  products: ProductModel[]
+  products: Product[]
   /** 产品筛选 */
   product: number
   /** 排序方式 */
