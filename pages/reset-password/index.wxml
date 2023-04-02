@@ -1,15 +1,15 @@
 <view class="form">
   <view class="form-item">
-    <van-field model:value="{{ phone }}" name="phone" label="手机号" placeholder="请输入手机号" clearable border="{{ false }}" left-icon="phone" always-embed extra-event-params />
+    <van-field model:value="{{ phone }}" name="phone" label="手机号" placeholder="请输入手机号" clearable border="{{ false }}" left-icon="phone" always-embed extra-event-params hold-keyboard />
   </view>
   <view class="form-item">
-    <van-field model:value="{{ oldPwd }}" name="oldPwd" label="旧密码" placeholder="请输入旧密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="{{ oldVisiable ? 'text' : 'password' }}" mark:type="old" right-icon="{{ oldVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
+    <van-field model:value="{{ oldPwd }}" name="oldPwd" label="旧密码" placeholder="请输入旧密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="{{ oldVisiable ? 'text' : 'password' }}" mark:type="old" right-icon="{{ oldVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" hold-keyboard />
   </view>
   <view class="form-item">
-    <van-field model:value="{{ newPwd }}" name="newPwd" label="新密码" placeholder="请输入新密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="{{ newVisiable ? 'text' : 'password' }}" mark:type="new" right-icon="{{ newVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
+    <van-field model:value="{{ newPwd }}" name="newPwd" label="新密码" placeholder="请输入新密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="{{ newVisiable ? 'text' : 'password' }}" mark:type="new" right-icon="{{ newVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" hold-keyboard />
   </view>
   <view class="form-item">
-    <van-field model:value="{{ confirmPwd }}" name="confirmPwd" label="确认密码" placeholder="请输入确认密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="{{ confirmVisiable ? 'text' : 'password' }}" mark:type="confirm" right-icon="{{ confirmVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
+    <van-field model:value="{{ confirmPwd }}" name="confirmPwd" label="确认密码" placeholder="请输入确认密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params type="{{ confirmVisiable ? 'text' : 'password' }}" mark:type="confirm" right-icon="{{ confirmVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" hold-keyboard />
   </view>
 </view>
 
