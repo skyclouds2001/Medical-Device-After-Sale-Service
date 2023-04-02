@@ -3,14 +3,13 @@ page {
 }
 
 .userinfo {
-  margin: 75rpx 10rpx 50rpx;
+  margin: 75rpx 0 50rpx;
   padding: 0;
 
   width: auto;
   height: 150rpx;
 
   background-color: white;
-  border-radius: 25rpx;
 
   display: flex;
   justify-content: center;
@@ -65,11 +64,10 @@ page {
 }
 
 .edit-list {
-  margin: 50rpx 10rpx;
+  margin: 50rpx 0;
   padding: 0;
 
   background-color: white;
-  border-radius: 25rpx;
 
   > .edit-item {
     display: flex;
