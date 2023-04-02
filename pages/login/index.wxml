@@ -5,10 +5,10 @@
 
 <view class="form">
   <view class="form-item">
-    <van-field name="name" model:value="{{ name }}" placeholder="请输入用户名" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params />
+    <van-field name="name" model:value="{{ name }}" placeholder="请输入用户名" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params hold-keyboard />
   </view>
   <view class="form-item">
-    <van-field name="pwd" model:value="{{ pwd }}" placeholder="请输入密码" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params password="{{ !pwdVisiable }}" right-icon="{{ pwdVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
+    <van-field name="pwd" model:value="{{ pwd }}" placeholder="请输入密码" placeholder-style="color: #818085;" border="{{ false }}" clearable always-embed extra-event-params password="{{ !pwdVisiable }}" right-icon="{{ pwdVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" hold-keyboard />
   </view>
   <view class="forget" bind:tap="toggleForgetPasswordRecommend">忘记密码</view>
   <view class="btn" bind:tap="userLogin">登录</view>
