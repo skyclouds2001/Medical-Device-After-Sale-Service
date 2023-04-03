@@ -311,12 +311,20 @@ Page<{
   },
 
   async submitWorkOrder () {
-    const { address, date, images, pid, addition } = this.data
+    const { address, date, images, pid, addition, name, phone } = this.data
     const { id: cid } = app.globalData
     const { sid  } = this
 
     if (!pid) {
       Toast.fail('请选择产品')
+      return
+    }
+    if (!name) {
+      Toast.fail('请填写联系人信息')
+      return
+    }
+    if (!phone) {
+      Toast.fail('请填写联系人电话')
       return
     }
     if (!address) {
