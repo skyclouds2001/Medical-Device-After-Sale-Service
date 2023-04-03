@@ -1,12 +1,7 @@
 import Toast from '@vant/weapp/toast/toast'
 import { resetUserPassword } from '@/apis/customer'
-import { validatePassword, validatePhone } from '@/utils/validate'
 
 Page<{
-  /**
-   * 手机号
-   */
-  phone: string
   /**
    * 旧密码
    */
@@ -46,7 +41,6 @@ Page<{
 }>({
 
   data: {
-    phone: '',
     oldPwd: '',
     newPwd: '',
     confirmPwd: '',
@@ -80,12 +74,8 @@ Page<{
   },
 
   async handleSubmit () {
-    const { phone, oldPwd, newPwd, confirmPwd } = this.data
+    const { oldPwd, newPwd, confirmPwd } = this.data
 
-    if (phone === '') {
-      Toast.fail('手机号不能为空')
-      return
-    }
     if (oldPwd === '') {
       Toast.fail('旧密码不能为空')
       return
@@ -100,14 +90,6 @@ Page<{
     }
     if (newPwd === oldPwd) {
       Toast.fail('新密码与确认密码必须相同')
-      return
-    }
-    if (!validatePhone(phone)) {
-      Toast.fail('手机号格式非法')
-      return
-    }
-    if (!validatePassword(newPwd)) {
-      Toast.fail('新密码不符合要求')
       return
     }
 
