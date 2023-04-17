@@ -1,28 +1,34 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
   "miniprogramRoot": "",
   "compileType": "miniprogram",
-  "projectname": "MedicalDeviceAfterSaleService",
   "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "uglifyFileName": true,
+    "ignoreUploadUnusedFiles": true,
+    "autoAudits": true,
+    "urlCheck": true,
+    "compileHotReLoad": true,
+    "preloadBackgroundData": false,
+    "lazyloadPlaceholderEnable": false,
+    "useStaticServer": false,
+    "bigPackageSizeSupport": true,
+    "babelSetting": {
+      "ignore": [],
+      "outputPath": "",
+      "disablePlugins": []
+    },
     "useCompilerPlugins": [
       "typescript",
       "sass",
       "less"
     ],
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "uglifyFileName": false,
-    "minified": true,
-    "postcss": true,
-    "es6": true,
-    "enhance": true,
+    "disableUseStrict": false,
+    "uploadWithSourceMap": true,
     "packNpmManually": true,
     "packNpmRelationList": [
       {
@@ -30,14 +36,24 @@
         "miniprogramNpmDistDir": "./"
       }
     ],
+    "coverView": false,
+    "ignoreDevUnusedFiles": true,
+    "checkInvalidKey": true,
+    "showShadowRootInWxmlPanel": true,
+    "useIsolateContext": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "showES6CompileOption": false,
     "condition": false
   },
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {},
-  "srcMiniprogramRoot": "",
+  "libVersion": "latest",
   "appid": "wxad12fa22fba03295",
-  "libVersion": "2.29.1",
+  "projectname": "MedicalDeviceAfterSaleService",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

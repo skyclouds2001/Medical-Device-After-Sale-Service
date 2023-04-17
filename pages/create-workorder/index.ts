@@ -1,4 +1,5 @@
 import Toast from '@vant/weapp/toast/toast'
+import { areaList } from '@vant/area-data'
 import { getAllProductModels } from '@/apis/product'
 import { postWorkOrder } from '@/apis/work-order'
 import { basicServices as services } from '@/data/index'
@@ -70,6 +71,10 @@ Page<{
    */
   showDatePicker: boolean
   /**
+   * 控制地区选择器显示与否
+   */
+  showAreaPicker: boolean
+  /**
    * 日期选择器开始时间
    */
   startDate: number
@@ -77,6 +82,10 @@ Page<{
    * 日期选择器结束时间
    */
   endDate: number
+  /**
+   * 地区列表
+   */
+  areas: typeof areaList,
   /**
    * 是否提交中
    */
@@ -99,6 +108,14 @@ Page<{
    */
   closeDatePicker: () => void
   /**
+   * 打开地区选择器回调方法
+   */
+  openAreaPicker: () => void
+  /**
+   * 关闭地区选择器回调方法
+   */
+  closeAreaPicker: () => void
+  /**
    * 选择产品回调方法
    */
   handleSelectProduct: (e: WechatMiniprogram.CustomEvent<Product & { name: string }>) => void
@@ -114,6 +131,24 @@ Page<{
    * 取消选择日期回调方法
    */
   cancelChooseDate: () => void
+  /**
+   * 确认选择地区回调方法
+   *
+   * @param e 选取地区事件
+   */
+  confirmChooseArea: (e: {
+    detail: {
+      index: number[]
+      values: Array<{
+        code: string
+        name: string
+      }>
+    }
+  }) => void
+  /**
+   * 取消选择地区回调方法
+   */
+  cancelChooseArea: () => void
   /**
    * 上传图片回调方法
    *
@@ -176,10 +211,12 @@ Page<{
 
     showProductPicker: false,
     showDatePicker: false,
+    showAreaPicker: false,
     products: [],
     service: '',
     startDate: Number.MIN_VALUE,
     endDate: Number.MAX_VALUE,
+    areas: areaList,
     submitting: false,
   },
 
@@ -240,6 +277,18 @@ Page<{
     })
   },
 
+  openAreaPicker () {
+    this.setData({
+      showAreaPicker: true,
+    })
+  },
+
+  closeAreaPicker () {
+    this.setData({
+      showAreaPicker: false,
+    })
+  },
+
   handleSelectProduct (e) {
     const { model_id: id, model_name: name, pic_url } = e.detail
     this.setData({
@@ -258,6 +307,17 @@ Page<{
 
   cancelChooseDate () {
     this.closeDatePicker()
+  },
+
+  confirmChooseArea (e) {
+    this.setData({
+      address: e.detail.values.map((v, i) => i === 0 && ['110000', '120000', '310000', '500000'].includes(v.code) ? '' : v.name).join('')
+    })
+    this.closeAreaPicker()
+  },
+
+  cancelChooseArea () {
+    this.closeAreaPicker()
   },
 
   async handleUploadImage (e) {
