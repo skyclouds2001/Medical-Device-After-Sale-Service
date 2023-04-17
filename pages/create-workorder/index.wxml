@@ -20,7 +20,9 @@
       <van-field model:value="{{ phone }}" name="phone" required label="联系人电话" placeholder="请输入联系人电话" clearable always-embed extra-event-params border="{{ false }}" type="number" />
     </view>
     <view class="form-item">
-      <van-field model:value="{{ address }}" name="address" required label="联系人地址" placeholder="请输入联系人地址" clearable always-embed extra-event-params border="{{ false }}" />
+      <van-field model:value="{{ address }}" name="address" required label="联系人地址" placeholder="请输入联系人地址" clearable always-embed extra-event-params border="{{ false }}" use-button-slot>
+        <van-button slot="button" size="small" type="primary" bind:tap="openAreaPicker">选择地区</van-button>
+      </van-field>
     </view>
     <view class="form-item">
       <van-field model:value="{{ date }}" name="time" required readonly label="预约服务时间" placeholder="请选择服务时间" clearable border="{{ false }}" bind:click-input="openDatePicker" />
@@ -49,6 +51,10 @@
 
 <van-popup show="{{ showDatePicker }}" position="bottom">
   <van-datetime-picker type="date" min-date="{{ startDate }}" max-date="{{ endDate }}" bind:confirm="confirmChooseDate" bind:cancel="cancelChooseDate" />
+</van-popup>
+
+<van-popup show="{{ showAreaPicker }}" position="bottom">
+  <van-area area-list="{{ areas }}" bind:confirm="confirmChooseArea" bind:cancel="cancelChooseArea" />
 </van-popup>
 
 <van-action-sheet description="请选择产品" show="{{ showProductPicker }}" actions="{{ products }}" bind:close="closeProductPicker" bind:select="handleSelectProduct" />
