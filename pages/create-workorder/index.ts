@@ -35,6 +35,10 @@ Page<{
    */
   phone: string
   /**
+   * 联系人地区
+   */
+  area: string
+  /**
    * 联系人地址
    */
   address: string
@@ -203,6 +207,7 @@ Page<{
     info: '',
     name: '',
     phone: '',
+    area: '',
     address: '',
     date: '',
     addition: '',
@@ -311,7 +316,7 @@ Page<{
 
   confirmChooseArea (e) {
     this.setData({
-      address: e.detail.values.map((v, i) => i === 0 && ['110000', '120000', '310000', '500000'].includes(v.code) ? '' : v.name).join('')
+      area: e.detail.values.map((v, i) => i === 0 && ['110000', '120000', '310000', '500000'].includes(v.code) ? '' : v.name).join('')
     })
     this.closeAreaPicker()
   },
@@ -371,7 +376,7 @@ Page<{
   },
 
   async submitWorkOrder () {
-    const { address, date, images, pid, addition, name, phone } = this.data
+    const { address, date, images, pid, addition, name, phone, area } = this.data
     const { id: cid } = app.globalData
     const { sid  } = this
 
@@ -387,7 +392,7 @@ Page<{
       Toast.fail('请填写联系人电话')
       return
     }
-    if (!address) {
+    if (!address || !area) {
       Toast.fail('请填写地址')
       return
     }
@@ -400,7 +405,7 @@ Page<{
       this.setData({
         submitting: true,
       })
-      const res = await postWorkOrder(address, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
+      const res = await postWorkOrder(`${area}${address}`, `${date} 00:00:00`, cid, pid, images.map((v, i) => ({
         storage_path: v.url,
         serial_number: i,
       })), sid - 1, addition)
