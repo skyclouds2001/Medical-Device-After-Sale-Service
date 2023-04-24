@@ -104,16 +104,20 @@ page {
 
 .submit {
   margin: 0 100rpx;
-  padding: 0;
+  padding: 0 0 50rpx;
 
   .btn {
     width: 100%;
     height: 2.5em;
-    margin: 50rpx 0;
+    margin: 0;
     padding: 0;
 
     background-image: linear-gradient(145.41deg, #4468E9 20.41%, #181673 107.86%);
     border-radius: 20rpx;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     color: white;
     line-height: 2.5em;
@@ -122,6 +126,15 @@ page {
     letter-spacing: 1rpx;
 
     transition: all ease-in-out 250ms 0;
+
+    > text {
+      margin: 0;
+      padding: 0 20rpx;
+    }
+
+    &.submitting {
+      color: gray;
+    }
 
     &:active {
       filter: saturate(95%) brightness(95%);
