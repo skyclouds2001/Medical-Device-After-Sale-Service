@@ -1,6 +1,6 @@
 <view class="container">
   <view class="item">
-    <text class="title">按产品名称选择</text>
+    <text class="title">产品名称</text>
   </view>
   <view class="item">
     <text class="selector {{ product === -1 ? 'active' : '' }}" mark:id="{{ -1 }}" bind:tap="handleProductSelect">所有</text>
@@ -11,7 +11,7 @@
   </view>
 
   <view class="item">
-    <text class="title">按时间排序</text>
+    <text class="title">时间排序方式</text>
   </view>
   <view class="item">
     <view class="selector {{ order === 0 ? 'active' : '' }}" mark:id="{{ 0 }}" bind:tap="handleTimeSort">
@@ -23,7 +23,7 @@
   </view>
 
   <view class="item">
-    <text class="title">按工单状态选择</text>
+    <text class="title">工单状态</text>
   </view>
   <view class="item">
     <text class="selector {{ status === -1 ? 'active' : '' }}" mark:id="{{ -1 }}" bind:tap="handleWorkOrderStatusSelect">所有</text>
