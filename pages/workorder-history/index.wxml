@@ -1,4 +1,4 @@
-<workorder-search bind:reset="handleResetFilter" bind:filter="handleUseFilter" />
+<workorder-search bind:filter="handleUpdateFilter" />
 
 <view class="workorder-list">
   <block wx:if="{{ wos.length !== 0 }}">

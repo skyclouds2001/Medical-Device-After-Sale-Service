@@ -1,5 +1,8 @@
+import Toast from '@vant/weapp/toast/toast'
 import { DEFAULT_NICKNAME, DEFAULT_AVATAR } from '@/config/index'
+import { uploadFile } from '@/lib/file'
 import type App from '@/models/App'
+import type Response from '@/models/Response'
 
 const app = getApp<App>()
 
@@ -52,7 +55,7 @@ Page<{
     })
   },
 
-  handleChooseAvatar (e) {
+  async handleChooseAvatar (e) {
     const avatar = e.detail.avatarUrl
     this.setData({
       avatar,
@@ -62,6 +65,30 @@ Page<{
 
     const userinfo = wx.getStorageSync('userinfo')
     wx.setStorageSync('userinfo', { ...userinfo, avatar })
+
+    try {
+      const res = await uploadFile({
+        url: '/wizz/aftersale/media/upload',
+        filePath: avatar,
+        name: 'file',
+      })
+
+      const result: Response<string> = JSON.parse(res.data)
+
+      if (result.code === 0) {
+        const avatar = result.data
+        this.setData({
+          avatar,
+        })
+        app.globalData.userinfo.avatar = avatar
+        const userinfo = wx.getStorageSync('userinfo')
+        wx.setStorageSync('userinfo', { ...userinfo, avatar })
+      } else {
+        Toast.fail(result.data?.toString() ?? '上传图片失败')
+      }
+    } catch {
+      Toast.fail('上传图片失败')
+    }
   },
 
   editPassword () {

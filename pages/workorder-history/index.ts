@@ -13,7 +13,7 @@ Page<{
   /**
    * 筛选参数
    */
-  filter: { order?: 0 | 1, status?: 0 | 1, product?: number }
+  filter: { order: 0 | 1, status: -1 | 0 | 1, product: number }
 }, {
   /**
    * 加载工单列表方法
@@ -24,13 +24,9 @@ Page<{
    */
   handleFilterWorkOrderList: (wos: WorkOrder[]) => WorkOrder[]
   /**
-   * 重置筛选方法
-   */
-  handleResetFilter: () => void
-  /**
    * 使用筛选方法
    */
-  handleUseFilter: (e: WechatMiniprogram.CustomEvent<{ order?: 0 | 1, status?: 0 | 1 }>) => void
+  handleUpdateFilter: (e: WechatMiniprogram.CustomEvent<{ order: 0 | 1, status: -1 | 0 | 1, product: number }>) => void
   /**
    * 点击查看工单详情回调方法
    *
@@ -41,7 +37,11 @@ Page<{
 
   data: {
     wos: [],
-    filter: {},
+    filter: {
+      order: 0,
+      status: -1,
+      product: -1,
+    },
   },
 
   onLoad() {
@@ -68,33 +68,26 @@ Page<{
     const { filter } = this.data
     let data = wos
 
-    if (filter.product !== undefined) {
+    if (filter.product !== -1) {
       data = data.filter(v => filter.product === v.model_id)
     }
 
-    if (filter.status !== undefined) {
+    if (filter.status !== -1) {
       data = data.filter(v => filter.status === v.order_status)
     }
 
     if (filter.order === 0) {
       data.sort((a, b) => new Date(a.create_time).getTime() > new Date(b.create_time).getTime() ? -1 : 1)
     } else if (filter.order === 1) {
-      data.sort((a, b) => new Date(a.create_time).getTime() < new Date(b.create_time).getTime() ? -1 : 1)
+      data.sort((a, b) => new Date(a.appointment_time).getTime() > new Date(b.appointment_time).getTime() ? -1 : 1)
     }
 
     return data
   },
 
-  handleResetFilter () {
+  handleUpdateFilter (e) {
     this.setData({
-      filter: {},
-    })
-    this.loadWorkOrderList()
-  },
-
-  handleUseFilter (e) {
-    this.setData({
-      filter: { ...e.detail } ?? {},
+      filter: { ...e.detail },
     })
     this.loadWorkOrderList()
   },

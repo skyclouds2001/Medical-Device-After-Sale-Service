@@ -44,9 +44,9 @@
 </view>
 
 <view class="submit">
-  <button class="btn" disabled="{{ submitting }}" bind:tap="submitWorkOrder">
+  <button class="btn {{ submitting ? 'submitting' : '' }}" disabled="{{ submitting }}" bind:tap="submitWorkOrder">
     <van-loading wx:if="{{ submitting }}" color="#1989fa" />
-    提交
+    <text>提交</text>
   </button>
 </view>
 
