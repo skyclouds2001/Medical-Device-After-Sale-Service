@@ -86,7 +86,6 @@ Page<{
   },
 
   handleUpdateFilter (e) {
-    console.log(e.detail)
     this.setData({
       filter: { ...e.detail },
     })
