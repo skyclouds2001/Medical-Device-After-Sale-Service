@@ -6,7 +6,7 @@
     <van-field model:value="{{ newPwd }}" name="newPwd" label="新密码" placeholder="请输入新密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params password="{{ !newVisiable }}" mark:type="new" right-icon="{{ newVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
   </view>
   <view class="form-item">
-    <van-field model:value="{{ confirmPwd }}" name="confirmPwd" label="确认密码" placeholder="请输入确认密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params password="{{ !confirmVisiable }}" mark:type="confirm" right-icon="{{ confirmVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
+    <van-field model:value="{{ confirmPwd }}" name="confirmPwd" label="确认密码" placeholder="请再次输入新密码" clearable border="{{ false }}" left-icon="lock" always-embed extra-event-params password="{{ !confirmVisiable }}" mark:type="confirm" right-icon="{{ confirmVisiable ? 'closed-eye' : 'eye-o' }}" bind:click-icon="handleTogglePasswordFieldVisibility" />
   </view>
 </view>
 
