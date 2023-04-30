@@ -401,6 +401,10 @@ Page<{
       Toast.fail('请选择预约服务时间')
       return
     }
+    if (!addition) {
+      Toast.fail('请填写工单问题描述')
+      return
+    }
     if (!validatePhone(phone)) {
       Toast.fail('请填写正确格式的手机号')
       return
