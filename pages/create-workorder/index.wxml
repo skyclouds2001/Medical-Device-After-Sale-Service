@@ -29,7 +29,7 @@
       <van-field model:value="{{ date }}" name="time" required readonly label="预约服务时间" placeholder="请选择服务时间" clearable border="{{ false }}" bind:click-input="openDatePicker" />
     </view>
     <view class="form-item">
-      <van-field name="addition" label="其他信息（选填）" placeholder="" clearable readonly border="{{ false }}" title-width="8em" />
+      <van-field name="addition" required label="工单问题描述" placeholder="" clearable readonly border="{{ false }}" title-width="8em" />
     </view>
   </view>
   <view class="detail">

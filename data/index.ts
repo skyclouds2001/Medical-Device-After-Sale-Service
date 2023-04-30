@@ -49,8 +49,18 @@ export const basicServices: Service[] = [
 export const otherServices: Service[] = [
   {
     id: 1,
+    img: '/icons/service/tech-support.svg',
+    text: '技术支持',
+  },
+  {
+    id: 2,
     img: '/icons/service/setting.svg',
     text: '配件采购',
+  },
+  {
+    id: 3,
+    img: '/icons/service/guarantee.svg',
+    text: '延保服务',
   },
 ]
 

@@ -5,6 +5,7 @@ import { postWorkOrder } from '@/apis/work-order'
 import { basicServices as services } from '@/data/index'
 import { uploadFile } from '@/lib/file'
 import { transformDate } from '@/utils/date'
+import { validatePhone } from '@/utils/validate'
 import type App from '@/models/App'
 import type Product from '@/models/Product'
 import type Response from '@/models/Response'
@@ -398,6 +399,14 @@ Page<{
     }
     if (!date) {
       Toast.fail('请选择预约服务时间')
+      return
+    }
+    if (!addition) {
+      Toast.fail('请填写工单问题描述')
+      return
+    }
+    if (!validatePhone(phone)) {
+      Toast.fail('请填写正确格式的手机号')
       return
     }
 
