@@ -5,5 +5,5 @@
  * @returns 校验手机号结果
  */
 export const validatePhone = (phone: string) => {
-  return /^1(3[0-9]|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\d{8}$/.test(phone)
+  return /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/.test(phone) || /^0\d{2,3}-?\d{7,8}$/.test(phone)
 }
