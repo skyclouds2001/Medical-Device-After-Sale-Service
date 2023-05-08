@@ -21,6 +21,10 @@ Page<{
    * 密码输入框是否使用密码
    */
   pwdVisiable: boolean
+  /**
+   * 是否处于登录加载状态
+   */
+  loading: boolean
 }, {
   /**
    * 用户openid
@@ -50,6 +54,7 @@ Page<{
     pwd: '',
     forget: false,
     pwdVisiable: false,
+    loading: false,
   },
 
   onLoad() {
@@ -73,6 +78,9 @@ Page<{
   },
 
   async autoLogin() {
+    this.setData({
+      loading: true,
+    })
     const token = wx.getStorageSync('token')
     const expire = wx.getStorageSync('expire')
     const current = new Date().getTime()
@@ -85,8 +93,13 @@ Page<{
         wx.switchTab({
           url: '/pages/home/index',
         })
-      }, 0)
+      }, 500)
     }
+    setTimeout(() => {
+      this.setData({
+        loading: false,
+      })
+    }, 500)
   },
 
   async userLogin() {
