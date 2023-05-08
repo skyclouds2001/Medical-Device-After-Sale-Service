@@ -406,7 +406,7 @@ Page<{
       return
     }
     if (!validatePhone(phone)) {
-      Toast.fail('请填写正确格式的手机号')
+      Toast.fail('请填写正确格式的电话号码')
       return
     }
 
