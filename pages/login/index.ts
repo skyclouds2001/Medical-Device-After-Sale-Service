@@ -90,14 +90,16 @@ Page<{
       wx.removeStorageSync('expire')
     } else {
       setTimeout(() => {
-        this.setData({
-          loading: false,
-        })
         wx.switchTab({
           url: '/pages/home/index',
         })
       }, 500)
     }
+    setTimeout(() => {
+      this.setData({
+        loading: false,
+      })
+    }, 500)
   },
 
   async userLogin() {
