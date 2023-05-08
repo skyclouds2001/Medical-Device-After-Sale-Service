@@ -98,18 +98,20 @@ Page<{
   },
 
   exitLogin () {
-    wx.removeStorageSync('token')
-    wx.removeStorageSync('expire')
-    app.globalData.token = ''
-
     this.setData({
       avatar: DEFAULT_AVATAR,
       nickname: DEFAULT_NICKNAME,
       company: '未知企业',
     })
-    wx.removeStorageSync('userinfo')
+
+    app.globalData.token = ''
+    app.globalData.id = 0
+    app.globalData.phone = ''
+    app.globalData.company = ''
     app.globalData.userinfo.nickname = DEFAULT_NICKNAME
     app.globalData.userinfo.avatar = DEFAULT_AVATAR
+
+    wx.clearStorage()
 
     wx.exitMiniProgram()
   },
