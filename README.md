@@ -2,57 +2,63 @@
 
 ## 项目初始化
 
-* 预先下载 node，node 建议版本 `18.13.0`，npm 建议版本 `9.3.1`
+* 预先下载 node，node 建议版本 `18.x.x`，npm 建议版本 `9.x.x`
 * 项目根目录打开终端执行 `npm install`
-* 工具-构建npm
+* 菜单栏-工具-构建npm
+
+## 项目技术栈
+
+Sass（Less）+TypeScript
 
 ## 项目结构
 
 - apis/ 接口目录
   - admin.ts 管理接口方法
-  - company.ts 公司接口方法
   - consult.ts 客服接口方法
+  - customer.ts 客户接口方法
+  - file.ts 文件接口方法
   - product.ts 产品接口方法
   - work-order.ts 工单接口方法
 - components/ 自定义组件目录
-  - product-sidebar 产品大类选择器
-  - search-bar 搜索框
-  - userinfo-dialog 填写用户头像昵称弹窗
-  - welcome-bg 欢迎背景
+  - welcome-bg 欢迎背景组件
+  - workorder-search 工单搜索组件
 - config/ 自定义配置目录
   - index.ts
 - custom-tab-bar/ 自定义tabbar组件目录
-- data/ 静态数据目录
+- data/ 静态数据目录（首页菜单、工单状态等）
   - index.ts
-- icons/ 静态图标目录
+- icons/ 静态图标资源目录
 - images/ 静态图片资源目录
-- lib/ 工具方法目录（微信原生方法包装工具方法）
+- lib/ 工具方法目录【微信原生方法包装工具方法】
+  - file.ts 包装文件上传下载方法
   - request.ts 包装请求方法
   - storage.ts 兼容批量存储方法
 - models/ 数据模型定义目录
-  - Accessory.d.ts 工单附件数据结构
-  - App.d.ts 根App数据结构
-  - Company.d.ts 公司数据结构
-  - ProductModel.d.ts 产品类型数据结构
-  - ProductType.d.ts 产品大类数据结构
-  - Response.d.ts 请求响应数据结构
-  - UserInfo.d.ts 用户信息数据结构
-  - WorkOrder.d.ts 工单数据结构
+  - Accessory.ts 工单附件数据结构
+  - App.ts 根App数据结构
+  - Company.ts 公司数据结构
+  - ConsultHistory.ts 历史咨询数据结构（已废弃）
+  - ProductModel.ts 产品类型数据结构
+  - ProductType.ts 产品大类数据结构
+  - Response.ts 请求响应数据结构
+  - UserInfo.ts 用户信息数据结构
+  - WorkOrder.ts 工单数据结构
 - pages/ 页面目录
-  - login 登录页
+  - created-workorder 创建工单页
+  - document-list 文件列表页
   - home 首页
-  - product-list 创建工单-选取产品页
-  - workorder 创建工单-填写工单信息页
-  - submited 创建工单-提交工单页
+  - login 登录页
   - mine 个人中心页
-  - history 历史工单列表页
-  - workorderdetail 工单详情页
+  - reset-password 重设密码页
+  - submited-workorder 成功提交工单反馈页
+  - workorder-detail 历史工单详情页
+  - workorder-history 历史工单列表页
 - utils/ 工具方法目录（其他工具方法）
   - date.ts 日期转换方法文件
-  - validate.ts 手机号密码等校验方法文件
+  - validate.ts 校验方法文件（手机号）
 - app.ts
-- app.json
 - app.scss
+- app.json
 - project.config.json
 - sitemap.json
 - package.json
@@ -65,14 +71,15 @@
 
 ## 页面路由
 
-- 注册 | page/register/index
+- 登录 | page/login/index
 - 首页&服务大厅 | pages/home/index
-- 选择产品 | pages/fix/index
-- 创建工单 | pages/workorder/index
-- 提交工单成功反馈 | pages/submited/index
+- 创建工单 | pages/create-workorder/index
+- 提交工单成功反馈 | pages/submited-workorder/index
+- 历史文件列表 | pages/document-list/index
+- 历史工单列表 | pages/workorder-history/index
+- 工单详情 | pages/workorder-detail/index
 - 个人中心 | pages/mine/index
-- 历史工单列表 | pages/history/index
-- 工单详情 | pages/workorderdetail/index
+- 重置密码 | pages/reset-password/index
 
 ## 开发文档
 
