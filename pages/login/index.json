@@ -8,6 +8,6 @@
     "van-overlay": "@vant/weapp/overlay/index",
     "van-loading": "@vant/weapp/loading/index"
   },
-  "navigationBarTitleText": "注册",
+  "navigationBarTitleText": "登录",
   "navigationStyle": "custom"
 }

@@ -5,7 +5,7 @@ export const APPLICATION_NAME: string = 'MedicalDeviceAfterSaleService'
 export const APPLICATION_VERSION: string = '0.0.0'
 
 /** 网络请求HOST */
-export const SERVER_HOST: string = 'http://aftersale.divergentcloud.com'
+export const SERVER_HOST: string = 'https://aftersale.divergentcloud.com'
 
 /** 默认请求无需鉴权接口白名单，!!若修改需同时修改后端!! */
 export const WHITE_LIST: string[] = ['/wizz/aftersale/account/customer/login', '/wizz/aftersale/account/customer/authenticate']
