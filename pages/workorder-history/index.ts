@@ -48,6 +48,18 @@ Page<{
     this.loadWorkOrderList()
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   async loadWorkOrderList () {
     const { id } = app.globalData
     try {

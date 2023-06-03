@@ -61,6 +61,18 @@ Page<{
     })
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   async loadWorkOrderList () {
     try {
       const res = await getUserWorkOrder(app.globalData.id)

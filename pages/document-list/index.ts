@@ -64,6 +64,18 @@ Page<{
     this.loadFileList(sid - 5 as 0 | 1)
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   sid: null,
 
   async loadFileList (type: 0 | 1) {

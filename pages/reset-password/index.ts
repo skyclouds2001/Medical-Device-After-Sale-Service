@@ -51,6 +51,18 @@ Page<{
 
   onLoad () {},
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   handleTogglePasswordFieldVisibility (e) {
     const { type } = e.mark!
     const { oldVisiable, newVisiable, confirmVisiable } = this.data

@@ -240,6 +240,18 @@ Page<{
     })
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   sid: 0,
   products: [],
 
