@@ -34,6 +34,18 @@ Page<{}, {
     this.wid = parseInt(options.wid)
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   sid: -1,
   pid: -1,
   wid: -1,

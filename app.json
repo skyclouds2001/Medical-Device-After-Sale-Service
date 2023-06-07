@@ -49,9 +49,5 @@
   "enablePassiveEvent": true,
   "resolveAlias": {
     "@/*": "/*"
-  },
-  "debug": true,
-  "debugOptions": {
-    "enableFPSPanel": true
   }
 }

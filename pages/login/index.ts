@@ -61,6 +61,18 @@ Page<{
     this.autoLogin()
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   openid: '',
 
   toggleForgetPasswordRecommend () {

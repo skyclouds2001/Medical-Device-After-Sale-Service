@@ -23,6 +23,18 @@ Page<{
     this.loadWorkOrderDetail(parseInt(options.id))
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   async loadWorkOrderDetail (id) {
     try {
       const res = await getWorkOrderById(id)

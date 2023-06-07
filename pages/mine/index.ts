@@ -55,6 +55,18 @@ Page<{
     })
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   async handleChooseAvatar (e) {
     const avatar = e.detail.avatarUrl
     this.setData({

@@ -64,6 +64,18 @@ Page<{
     this.loadFileList(sid - 5 as 0 | 1)
   },
 
+  onAddToFavorites () {
+    return {}
+  },
+
+  onShareAppMessage () {
+    return {}
+  },
+
+  onShareTimeline () {
+    return {}
+  },
+
   sid: null,
 
   async loadFileList (type: 0 | 1) {
@@ -164,15 +176,23 @@ Page<{
 
     const { file } = e.mark
 
-    Dialog.alert({
-      message: `请复制文件链接后在浏览器中打开\n${file.file_url}`,
-      confirmButtonText: '点击复制链接',
-      closeOnClickOverlay: true,
-    }).then(() => {
-      wx.setClipboardData({
-        data: file.file_url,
+    const { platform } = wx.getSystemInfoSync()
+
+    if (platform === 'windows') {
+      wx.saveFileToDisk({
+        filePath: file.file_url,
       })
-    })
+    } else {
+      Dialog.alert({
+        message: `请复制文件链接后在浏览器中打开\n${file.file_url}`,
+        confirmButtonText: '点击复制链接',
+        closeOnClickOverlay: true,
+      }).then(() => {
+        wx.setClipboardData({
+          data: file.file_url,
+        })
+      })
+    }
   },
 
   async handlePreviewDocument (e) {
